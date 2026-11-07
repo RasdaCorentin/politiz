@@ -1,0 +1,858 @@
+{
+  "schema": "candidats-images v1",
+  "source": "fr.wikipedia.org (page/summary) et commons.wikimedia.org (extmetadata)",
+  "date_consultation": "2026-10-30",
+  "note": "Metadonnees seules. Aucune image n'est copiee dans le depot. Les images dont la licence n'est pas libre ne sont pas affichees.",
+  "candidats": [
+    {
+      "id": "le pen",
+      "nom": "Marine Le Pen",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Marine_Le_Pen",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Marine_Le_Pen_2025_%28cropped%29.jpg/330px-Marine_Le_Pen_2025_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Marine_Le_Pen_2025_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Marine_Le_Pen_2025_%28cropped%29.jpg",
+        "licence": "CC0",
+        "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "auteur": "Vox España",
+        "credit": "https://www.flickr.com/photos/voxespana/54314871070/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "bardella",
+      "nom": "Jordan Bardella",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Jordan_Bardella",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/MEP_Jordan_Bardella.jpg/330px-MEP_Jordan_Bardella.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "MEP_Jordan_Bardella.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:MEP_Jordan_Bardella.jpg",
+        "licence": "European Parliament",
+        "licence_url": "https://www.europarl.europa.eu/legal-notice/",
+        "auteur": "European Union",
+        "credit": "https://multimedia.europarl.europa.eu/en/photo/french-meps-official-portraits-10th-parliamentary-term_20240621_BARDELLA_Jordan_FR_005",
+        "date_consultation": "2026-10-30",
+        "etat": "image_non_libre"
+      }
+    },
+    {
+      "id": "melenchon",
+      "nom": "Jean-Luc Mélenchon",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Jean-Luc_M%C3%A9lenchon",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_%28cropped%29.jpg/330px-Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Jean_Luc_Mélenchon_en_mai_2026-_55261894422_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "jlm2017.fr",
+        "credit": "https://www.flickr.com/photos/jlm2017/55261894422/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "glucksmann",
+      "nom": "Raphaël Glucksmann",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Rapha%C3%ABl_Glucksmann",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg/330px-1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg",
+        "licence": "European Parliament",
+        "licence_url": "https://www.europarl.europa.eu/legal-notice/",
+        "auteur": "European Union 2024 - Source : EP",
+        "credit": "https://multimedia.europarl.europa.eu/",
+        "date_consultation": "2026-10-30",
+        "etat": "image_non_libre"
+      }
+    },
+    {
+      "id": "edouard philippe",
+      "nom": "Édouard Philippe",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/%C3%89douard_Philippe",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Edouard_Philippe_3x4_crop.jpg/330px-Edouard_Philippe_3x4_crop.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Edouard_Philippe_3x4_crop.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Edouard_Philippe_3x4_crop.jpg",
+        "licence": "CC0",
+        "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "auteur": "Wasasaq8",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "attal",
+      "nom": "Gabriel Attal",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Gabriel_Attal",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Gabriel_Attal_2025_%28close_crop%29.jpg/330px-Gabriel_Attal_2025_%28close_crop%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Gabriel_Attal_2025_(close_crop).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Gabriel_Attal_2025_%28close_crop%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Ismail Aissoub",
+        "credit": "directly from the photographer",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "retailleau",
+      "nom": "Bruno Retailleau",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Bruno_Retailleau",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_%28cropped%29.jpg/330px-Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Bruno_Retailleau_-_Ministre_de_l'Intérieur_français_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Anthonymontardyfr",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "roussel",
+      "nom": "Fabien Roussel",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fabien_Roussel",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Roussel_Fabien_1.jpg/330px-Roussel_Fabien_1.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Roussel_Fabien_1.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Roussel_Fabien_1.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Zouhair NAKARA",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "ruffin",
+      "nom": "François Ruffin",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fran%C3%A7ois_Ruffin",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Fran%C3%A7ois_Ruffin_%28cropped%29.jpg/330px-Fran%C3%A7ois_Ruffin_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "François_Ruffin_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Ruffin_%28cropped%29.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Thinkerview",
+        "credit": "YouTube : https://www.youtube.com/watch?v=lJrD2zvF-cM – View/save archived versions on archive.org (0:44)",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "zemmour",
+      "nom": "Éric Zemmour",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/%C3%89ric_Zemmour",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Portrait_d%27%C3%89ric_Zemmour%2C_avril_2022.jpg/330px-Portrait_d%27%C3%89ric_Zemmour%2C_avril_2022.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Portrait_d'Éric_Zemmour,_avril_2022.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Portrait_d%27%C3%89ric_Zemmour%2C_avril_2022.jpg",
+        "licence": "CC0",
+        "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "auteur": "Anh De France",
+        "credit": "https://www.flickr.com/photos/195437467@N02/52071182404/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "tondelier",
+      "nom": "Marine Tondelier",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Marine_Tondelier",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Huma2023MarineTondelier_%28cropped%29.jpg/330px-Huma2023MarineTondelier_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Huma2023MarineTondelier_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Huma2023MarineTondelier_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Selbymay",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "batho",
+      "nom": "Delphine Batho",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Delphine_Batho",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Delphine_Batho_%28cropped-2%29.png/330px-Delphine_Batho_%28cropped-2%29.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Delphine_Batho_(cropped-2).png",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Delphine_Batho_%28cropped-2%29.png",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "DeuxSevres79",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "lisnard",
+      "nom": "David Lisnard",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/David_Lisnard",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/David_Lisnard_en_2026.jpg/330px-David_Lisnard_en_2026.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "David_Lisnard_en_2026.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:David_Lisnard_en_2026.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Grégor Sauvagère",
+        "credit": "Original file provided directly by the photographer, Grégor Sauvagère",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "bertrand",
+      "nom": "Xavier Bertrand",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Xavier_Bertrand",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Xavier_Bertrand_-_2025_%28cropped%29.jpg/330px-Xavier_Bertrand_-_2025_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Xavier_Bertrand_-_2025_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Xavier_Bertrand_-_2025_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Claudio Centonze / European Union, 2025 / EC - Audiovisual Service",
+        "credit": "Visit of Xavier Bertrand, President of the Regional Council of Hauts-de-France, to the European Commission",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "olivier faure",
+      "nom": "Olivier Faure",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Olivier_Faure",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/OF_MATIGNON_-_MAXIME_CLAM_%28cropped%29.png/330px-OF_MATIGNON_-_MAXIME_CLAM_%28cropped%29.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "OF_MATIGNON_-_MAXIME_CLAM_(cropped).png",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:OF_MATIGNON_-_MAXIME_CLAM_%28cropped%29.png",
+        "licence": "Public domain",
+        "licence_url": null,
+        "auteur": "KimiRaikkonen3",
+        "credit": "https://www.flickr.com/photos/198918257@N08/54878564093/in/dateposted-public/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "guedj",
+      "nom": "Jérôme Guedj",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/J%C3%A9r%C3%B4me_Guedj_2010.jpg/330px-J%C3%A9r%C3%B4me_Guedj_2010.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Jérôme_Guedj_2010.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%B4me_Guedj_2010.jpg",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "auteur": "Audrey AK",
+        "credit": "https://www.flickr.com/photos/audreyak/4736084413/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "segolene royal",
+      "nom": "Ségolène Royal",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/S%C3%A9gol%C3%A8ne_Royal",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Royal_Toulouse_2012.JPG/330px-Royal_Toulouse_2012.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Royal_Toulouse_2012.JPG",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Royal_Toulouse_2012.JPG",
+        "licence": "CC BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "auteur": "Jackolan1",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "maurel",
+      "nom": "Emmanuel Maurel",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Emmanuel_Maurel",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Emmanuel_Maurel_en_2016.jpg/330px-Emmanuel_Maurel_en_2016.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Emmanuel_Maurel_en_2016.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Emmanuel_Maurel_en_2016.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Echwander",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "hollande",
+      "nom": "François Hollande",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fran%C3%A7ois_Hollande",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Fran%C3%A7ois_Hollande_-_Ceremony_of_Honour_for_Jacques_Delors_-_2024.jpg/330px-Fran%C3%A7ois_Hollande_-_Ceremony_of_Honour_for_Jacques_Delors_-_2024.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "François_Hollande_-_Ceremony_of_Honour_for_Jacques_Delors_-_2024.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Hollande_-_Ceremony_of_Honour_for_Jacques_Delors_-_2024.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Christophe Licoppe / European Union, 2024 / EC - Audiovisual Service",
+        "credit": "European Ceremony of Honour for Jacques Delors",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "villepin",
+      "nom": "Dominique de Villepin",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Dominique_de_Villepin",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/330px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg",
+        "licence": "CC BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "auteur": "Georges Seguin (Okki)",
+        "credit": "This image has been extracted from another file",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "cazeneuve",
+      "nom": "Bernard Cazeneuve",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Bernard_Cazeneuve",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Bernard_Cazeneuve%2C_%2842399145362%29_%28cropped%29.jpg/330px-Bernard_Cazeneuve%2C_%2842399145362%29_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Bernard_Cazeneuve,_(42399145362)_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Bernard_Cazeneuve%2C_%2842399145362%29_%28cropped%29.jpg",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "auteur": "Jérémy Barande",
+        "credit": "Tribunes de l'X",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "bouamrane",
+      "nom": "Karim Bouamrane",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Karim_Bouamrane",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Karim_Bouamrane_en_2026_%28cropped%29.jpg/330px-Karim_Bouamrane_en_2026_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Karim_Bouamrane_en_2026_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Karim_Bouamrane_en_2026_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Oumma",
+        "credit": "https://www.youtube.com/watch?v=Ep5gMYFyrkE",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "bruno le maire",
+      "nom": "Bruno Le Maire",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Bruno_Le_Maire",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/EU2024BE_240223_Informal_meeting_of_economic_and_financial_affairs_ministers_Gent_JNZT_0040_%2853545889372%29.jpg/330px-EU2024BE_240223_Informal_meeting_of_economic_and_financial_affairs_ministers_Gent_JNZT_0040_%2853545889372%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "EU2024BE_240223_Informal_meeting_of_economic_and_financial_affairs_ministers_Gent_JNZT_0040_(53545889372).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:EU2024BE_240223_Informal_meeting_of_economic_and_financial_affairs_ministers_Gent_JNZT_0040_%2853545889372%29.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "Belgian Presidency of the Council of the EU 2024 from Belgium",
+        "credit": "EU2024BE_240223_Informal meeting of economic and financial affairs ministers_Gent_JNZT_0040",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "pecresse",
+      "nom": "Valérie Pécresse",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Val%C3%A9rie_P%C3%A9cresse",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Val%C3%A9rie_P%C3%A9cresse_at_a_2024_Paralympic_Games_media_conference_in_2024_3_%28cropped%29.jpg/330px-Val%C3%A9rie_P%C3%A9cresse_at_a_2024_Paralympic_Games_media_conference_in_2024_3_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Valérie_Pécresse_at_a_2024_Paralympic_Games_media_conference_in_2024_3_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Val%C3%A9rie_P%C3%A9cresse_at_a_2024_Paralympic_Games_media_conference_in_2024_3_%28cropped%29.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Gail Leenstra",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "ciotti",
+      "nom": "Éric Ciotti",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/%C3%89ric_Ciotti",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/%C3%89ric_Ciotti_%28cropped%29.jpg/330px-%C3%89ric_Ciotti_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Éric_Ciotti_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:%C3%89ric_Ciotti_%28cropped%29.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "European People's Party",
+        "credit": "EPP Summit, 23 March, Brussels",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "barnier",
+      "nom": "Michel Barnier",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Michel_Barnier",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Barnier_Portrait.jpg/330px-Barnier_Portrait.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Barnier_Portrait.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Barnier_Portrait.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Florian David Pm",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "darmanin",
+      "nom": "Gérald Darmanin",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/G%C3%A9rald_Darmanin",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/French_Justice_Minister_G%C3%A9rald_Darmanin_in_2025_%28cropped_2%29.jpg/330px-French_Justice_Minister_G%C3%A9rald_Darmanin_in_2025_%28cropped_2%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "French_Justice_Minister_Gérald_Darmanin_in_2025_(cropped_2).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:French_Justice_Minister_G%C3%A9rald_Darmanin_in_2025_%28cropped_2%29.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "UK Home Office",
+        "credit": "Home Secretary Yvette Cooper meets French Justice Minister Gérald Darmanin",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "elisabeth borne",
+      "nom": "Élisabeth Borne",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/%C3%89lisabeth_Borne",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/La_Premi%C3%A8re_ministre_fran%C3%A7aise_%C3%89lisabeth_Borne_%28cropped%29.jpg/330px-La_Premi%C3%A8re_ministre_fran%C3%A7aise_%C3%89lisabeth_Borne_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "La_Première_ministre_française_Élisabeth_Borne_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:La_Premi%C3%A8re_ministre_fran%C3%A7aise_%C3%89lisabeth_Borne_%28cropped%29.jpg",
+        "licence": "Licence Ouverte",
+        "licence_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence",
+        "auteur": "Benoît Granier",
+        "credit": "https://www.gouvernement.fr/personnalite/elisabeth-borne?mission=premiere-ministre",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "braun-pivet",
+      "nom": "Yaël Braun-Pivet",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Ya%C3%ABl_Braun-Pivet",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Ya%C3%ABl_Braun-Pivet_2023_%28cropped%29.jpg/330px-Ya%C3%ABl_Braun-Pivet_2023_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Yaël_Braun-Pivet_2023_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Ya%C3%ABl_Braun-Pivet_2023_%28cropped%29.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "Houses of the Oireachtas from Ireland",
+        "credit": "France",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "wauquiez",
+      "nom": "Laurent Wauquiez",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "etat": "image_non_libre",
+        "motif": "fichier hors Commons, licence non verifiee",
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Laurent_Wauquiez"
+      }
+    },
+    {
+      "id": "autain",
+      "nom": "Clémentine Autain",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Cl%C3%A9mentine_Autain",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/20210821_autin.c_6679_%28cropped%29.jpg/330px-20210821_autin.c_6679_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "20210821_autin.c_6679_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:20210821_autin.c_6679_%28cropped%29.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Greenbox",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "taubira",
+      "nom": "Christiane Taubira",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Christiane_Taubira",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/1601MBeek7569_%2824620898645%29_%28cropped%29.jpg/330px-1601MBeek7569_%2824620898645%29_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "1601MBeek7569_(24620898645)_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:1601MBeek7569_%2824620898645%29_%28cropped%29.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "EU2016 NL from The Netherlands",
+        "credit": "1601MBeek7569",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "poutou",
+      "nom": "Philippe Poutou",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "etat": "image_non_libre",
+        "motif": "fichier hors Commons, licence non verifiee",
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Philippe_Poutou"
+      }
+    },
+    {
+      "id": "arthaud",
+      "nom": "Nathalie Arthaud",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Nathalie_Arthaud",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Nathalie_Arthaud_%28LO%29_19-05-2024.jpg/330px-Nathalie_Arthaud_%28LO%29_19-05-2024.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Nathalie_Arthaud_(LO)_19-05-2024.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Nathalie_Arthaud_%28LO%29_19-05-2024.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Kokluts",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "asselineau",
+      "nom": "François Asselineau",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fran%C3%A7ois_Asselineau",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fran%C3%A7ois_ASSELINEAU.jpg/330px-Fran%C3%A7ois_ASSELINEAU.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "François_ASSELINEAU.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_ASSELINEAU.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Union Populaire Républicaine",
+        "credit": "https://www.upr.fr/non-classe/photo-officiel",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "dupont-aignan",
+      "nom": "Nicolas Dupont-Aignan",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Nicolas_Dupont-Aignan",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg/330px-Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Nicolas_Dupont-Aignan,_homme_politique_français.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Debout la France",
+        "credit": "Debout la France",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "philippot",
+      "nom": "Florian Philippot",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Florian_Philippot",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/2022-04-16_16-49-26_MAM-Paris_02.jpg/330px-2022-04-16_16-49-26_MAM-Paris_02.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "2022-04-16_16-49-26_MAM-Paris_02.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:2022-04-16_16-49-26_MAM-Paris_02.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Thomas Bresson",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "thouy",
+      "nom": "Hélène Thouy",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/H%C3%A9l%C3%A8ne_Thouy",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Helene_Thouy_%28cropped_2%29.jpg/330px-Helene_Thouy_%28cropped_2%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Helene_Thouy_(cropped_2).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Helene_Thouy_%28cropped_2%29.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Jonathan Lecarderonnel",
+        "credit": "https://helenethouy2022.fr/portrait/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "lassalle",
+      "nom": "Jean Lassalle",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Jean_Lassalle",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Jean_Lassalle.jpg/330px-Jean_Lassalle.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Jean_Lassalle.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Jean_Lassalle.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Antoine Lamielle",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "aliot",
+      "nom": "Louis Aliot",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Louis_Aliot",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Louis_Aliot_2015_02_%28cropped%29_%28cropped%29.jpg/330px-Louis_Aliot_2015_02_%28cropped%29_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Louis_Aliot_2015_02_(cropped)_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Louis_Aliot_2015_02_%28cropped%29_%28cropped%29.jpg",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "auteur": "Pablo Tupin-Noriega",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "knafo",
+      "nom": "Sarah Knafo",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Sarah_Knafo",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/1719930258552_20240702_KNAFO_Sarah_FR_021.jpg/330px-1719930258552_20240702_KNAFO_Sarah_FR_021.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "1719930258552_20240702_KNAFO_Sarah_FR_021.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:1719930258552_20240702_KNAFO_Sarah_FR_021.jpg",
+        "licence": "European Parliament",
+        "licence_url": "https://www.europarl.europa.eu/legal-notice/",
+        "auteur": "European Union 2024 - Source : EP",
+        "credit": "https://multimedia.europarl.europa.eu/",
+        "date_consultation": "2026-10-30",
+        "etat": "image_non_libre"
+      }
+    },
+    {
+      "id": "bellamy",
+      "nom": "François-Xavier Bellamy",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fran%C3%A7ois-Xavier_Bellamy",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/1718895492232_20240620_BELLAMY_Francois-Xavier_FR_012.jpg/330px-1718895492232_20240620_BELLAMY_Francois-Xavier_FR_012.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "1718895492232_20240620_BELLAMY_Francois-Xavier_FR_012.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:1718895492232_20240620_BELLAMY_Francois-Xavier_FR_012.jpg",
+        "licence": "European Parliament",
+        "licence_url": "https://www.europarl.europa.eu/legal-notice/",
+        "auteur": "European Union 2024 - Source : EP",
+        "credit": "https://multimedia.europarl.europa.eu/",
+        "date_consultation": "2026-10-30",
+        "etat": "image_non_libre"
+      }
+    },
+    {
+      "id": "pradie",
+      "nom": "Aurélien Pradié",
+      "camp": "droite",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Aur%C3%A9lien_Pradi%C3%A9",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Aur%C3%A9lien_Pradi%C3%A9_-_July_2017_-_Assembl%C3%A9e_Nationale_%28cropped%29.jpg/330px-Aur%C3%A9lien_Pradi%C3%A9_-_July_2017_-_Assembl%C3%A9e_Nationale_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Aurélien_Pradié_-_July_2017_-_Assemblée_Nationale_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Aur%C3%A9lien_Pradi%C3%A9_-_July_2017_-_Assembl%C3%A9e_Nationale_%28cropped%29.jpg",
+        "licence": "CC0",
+        "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "auteur": "Julien Ibos",
+        "credit": "The uploader on Wikimedia Commons received this from the author/copyright holder via photosubmissions ( OTRS ).",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "hidalgo",
+      "nom": "Anne Hidalgo",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Anne_Hidalgo",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Hidalgo2020crop.jpg/330px-Hidalgo2020crop.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Hidalgo2020crop.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Hidalgo2020crop.jpg",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "auteur": "Jacques Paquier",
+        "credit": "https://www.flickr.com/photos/125671268@N02/49997417721/",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "valls",
+      "nom": "Manuel Valls",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Manuel_Valls",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Manuel_Valls_2025_%28cropped%29.jpg/330px-Manuel_Valls_2025_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Manuel_Valls_2025_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Manuel_Valls_2025_%28cropped%29.jpg",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0",
+        "auteur": "Nicolas Kovarik / European Union, 2025 / EC - Audiovisual Service",
+        "credit": "Visit of Raffaele Fitto, Executive Vice-President of the European Commission, to France",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "brossat",
+      "nom": "Ian Brossat",
+      "camp": "gauche",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Ian_Brossat",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Le_s%C3%A9nateur_Ian_Brossat.jpg/330px-Le_s%C3%A9nateur_Ian_Brossat.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Le_sénateur_Ian_Brossat.jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Le_s%C3%A9nateur_Ian_Brossat.jpg",
+        "licence": "CC0",
+        "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "auteur": "LSN3",
+        "credit": "Own work",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "bayrou",
+      "nom": "François Bayrou",
+      "camp": "centre",
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Fran%C3%A7ois_Bayrou",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Bayrou_Matignon_%28cropped%29.jpg/330px-Bayrou_Matignon_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Bayrou_Matignon_(cropped).jpg",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Bayrou_Matignon_%28cropped%29.jpg",
+        "licence": "Licence Ouverte",
+        "licence_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence",
+        "auteur": "Service photographique de Matignon",
+        "credit": "https://www.info.gouv.fr/les-anciens-premiers-et-premieres-ministres-de-la-ve-republique/francois-bayrou",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    },
+    {
+      "id": "tibo inshape",
+      "nom": "Tibo InShape",
+      "camp": null,
+      "statut": "verifie",
+      "image": {
+        "page_wikipedia": "https://fr.wikipedia.org/wiki/Tibo_InShape",
+        "miniature_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Tibo_InShape_en_2021.png/330px-Tibo_InShape_en_2021.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "fichier_commons": "Tibo_InShape_en_2021.png",
+        "page_commons": "https://commons.wikimedia.org/wiki/File:Tibo_InShape_en_2021.png",
+        "licence": "CC BY 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0",
+        "auteur": "Lucas Brasier",
+        "credit": "YouTube : https://www.youtube.com/watch?v=JFj5EqpjkCs – View/save archived versions on archive.org",
+        "date_consultation": "2026-10-30",
+        "etat": "libre"
+      }
+    }
+  ]
+}

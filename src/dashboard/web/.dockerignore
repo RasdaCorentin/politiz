@@ -1,0 +1,11 @@
+# Allowlist: the build context only contains what the Dockerfile copies.
+*
+!package.json
+!package-lock.json
+!vite.config.js
+!index.html
+!nginx.conf
+!public
+!src
+!images/candidats-images.json
+!outils/telecharger_images.mjs

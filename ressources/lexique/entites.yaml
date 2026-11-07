@@ -1,0 +1,702 @@
+# Entités nommées : alias -> entité canonique (voir README.md du dossier).
+# Généré à partir de keywords.txt (#identites) + alias ajoutés à la main (dans_keywords: false).
+# freq = nombre de posts du corpus du 2026-10-12 (3151 posts) citant l'alias hors @handle.
+# nom  : nom d'usage affiché (avec accents).
+# camp : gauche | centre | droite | null. Rattachement de la personne publique d'après sa formation
+#        et ses déclarations, jamais d'après l'opinion d'un internaute. null = aucune source solide
+#        ou personnalité non partisane. Règle, sources et cas litigieux : docs/technique/camps-candidats.md
+#        (état au 2026-10-14).
+version: 1
+entites:
+  - id: le pen
+    type: candidat
+    nom: "Marine Le Pen"
+    camp: droite
+    note: "'le pen' peut viser Jean-Marie ou Marion Marechal-Le Pen (environ 1 post sur 7 lus)"
+    alias:
+      - {forme: "le pen", ambigu: false, dans_keywords: true, freq: 166}
+      - {forme: "marine le pen", ambigu: false, dans_keywords: false, freq: 37}
+      - {forme: "mlp", ambigu: false, dans_keywords: false, freq: 41}
+      - {forme: "lepen", ambigu: false, dans_keywords: false, freq: 21}
+      - {forme: "lapen", ambigu: false, dans_keywords: false, freq: 2}
+      - {forme: "lepenistes", ambigu: false, dans_keywords: true, freq: 2}
+  - id: bardella
+    type: candidat
+    nom: "Jordan Bardella"
+    camp: droite
+    alias:
+      - {forme: "bardella", ambigu: false, dans_keywords: true, freq: 91}
+      - {forme: "jordan bardella", ambigu: false, dans_keywords: false, freq: 27}
+  - id: melenchon
+    type: candidat
+    nom: "Jean-Luc Mélenchon"
+    camp: gauche
+    note: "'meluche' est un surnom employe par les soutiens comme par les adversaires"
+    alias:
+      - {forme: "melenchon", ambigu: false, dans_keywords: true, freq: 547}
+      - {forme: "meluche", ambigu: false, dans_keywords: true, freq: 32}
+      - {forme: "jlm", ambigu: false, dans_keywords: true, freq: 161}
+      - {forme: "jean-luc melenchon", ambigu: false, dans_keywords: false, freq: 56}
+      - {forme: "jlmelenchon", ambigu: false, dans_keywords: false, freq: 0}
+      - {forme: "melenchon2027", ambigu: false, dans_keywords: false, freq: 6}
+      - {forme: "melenchonistes", ambigu: false, dans_keywords: true, freq: 1}
+  - id: glucksmann
+    type: candidat
+    nom: "Raphaël Glucksmann"
+    camp: gauche
+    note: "'raphael' seul : prenom courant, a lire avec le contexte primaire/gauche"
+    alias:
+      - {forme: "glucksmann", ambigu: false, dans_keywords: true, freq: 751}
+      - {forme: "glucksman", ambigu: false, dans_keywords: false, freq: 42}
+      - {forme: "gluksmann", ambigu: false, dans_keywords: false, freq: 10}
+      - {forme: "gluksman", ambigu: false, dans_keywords: false, freq: 3}
+      - {forme: "raphael glucksmann", ambigu: false, dans_keywords: false, freq: 202}
+      - {forme: "glucksmann2027", ambigu: false, dans_keywords: false, freq: 1}
+      - {forme: "raphael", ambigu: true, dans_keywords: false, freq: 219}
+  - id: edouard philippe
+    type: candidat
+    nom: "Édouard Philippe"
+    camp: centre
+    note: "'philippe' seul : prenom courant (jean-philippe...), mais dominant dans ce corpus"
+    alias:
+      - {forme: "edouard philippe", ambigu: false, dans_keywords: true, freq: 12}
+      - {forme: "philippe", ambigu: true, dans_keywords: false, freq: 108}
+  - id: attal
+    type: candidat
+    nom: "Gabriel Attal"
+    camp: centre
+    note: "43 % des posts 'attal' ne le citent que dans un @handle de robot : retirer les mentions avant de matcher"
+    alias:
+      - {forme: "attal", ambigu: false, dans_keywords: true, freq: 102}
+      - {forme: "gabriel attal", ambigu: false, dans_keywords: false, freq: 15}
+  - id: retailleau
+    type: candidat
+    nom: "Bruno Retailleau"
+    camp: droite
+    alias:
+      - {forme: "retailleau", ambigu: false, dans_keywords: true, freq: 73}
+  - id: roussel
+    type: candidat
+    nom: "Fabien Roussel"
+    camp: gauche
+    note: "6 posts sur 21 ne citent le nom que dans un @handle"
+    alias:
+      - {forme: "roussel", ambigu: false, dans_keywords: true, freq: 15}
+      - {forme: "fabien roussel", ambigu: false, dans_keywords: false, freq: 0}
+  - id: ruffin
+    type: candidat
+    nom: "François Ruffin"
+    camp: gauche
+    alias:
+      - {forme: "ruffin", ambigu: false, dans_keywords: true, freq: 26}
+  - id: zemmour
+    type: candidat
+    nom: "Éric Zemmour"
+    camp: droite
+    alias:
+      - {forme: "zemmour", ambigu: false, dans_keywords: true, freq: 33}
+  - id: tondelier
+    type: candidat
+    nom: "Marine Tondelier"
+    camp: gauche
+    alias:
+      - {forme: "tondelier", ambigu: false, dans_keywords: true, freq: 55}
+      - {forme: "marine tondelier", ambigu: false, dans_keywords: false, freq: 16}
+  - id: batho
+    type: candidat
+    nom: "Delphine Batho"
+    camp: gauche
+    alias:
+      - {forme: "batho", ambigu: false, dans_keywords: true, freq: 3}
+  - id: lisnard
+    type: candidat
+    nom: "David Lisnard"
+    camp: droite
+    alias:
+      - {forme: "lisnard", ambigu: false, dans_keywords: true, freq: 10}
+  - id: bertrand
+    type: candidat
+    nom: "Xavier Bertrand"
+    camp: droite
+    note: "'bertrand' seul : 6 posts sur 7 lus parlent d'autres personnes"
+    alias:
+      - {forme: "bertrand", ambigu: true, dans_keywords: true, freq: 7}
+      - {forme: "xavier bertrand", ambigu: false, dans_keywords: false, freq: 1}
+  - id: olivier faure
+    type: candidat
+    nom: "Olivier Faure"
+    camp: gauche
+    note: "'faure' seul absent de keywords.txt ; sens parfois autre (Felix Faure...)"
+    alias:
+      - {forme: "olivier faure", ambigu: false, dans_keywords: true, freq: 23}
+      - {forme: "faure", ambigu: true, dans_keywords: false, freq: 46}
+  - id: guedj
+    type: candidat
+    nom: "Jérôme Guedj"
+    camp: gauche
+    alias:
+      - {forme: "guedj", ambigu: false, dans_keywords: true, freq: 11}
+  - id: segolene royal
+    type: candidat
+    nom: "Ségolène Royal"
+    camp: gauche
+    alias:
+      - {forme: "segolene royal", ambigu: false, dans_keywords: true, freq: 22}
+  - id: maurel
+    type: candidat
+    nom: "Emmanuel Maurel"
+    camp: gauche
+    note: "nom de famille courant (1 post sur 2 lus hors sujet)"
+    alias:
+      - {forme: "maurel", ambigu: true, dans_keywords: true, freq: 2}
+  - id: hollande
+    type: candidat
+    nom: "François Hollande"
+    camp: gauche
+    alias:
+      - {forme: "hollande", ambigu: false, dans_keywords: true, freq: 119}
+      - {forme: "francois hollande", ambigu: false, dans_keywords: false, freq: 16}
+  - id: villepin
+    type: candidat
+    nom: "Dominique de Villepin"
+    camp: null
+    alias:
+      - {forme: "villepin", ambigu: false, dans_keywords: true, freq: 4}
+  - id: cazeneuve
+    type: candidat
+    nom: "Bernard Cazeneuve"
+    camp: gauche
+    alias:
+      - {forme: "cazeneuve", ambigu: false, dans_keywords: true, freq: 16}
+  - id: bouamrane
+    type: candidat
+    nom: "Karim Bouamrane"
+    camp: gauche
+    alias:
+      - {forme: "bouamrane", ambigu: false, dans_keywords: true, freq: 2}
+  - id: bruno le maire
+    type: candidat
+    nom: "Bruno Le Maire"
+    camp: centre
+    alias:
+      - {forme: "bruno le maire", ambigu: false, dans_keywords: true, freq: 0}
+  - id: pecresse
+    type: candidat
+    nom: "Valérie Pécresse"
+    camp: droite
+    alias:
+      - {forme: "pecresse", ambigu: false, dans_keywords: true, freq: 16}
+  - id: ciotti
+    type: candidat
+    nom: "Éric Ciotti"
+    camp: droite
+    alias:
+      - {forme: "ciotti", ambigu: false, dans_keywords: true, freq: 6}
+  - id: barnier
+    type: candidat
+    nom: "Michel Barnier"
+    camp: droite
+    alias:
+      - {forme: "barnier", ambigu: false, dans_keywords: true, freq: 1}
+  - id: darmanin
+    type: candidat
+    nom: "Gérald Darmanin"
+    camp: centre
+    alias:
+      - {forme: "darmanin", ambigu: false, dans_keywords: true, freq: 5}
+  - id: elisabeth borne
+    type: candidat
+    nom: "Élisabeth Borne"
+    camp: centre
+    alias:
+      - {forme: "elisabeth borne", ambigu: false, dans_keywords: true, freq: 3}
+  - id: braun-pivet
+    type: candidat
+    nom: "Yaël Braun-Pivet"
+    camp: centre
+    alias:
+      - {forme: "braun-pivet", ambigu: false, dans_keywords: true, freq: 0}
+  - id: wauquiez
+    type: candidat
+    nom: "Laurent Wauquiez"
+    camp: droite
+    alias:
+      - {forme: "wauquiez", ambigu: false, dans_keywords: true, freq: 6}
+  - id: autain
+    type: candidat
+    nom: "Clémentine Autain"
+    camp: gauche
+    alias:
+      - {forme: "autain", ambigu: false, dans_keywords: true, freq: 5}
+  - id: taubira
+    type: candidat
+    nom: "Christiane Taubira"
+    camp: gauche
+    alias:
+      - {forme: "taubira", ambigu: false, dans_keywords: true, freq: 1}
+  - id: poutou
+    type: candidat
+    nom: "Philippe Poutou"
+    camp: gauche
+    alias:
+      - {forme: "poutou", ambigu: false, dans_keywords: true, freq: 7}
+  - id: arthaud
+    type: candidat
+    nom: "Nathalie Arthaud"
+    camp: gauche
+    alias:
+      - {forme: "arthaud", ambigu: false, dans_keywords: true, freq: 1}
+  - id: asselineau
+    type: candidat
+    nom: "François Asselineau"
+    camp: null
+    alias:
+      - {forme: "asselineau", ambigu: false, dans_keywords: true, freq: 2}
+  - id: dupont-aignan
+    type: candidat
+    nom: "Nicolas Dupont-Aignan"
+    camp: droite
+    alias:
+      - {forme: "dupont-aignan", ambigu: false, dans_keywords: true, freq: 4}
+      - {forme: "dupont aignan", ambigu: false, dans_keywords: true, freq: 0}
+  - id: philippot
+    type: candidat
+    nom: "Florian Philippot"
+    camp: null
+    alias:
+      - {forme: "philippot", ambigu: false, dans_keywords: true, freq: 2}
+  - id: thouy
+    type: candidat
+    nom: "Hélène Thouy"
+    camp: null
+    alias:
+      - {forme: "thouy", ambigu: false, dans_keywords: true, freq: 0}
+  - id: lassalle
+    type: candidat
+    nom: "Jean Lassalle"
+    camp: null
+    note: "nom de famille courant"
+    alias:
+      - {forme: "lassalle", ambigu: true, dans_keywords: true, freq: 0}
+  - id: aliot
+    type: candidat
+    nom: "Louis Aliot"
+    camp: droite
+    alias:
+      - {forme: "aliot", ambigu: false, dans_keywords: true, freq: 0}
+  - id: knafo
+    type: candidat
+    nom: "Sarah Knafo"
+    camp: droite
+    alias:
+      - {forme: "knafo", ambigu: false, dans_keywords: true, freq: 0}
+  - id: bellamy
+    type: candidat
+    nom: "François-Xavier Bellamy"
+    camp: droite
+    note: "nom de famille courant"
+    alias:
+      - {forme: "bellamy", ambigu: true, dans_keywords: true, freq: 1}
+  - id: pradie
+    type: candidat
+    nom: "Aurélien Pradié"
+    camp: droite
+    alias:
+      - {forme: "pradie", ambigu: false, dans_keywords: true, freq: 0}
+  - id: hidalgo
+    type: candidat
+    nom: "Anne Hidalgo"
+    camp: gauche
+    note: "1 post sur 5 lus parle d'un homonyme (espagnol, mexicain)"
+    alias:
+      - {forme: "hidalgo", ambigu: true, dans_keywords: true, freq: 19}
+  - id: valls
+    type: candidat
+    nom: "Manuel Valls"
+    camp: centre
+    note: "1 post sur 5 lus parle de la ville catalane Valls"
+    alias:
+      - {forme: "valls", ambigu: true, dans_keywords: true, freq: 16}
+  - id: brossat
+    type: candidat
+    nom: "Ian Brossat"
+    camp: gauche
+    alias:
+      - {forme: "brossat", ambigu: false, dans_keywords: true, freq: 0}
+  - id: bayrou
+    type: candidat
+    nom: "François Bayrou"
+    camp: centre
+    alias:
+      - {forme: "bayrou", ambigu: false, dans_keywords: true, freq: 4}
+  - id: tibo inshape
+    type: candidat
+    nom: "Tibo InShape"
+    camp: null
+    alias:
+      - {forme: "tibo inshape", ambigu: false, dans_keywords: true, freq: 0}
+  - id: macron
+    type: candidat
+    nom: "Emmanuel Macron"
+    camp: centre
+    alias:
+      - {forme: "macron", ambigu: false, dans_keywords: true, freq: 121}
+      - {forme: "macronistes", ambigu: false, dans_keywords: true, freq: 38}
+  - id: sarkozy
+    type: candidat
+    nom: "Nicolas Sarkozy"
+    camp: droite
+    alias:
+      - {forme: "sarkozy", ambigu: false, dans_keywords: true, freq: 11}
+  - id: juppe
+    type: candidat
+    nom: "Alain Juppé"
+    camp: null
+    alias:
+      - {forme: "juppe", ambigu: false, dans_keywords: true, freq: 0}
+  - id: fabius
+    type: candidat
+    nom: "Laurent Fabius"
+    camp: gauche
+    alias:
+      - {forme: "fabius", ambigu: false, dans_keywords: true, freq: 1}
+  - id: ayrault
+    type: candidat
+    nom: "Jean-Marc Ayrault"
+    camp: gauche
+    alias:
+      - {forme: "ayrault", ambigu: false, dans_keywords: true, freq: 0}
+  - id: castex
+    type: candidat
+    nom: "Jean Castex"
+    camp: null
+    alias:
+      - {forme: "castex", ambigu: false, dans_keywords: true, freq: 0}
+  - id: lecornu
+    type: candidat
+    nom: "Sébastien Lecornu"
+    camp: centre
+    alias:
+      - {forme: "lecornu", ambigu: false, dans_keywords: true, freq: 2}
+  - id: montebourg
+    type: candidat
+    nom: "Arnaud Montebourg"
+    camp: gauche
+    alias:
+      - {forme: "montebourg", ambigu: false, dans_keywords: true, freq: 1}
+  - id: duflot
+    type: candidat
+    nom: "Cécile Duflot"
+    camp: gauche
+    alias:
+      - {forme: "duflot", ambigu: false, dans_keywords: true, freq: 0}
+  - id: jadot
+    type: candidat
+    nom: "Yannick Jadot"
+    camp: gauche
+    alias:
+      - {forme: "jadot", ambigu: false, dans_keywords: true, freq: 14}
+  - id: piolle
+    type: candidat
+    nom: "Éric Piolle"
+    camp: gauche
+    alias:
+      - {forme: "piolle", ambigu: false, dans_keywords: true, freq: 0}
+  - id: sandrine rousseau
+    type: candidat
+    nom: "Sandrine Rousseau"
+    camp: gauche
+    alias:
+      - {forme: "sandrine rousseau", ambigu: false, dans_keywords: true, freq: 1}
+  - id: clemence guette
+    type: candidat
+    nom: "Clémence Guetté"
+    camp: gauche
+    alias:
+      - {forme: "clemence guette", ambigu: false, dans_keywords: true, freq: 1}
+  - id: mathilde panot
+    type: candidat
+    nom: "Mathilde Panot"
+    camp: gauche
+    alias:
+      - {forme: "mathilde panot", ambigu: false, dans_keywords: true, freq: 1}
+  - id: manon aubry
+    type: candidat
+    nom: "Manon Aubry"
+    camp: gauche
+    alias:
+      - {forme: "manon aubry", ambigu: false, dans_keywords: true, freq: 2}
+  - id: rima hassan
+    type: candidat
+    nom: "Rima Hassan"
+    camp: gauche
+    alias:
+      - {forme: "rima hassan", ambigu: false, dans_keywords: true, freq: 5}
+  - id: louis boyard
+    type: candidat
+    nom: "Louis Boyard"
+    camp: gauche
+    alias:
+      - {forme: "louis boyard", ambigu: false, dans_keywords: true, freq: 0}
+  - id: corbiere
+    type: candidat
+    nom: "Alexis Corbière"
+    camp: gauche
+    alias:
+      - {forme: "corbiere", ambigu: false, dans_keywords: true, freq: 2}
+  - id: vallaud
+    type: candidat
+    nom: "Boris Vallaud"
+    camp: gauche
+    alias:
+      - {forme: "vallaud", ambigu: false, dans_keywords: true, freq: 4}
+  - id: carole delga
+    type: candidat
+    nom: "Carole Delga"
+    camp: gauche
+    alias:
+      - {forme: "carole delga", ambigu: false, dans_keywords: true, freq: 0}
+  - id: rachida dati
+    type: candidat
+    nom: "Rachida Dati"
+    camp: droite
+    alias:
+      - {forme: "rachida dati", ambigu: false, dans_keywords: true, freq: 0}
+  - id: marion marechal
+    type: candidat
+    nom: "Marion Maréchal"
+    camp: droite
+    alias:
+      - {forme: "marion marechal", ambigu: false, dans_keywords: true, freq: 2}
+  - id: aurore berge
+    type: candidat
+    nom: "Aurore Bergé"
+    camp: centre
+    alias:
+      - {forme: "aurore berge", ambigu: false, dans_keywords: true, freq: 1}
+  - id: sebastien chenu
+    type: candidat
+    nom: "Sébastien Chenu"
+    camp: droite
+    alias:
+      - {forme: "sebastien chenu", ambigu: false, dans_keywords: true, freq: 0}
+  - id: larcher
+    type: candidat
+    nom: "Gérard Larcher"
+    camp: droite
+    alias:
+      - {forme: "larcher", ambigu: false, dans_keywords: true, freq: 0}
+  - id: ferrand
+    type: candidat
+    nom: "Richard Ferrand"
+    camp: null
+    note: "'ferrand' déclenche aussi sur Clermont-Ferrand"
+    alias:
+      - {forme: "ferrand", ambigu: true, dans_keywords: true, freq: 10}
+  - id: blanquer
+    type: candidat
+    nom: "Jean-Michel Blanquer"
+    camp: null
+    alias:
+      - {forme: "blanquer", ambigu: false, dans_keywords: true, freq: 0}
+  - id: collomb
+    type: candidat
+    nom: "Gérard Collomb"
+    camp: null
+    alias:
+      - {forme: "collomb", ambigu: false, dans_keywords: true, freq: 0}
+  - id: sejourne
+    type: candidat
+    nom: "Stéphane Séjourné"
+    camp: centre
+    alias:
+      - {forme: "sejourne", ambigu: false, dans_keywords: true, freq: 0}
+  - id: rassemblement national
+    type: parti
+    nom: "Rassemblement national"
+    camp: droite
+    note: "'front national' et 'fn' : ancien nom du parti ; 'fn' absent de keywords.txt"
+    alias:
+      - {forme: "rn", ambigu: false, dans_keywords: true, freq: 358}
+      - {forme: "rassemblement national", ambigu: false, dans_keywords: true, freq: 12}
+      - {forme: "front national", ambigu: false, dans_keywords: true, freq: 4}
+      - {forme: "fn", ambigu: true, dans_keywords: false, freq: 10}
+  - id: lfi
+    type: parti
+    nom: "La France insoumise"
+    camp: gauche
+    note: "'lfi' est de loin l'alias le plus sur ; 'insoumis' peut designer un caractere"
+    alias:
+      - {forme: "lfi", ambigu: false, dans_keywords: true, freq: 689}
+      - {forme: "la france insoumise", ambigu: false, dans_keywords: true, freq: 15}
+      - {forme: "france insoumise", ambigu: false, dans_keywords: true, freq: 15}
+      - {forme: "insoumis", ambigu: true, dans_keywords: false, freq: 15}
+      - {forme: "insoumise", ambigu: true, dans_keywords: false, freq: 18}
+      - {forme: "les insoumis", ambigu: false, dans_keywords: true, freq: 10}
+  - id: les republicains
+    type: parti
+    nom: "Les Républicains"
+    camp: droite
+    note: "'lr' : 8 posts sur 25 lus parlent d'autre chose (code avion, calibre .22 LR, domaine .lr)"
+    alias:
+      - {forme: "lr", ambigu: true, dans_keywords: true, freq: 33}
+      - {forme: "les republicains", ambigu: false, dans_keywords: true, freq: 7}
+      - {forme: "ump", ambigu: false, dans_keywords: true, freq: 0}
+  - id: parti socialiste
+    type: parti
+    nom: "Parti socialiste"
+    camp: gauche
+    note: "'ps' absent de keywords.txt ; peut aussi etre un post-scriptum ou la PlayStation hors de ce corpus filtre"
+    alias:
+      - {forme: "ps", ambigu: true, dans_keywords: false, freq: 243}
+      - {forme: "parti socialiste", ambigu: false, dans_keywords: true, freq: 34}
+  - id: parti communiste
+    type: parti
+    nom: "Parti communiste français"
+    camp: gauche
+    note: "4 posts ne le citent que dans un @handle"
+    alias:
+      - {forme: "pcf", ambigu: false, dans_keywords: true, freq: 25}
+      - {forme: "parti communiste", ambigu: false, dans_keywords: true, freq: 0}
+  - id: place publique
+    type: parti
+    nom: "Place publique"
+    camp: gauche
+    alias:
+      - {forme: "place publique", ambigu: false, dans_keywords: true, freq: 32}
+  - id: generation ecologie
+    type: parti
+    nom: "Génération écologie"
+    camp: gauche
+    alias:
+      - {forme: "generation ecologie", ambigu: false, dans_keywords: true, freq: 1}
+  - id: debout la france
+    type: parti
+    nom: "Debout la France"
+    camp: droite
+    alias:
+      - {forme: "debout la france", ambigu: false, dans_keywords: true, freq: 0}
+  - id: reconquete
+    type: parti
+    nom: "Reconquête"
+    camp: droite
+    alias:
+      - {forme: "reconquete", ambigu: false, dans_keywords: true, freq: 3}
+  - id: nouvelle energie
+    type: parti
+    nom: "Nouvelle Énergie"
+    camp: droite
+    note: "expression courante (energie renouvelable) : tres bruyant"
+    alias:
+      - {forme: "nouvelle energie", ambigu: true, dans_keywords: true, freq: 0}
+  - id: nous france
+    type: parti
+    nom: "Nous France"
+    camp: droite
+    note: "expression courante"
+    alias:
+      - {forme: "nous france", ambigu: true, dans_keywords: true, freq: 0}
+  - id: modem
+    type: parti
+    nom: "MoDem"
+    camp: centre
+    note: "'modem' : 3 posts sur 7 lus parlent du modem Wi-Fi"
+    alias:
+      - {forme: "modem", ambigu: true, dans_keywords: true, freq: 7}
+      - {forme: "mouvement democrate", ambigu: false, dans_keywords: true, freq: 0}
+  - id: en marche
+    type: parti
+    nom: "Renaissance (ex-En Marche)"
+    camp: centre
+    note: "'en marche' : 3 posts sur 7 lus sont des expressions courantes ; 'renaissance' absent de keywords.txt"
+    alias:
+      - {forme: "en marche", ambigu: true, dans_keywords: true, freq: 7}
+      - {forme: "lrem", ambigu: false, dans_keywords: true, freq: 2}
+      - {forme: "renaissance", ambigu: true, dans_keywords: false, freq: 4}
+      - {forme: "re", ambigu: true, dans_keywords: true, freq: 12}
+      - {forme: "ensemble pour la republique", ambigu: false, dans_keywords: true, freq: 0}
+  - id: eelv
+    type: parti
+    nom: "Les Écologistes (ex-EELV)"
+    camp: gauche
+    alias:
+      - {forme: "eelv", ambigu: false, dans_keywords: true, freq: 34}
+      - {forme: "les ecologistes", ambigu: true, dans_keywords: false, freq: 11}
+      - {forme: "europe ecologie", ambigu: false, dans_keywords: true, freq: 1}
+  - id: grs
+    type: parti
+    nom: "Gauche républicaine et socialiste"
+    camp: gauche
+    note: "sigle court"
+    alias:
+      - {forme: "grs", ambigu: true, dans_keywords: true, freq: 1}
+  - id: npa
+    type: parti
+    nom: "NPA"
+    camp: gauche
+    alias:
+      - {forme: "npa", ambigu: false, dans_keywords: true, freq: 37}
+      - {forme: "nouveau parti anticapitaliste", ambigu: false, dans_keywords: true, freq: 0}
+  - id: lutte ouvriere
+    type: parti
+    nom: "Lutte ouvrière"
+    camp: gauche
+    alias:
+      - {forme: "lutte ouvriere", ambigu: false, dans_keywords: true, freq: 0}
+      - {forme: "lo", ambigu: true, dans_keywords: true, freq: 10}
+  - id: upr
+    type: parti
+    nom: "Union populaire républicaine"
+    camp: null
+    alias:
+      - {forme: "upr", ambigu: false, dans_keywords: true, freq: 2}
+  - id: animaliste
+    type: parti
+    nom: "Parti animaliste"
+    camp: null
+    note: "adjectif courant"
+    alias:
+      - {forme: "animaliste", ambigu: true, dans_keywords: true, freq: 2}
+  - id: udr
+    type: parti
+    nom: "Union des droites pour la République"
+    camp: droite
+    alias:
+      - {forme: "udr", ambigu: false, dans_keywords: true, freq: 12}
+  - id: udi
+    type: parti
+    nom: "Union des démocrates et indépendants"
+    camp: centre
+    alias:
+      - {forme: "udi", ambigu: false, dans_keywords: true, freq: 1}
+  - id: horizons
+    type: parti
+    nom: "Horizons"
+    camp: centre
+    note: "'horizons' est aussi un mot courant"
+    alias:
+      - {forme: "horizons", ambigu: true, dans_keywords: true, freq: 1}
+  - id: nupes
+    type: parti
+    nom: "Nupes"
+    camp: gauche
+    alias:
+      - {forme: "nupes", ambigu: false, dans_keywords: true, freq: 10}
+  - id: nouveau front populaire
+    type: parti
+    nom: "Nouveau Front populaire"
+    camp: gauche
+    alias:
+      - {forme: "nouveau front populaire", ambigu: false, dans_keywords: true, freq: 0}
+  - id: parti radical de gauche
+    type: parti
+    nom: "Parti radical de gauche"
+    camp: gauche
+    alias:
+      - {forme: "parti radical de gauche", ambigu: false, dans_keywords: true, freq: 0}
+  - id: printemps republicain
+    type: parti
+    nom: "Printemps républicain"
+    camp: null
+    alias:
+      - {forme: "printemps republicain", ambigu: false, dans_keywords: true, freq: 0}

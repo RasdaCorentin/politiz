@@ -1,0 +1,59 @@
+# Environnements Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Secrets & configuration locale
+.env
+.env.*
+!.env.example
+*.key
+
+# Données à ne pas versionner (risque PII)
+data/
+*.parquet
+*.csv
+*.jsonl
+!data/sample-masked/**
+
+# modèles volumineux entraînés
+models/*.pt
+models/*.safetensors
+
+# Sorties Spark / checkpoints
+checkpoints/
+spark-warehouse/
+checkpoint_dir/
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Sorties de scripts de test
+scripts/out/*
+!scripts/out/.gitkeep
+
+# Logs
+*.log
+# Fichiers d'agent locaux (seuls les AGENTS.md sont versionnés)
+CLAUDE.md
+**/CLAUDE.md
+
+# Sorties brutes des campagnes : elles restent sur le serveur de mesure
+mesures/*/brut/
+
+# Corpus et annotations : jamais dans le dépôt (textes de posts)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environnement de déploiement de la variante distribuée (adresses et secrets, sur chaque machine)
+infra/distribue/.env
+
+# Archive du gabarit Beamer de la présentation et son extraction (le gabarit de travail vit dans docs/livrable3/presentation/)
+presentation.tar.gz
+template-presentation/

@@ -1,0 +1,6 @@
+# Dépendances directes de l'API. `requirements.txt` en est la version résolue et épinglée :
+#   uv pip compile requirements.in -o requirements.txt --python-version 3.12 --no-header
+gunicorn
+clickhouse-connect
+pyyaml
+tzdata

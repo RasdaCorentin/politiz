@@ -1,0 +1,4 @@
+# Fins de ligne : LF partout dans le dépôt et dans l'arbre de travail, y compris sous Windows.
+# Les fichiers lus par les conteneurs (Dockerfile, jars.txt, init.sh, nginx.conf, .dockerignore)
+# et les scripts shell cassent avec des CRLF.
+* text=auto eol=lf

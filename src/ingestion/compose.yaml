@@ -1,0 +1,43 @@
+name: sae-collecte
+
+services:
+  collecte:
+    build: .
+    image: sae-collecte:1
+    container_name: sae-collecte
+    restart: unless-stopped
+    init: true
+    user: "${COLLECTE_UID:-1000}:${COLLECTE_GID:-1000}"
+    volumes:
+      - ${COLLECTE_DATA_DIR:?définir COLLECTE_DATA_DIR (voir .env.example)}:/data
+      - ./keywords.txt:/app/keywords.txt:ro
+    # SIGTERM -> flush final + cursor persisté ; 30 s laissent le temps d'écrire.
+    stop_grace_period: 30s
+    # Conteneur minimal : racine en lecture seule, /tmp en mémoire (battement).
+    read_only: true
+    tmpfs:
+      - /tmp:size=1m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    # Machine : 1 vCPU, 1,9 Go. La collecte consomme peu (~0,3 post gardé/s).
+    cpus: 0.5
+    mem_limit: 256m
+    memswap_limit: 256m
+    # Petit disque : 3 x 5 Mo de logs au maximum.
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+    # Sain = le battement date de moins de 3 min (messages reçus, flush réussi).
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import os,sys,time; sys.exit(0 if time.time()-os.path.getmtime('/tmp/heartbeat')<180 else 1)"
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 90s

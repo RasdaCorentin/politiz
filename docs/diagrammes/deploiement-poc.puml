@@ -1,0 +1,49 @@
+@startuml deploiement-poc
+!include _style.puml
+title Déploiement du POC : projet Compose sae-poc, ports interne ➔ hôte (127.0.0.1)
+
+package "Réseau Docker interne" as net {
+  package "Sans profil" as base {
+    node "kafka\n9092 ➔ 29092" as kafka
+    node "minio\n9000 ➔ 19000 (API)\n9001 ➔ 19001 (console)" as minio
+    node "clickhouse\n8123 ➔ 18123" as ch
+    node "spark-master\n7077\n8080 ➔ 18080" as master
+    node "spark-worker-1\n18081 ➔ 18081" as w1
+    node "spark-worker-2\n18082 ➔ 18082" as w2
+  }
+  package "Profil pipeline" as pipe {
+    node "producer" as prod
+    node "streaming\nspark-submit, mode client\n14040 ➔ 14040" as stream
+    node "dashboard-api\nGunicorn (WSGI)\n8000 (pas de port hôte)" as api
+    node "dashboard\nnginx non root, page compilée\n8080 ➔ 8501 (seul port de restitution)" as dash
+  }
+}
+
+prod --> kafka
+kafka --> stream
+stream --> master
+master --> w1
+master --> w2
+stream --> minio
+stream --> ch
+ch --> api
+dash --> api : /api/
+
+note bottom of base
+  Les conteneurs d'initialisation (buckets, tables, topic)
+  n'ont pas de profil.
+  Budget : environ 12,6 Gio de RAM (limites par conteneur,
+  infra/AGENTS.md).
+end note
+
+note bottom of pipe
+  Volumes en lecture seule : src/streaming sur /opt/streaming
+  (conteneurs Spark), ressources/lexique sur /opt/lexique
+  (Spark) et /app/lexique (dashboard-api). Volume nommé
+  facultatif du producteur : /data (curseur).
+end note
+
+note bottom of net
+  Tous les ports hôte sont liés à 127.0.0.1.
+end note
+@enduml

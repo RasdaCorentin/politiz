@@ -1,0 +1,1991 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-10-19T10:02:30Z",
+  "bandeau": "Données synthétiques",
+  "periode": {
+    "code": "7j",
+    "debut": "2026-10-12T10:05:00Z",
+    "fin": "2026-10-19T10:05:00Z",
+    "pas_min": 360,
+    "seuil": 20,
+    "seuil_defaut": 20,
+    "periodes": [
+      "24h",
+      "7j",
+      "30j",
+      "tout"
+    ],
+    "premiere_donnee": "2026-10-05T10:05:00Z"
+  },
+  "etat": {
+    "base_vide": false,
+    "periode_vide": false,
+    "fraicheur": "critical",
+    "derniere_maj": "2026-10-19T09:10:12Z",
+    "fraicheur_ok_min": 5,
+    "fraicheur_alerte_min": 30,
+    "lexique_charge": true,
+    "hors_lexique": 0,
+    "avertissements": []
+  },
+  "pipeline": {
+    "posts": 8515,
+    "latence_moyenne_s": 12.5445310628303
+  },
+  "tranches": [
+    "2026-10-12T10:05:00Z",
+    "2026-10-12T16:05:00Z",
+    "2026-10-12T22:05:00Z",
+    "2026-10-13T04:05:00Z",
+    "2026-10-13T10:05:00Z",
+    "2026-10-13T16:05:00Z",
+    "2026-10-13T22:05:00Z",
+    "2026-10-14T04:05:00Z",
+    "2026-10-14T10:05:00Z",
+    "2026-10-14T16:05:00Z",
+    "2026-10-14T22:05:00Z",
+    "2026-10-15T04:05:00Z",
+    "2026-10-15T10:05:00Z",
+    "2026-10-15T16:05:00Z",
+    "2026-10-15T22:05:00Z",
+    "2026-10-16T04:05:00Z",
+    "2026-10-16T10:05:00Z",
+    "2026-10-16T16:05:00Z",
+    "2026-10-16T22:05:00Z",
+    "2026-10-17T04:05:00Z",
+    "2026-10-17T10:05:00Z",
+    "2026-10-17T16:05:00Z",
+    "2026-10-17T22:05:00Z",
+    "2026-10-18T04:05:00Z",
+    "2026-10-18T10:05:00Z",
+    "2026-10-18T16:05:00Z",
+    "2026-10-18T22:05:00Z",
+    "2026-10-19T04:05:00Z"
+  ],
+  "volume": [
+    286,
+    298,
+    279,
+    323,
+    294,
+    311,
+    312,
+    317,
+    322,
+    317,
+    294,
+    283,
+    274,
+    300,
+    333,
+    316,
+    324,
+    286,
+    293,
+    290,
+    296,
+    310,
+    322,
+    283,
+    305,
+    290,
+    322,
+    335
+  ],
+  "ton": {
+    "positif": 754,
+    "neutre": 1258,
+    "negatif": 1485,
+    "non_evalue": 5018
+  },
+  "serie_ton": [
+    {
+      "positif": 24,
+      "neutre": 43,
+      "negatif": 45
+    },
+    {
+      "positif": 26,
+      "neutre": 47,
+      "negatif": 58
+    },
+    {
+      "positif": 28,
+      "neutre": 41,
+      "negatif": 57
+    },
+    {
+      "positif": 28,
+      "neutre": 37,
+      "negatif": 54
+    },
+    {
+      "positif": 25,
+      "neutre": 43,
+      "negatif": 50
+    },
+    {
+      "positif": 25,
+      "neutre": 47,
+      "negatif": 60
+    },
+    {
+      "positif": 29,
+      "neutre": 47,
+      "negatif": 51
+    },
+    {
+      "positif": 22,
+      "neutre": 49,
+      "negatif": 56
+    },
+    {
+      "positif": 28,
+      "neutre": 46,
+      "negatif": 58
+    },
+    {
+      "positif": 29,
+      "neutre": 43,
+      "negatif": 52
+    },
+    {
+      "positif": 24,
+      "neutre": 47,
+      "negatif": 56
+    },
+    {
+      "positif": 28,
+      "neutre": 43,
+      "negatif": 46
+    },
+    {
+      "positif": 23,
+      "neutre": 37,
+      "negatif": 52
+    },
+    {
+      "positif": 25,
+      "neutre": 47,
+      "negatif": 50
+    },
+    {
+      "positif": 26,
+      "neutre": 45,
+      "negatif": 54
+    },
+    {
+      "positif": 30,
+      "neutre": 46,
+      "negatif": 58
+    },
+    {
+      "positif": 27,
+      "neutre": 48,
+      "negatif": 58
+    },
+    {
+      "positif": 28,
+      "neutre": 46,
+      "negatif": 46
+    },
+    {
+      "positif": 30,
+      "neutre": 35,
+      "negatif": 59
+    },
+    {
+      "positif": 24,
+      "neutre": 45,
+      "negatif": 51
+    },
+    {
+      "positif": 25,
+      "neutre": 47,
+      "negatif": 44
+    },
+    {
+      "positif": 29,
+      "neutre": 49,
+      "negatif": 51
+    },
+    {
+      "positif": 30,
+      "neutre": 54,
+      "negatif": 45
+    },
+    {
+      "positif": 29,
+      "neutre": 48,
+      "negatif": 53
+    },
+    {
+      "positif": 29,
+      "neutre": 42,
+      "negatif": 56
+    },
+    {
+      "positif": 26,
+      "neutre": 44,
+      "negatif": 55
+    },
+    {
+      "positif": 29,
+      "neutre": 43,
+      "negatif": 62
+    },
+    {
+      "positif": 28,
+      "neutre": 49,
+      "negatif": 48
+    }
+  ],
+  "emotions": {
+    "joie": 754,
+    "colere": 1074,
+    "peur": 86,
+    "tristesse": 0,
+    "surprise": 0,
+    "degout": 325,
+    "neutre": 0
+  },
+  "emotions_non_evaluees": 6276,
+  "themes": [
+    {
+      "theme": "economie",
+      "libelle": "Economie",
+      "posts": 412
+    },
+    {
+      "theme": "institutions",
+      "libelle": "Institutions",
+      "posts": 377
+    },
+    {
+      "theme": "campagne-sondages",
+      "libelle": "Campagne sondages",
+      "posts": 351
+    },
+    {
+      "theme": "immigration",
+      "libelle": "Immigration",
+      "posts": 140
+    },
+    {
+      "theme": "securite",
+      "libelle": "Securite",
+      "posts": 96
+    },
+    {
+      "theme": "ecologie",
+      "libelle": "Ecologie",
+      "posts": 71
+    },
+    {
+      "theme": "autre",
+      "libelle": "Autre",
+      "posts": 610
+    }
+  ],
+  "candidats": [
+    {
+      "entite": "alice-fictive",
+      "nom": "Alice Fictive",
+      "camp": "gauche",
+      "rang": 1,
+      "pour": 431,
+      "contre": 236,
+      "neutre": 152,
+      "mention": 562,
+      "ambigu": 86,
+      "non_evalue": 1745,
+      "cites": 3212,
+      "evalues": 667,
+      "indice": 0.29235382308845576,
+      "couverture": 0.2076587795765878
+    },
+    {
+      "entite": "emma-specimen",
+      "nom": "Emma Spécimen",
+      "camp": "droite",
+      "rang": 2,
+      "pour": 274,
+      "contre": 185,
+      "neutre": 148,
+      "mention": 471,
+      "ambigu": 82,
+      "non_evalue": 1663,
+      "cites": 2823,
+      "evalues": 459,
+      "indice": 0.19389978213507625,
+      "couverture": 0.16259298618490967
+    },
+    {
+      "entite": "felix-inconnu",
+      "nom": "Félix Inconnu",
+      "camp": null,
+      "rang": 3,
+      "pour": 90,
+      "contre": 77,
+      "neutre": 164,
+      "mention": 503,
+      "ambigu": 80,
+      "non_evalue": 1743,
+      "cites": 2657,
+      "evalues": 167,
+      "indice": 0.07784431137724551,
+      "couverture": 0.062852841550621
+    },
+    {
+      "entite": "chloe-modele",
+      "nom": "Chloé Modèle",
+      "camp": "centre",
+      "rang": 4,
+      "pour": 254,
+      "contre": 265,
+      "neutre": 173,
+      "mention": 513,
+      "ambigu": 86,
+      "non_evalue": 1725,
+      "cites": 3016,
+      "evalues": 519,
+      "indice": -0.02119460500963391,
+      "couverture": 0.17208222811671087
+    },
+    {
+      "entite": "denis-test",
+      "nom": "Denis Test",
+      "camp": "droite",
+      "rang": 5,
+      "pour": 352,
+      "contre": 406,
+      "neutre": 152,
+      "mention": 513,
+      "ambigu": 82,
+      "non_evalue": 1730,
+      "cites": 3235,
+      "evalues": 758,
+      "indice": -0.0712401055408971,
+      "couverture": 0.23431221020092735
+    },
+    {
+      "entite": "bruno-exemple",
+      "nom": "Bruno Exemple",
+      "camp": "gauche",
+      "rang": 6,
+      "pour": 167,
+      "contre": 322,
+      "neutre": 182,
+      "mention": 502,
+      "ambigu": 79,
+      "non_evalue": 1686,
+      "cites": 2938,
+      "evalues": 489,
+      "indice": -0.3169734151329243,
+      "couverture": 0.16643975493533017
+    }
+  ],
+  "partis": [
+    {
+      "entite": "parti-fictif-b",
+      "nom": "Parti fictif B",
+      "camp": "droite",
+      "rang": 1,
+      "pour": 75,
+      "contre": 95,
+      "neutre": 173,
+      "mention": 494,
+      "ambigu": 79,
+      "non_evalue": 1583,
+      "cites": 2499,
+      "evalues": 170,
+      "indice": -0.11764705882352941,
+      "couverture": 0.06802721088435375
+    },
+    {
+      "entite": "parti-fictif-a",
+      "nom": "Parti fictif A",
+      "camp": "gauche",
+      "rang": 2,
+      "pour": 82,
+      "contre": 164,
+      "neutre": 147,
+      "mention": 511,
+      "ambigu": 81,
+      "non_evalue": 1702,
+      "cites": 2687,
+      "evalues": 246,
+      "indice": -0.3333333333333333,
+      "couverture": 0.09155191663565314
+    }
+  ],
+  "barre": {
+    "etat": "ok",
+    "seuil": 20,
+    "valeur": -0.002921416040919729,
+    "bas": -0.043115704206154466,
+    "haut": 0.03727287212431501,
+    "manquants": {},
+    "camps": {
+      "gauche": {
+        "pour": 598,
+        "contre": 558,
+        "evalues": 1156,
+        "indice": 0.03460207612456748,
+        "candidats": [
+          "alice-fictive",
+          "bruno-exemple"
+        ]
+      },
+      "centre": {
+        "pour": 254,
+        "contre": 265,
+        "evalues": 519,
+        "indice": -0.02119460500963391,
+        "candidats": [
+          "chloe-modele"
+        ]
+      },
+      "droite": {
+        "pour": 626,
+        "contre": 591,
+        "evalues": 1217,
+        "indice": 0.02875924404272802,
+        "candidats": [
+          "denis-test",
+          "emma-specimen"
+        ]
+      }
+    },
+    "precedente": {
+      "etat": "ok",
+      "valeur": 0.024769106949037747,
+      "bas": -0.015383757125902498,
+      "haut": 0.064921971023978
+    }
+  },
+  "series": {
+    "alice-fictive": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 16,
+        "contre": 13,
+        "indice": 0.10344827586206896
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 32,
+        "contre": 20,
+        "indice": 0.23076923076923078
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 48,
+        "contre": 33,
+        "indice": 0.18518518518518517
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 69,
+        "contre": 44,
+        "indice": 0.22123893805309736
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 83,
+        "contre": 49,
+        "indice": 0.25757575757575757
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 96,
+        "contre": 56,
+        "indice": 0.2631578947368421
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 110,
+        "contre": 67,
+        "indice": 0.24293785310734464
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 126,
+        "contre": 75,
+        "indice": 0.2537313432835821
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 138,
+        "contre": 84,
+        "indice": 0.24324324324324326
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 151,
+        "contre": 91,
+        "indice": 0.24793388429752067
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 169,
+        "contre": 97,
+        "indice": 0.2706766917293233
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 181,
+        "contre": 105,
+        "indice": 0.26573426573426573
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 194,
+        "contre": 115,
+        "indice": 0.255663430420712
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 202,
+        "contre": 118,
+        "indice": 0.2625
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 215,
+        "contre": 130,
+        "indice": 0.2463768115942029
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 236,
+        "contre": 139,
+        "indice": 0.25866666666666666
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 255,
+        "contre": 143,
+        "indice": 0.2814070351758794
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 271,
+        "contre": 147,
+        "indice": 0.2966507177033493
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 287,
+        "contre": 150,
+        "indice": 0.3135011441647597
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 303,
+        "contre": 162,
+        "indice": 0.3032258064516129
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 320,
+        "contre": 170,
+        "indice": 0.30612244897959184
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 340,
+        "contre": 182,
+        "indice": 0.30268199233716475
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 350,
+        "contre": 192,
+        "indice": 0.2915129151291513
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 363,
+        "contre": 200,
+        "indice": 0.2895204262877442
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 383,
+        "contre": 209,
+        "indice": 0.2939189189189189
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 399,
+        "contre": 225,
+        "indice": 0.27884615384615385
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 415,
+        "contre": 232,
+        "indice": 0.2828438948995363
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 431,
+        "contre": 236,
+        "indice": 0.29235382308845576
+      }
+    ],
+    "emma-specimen": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 11,
+        "contre": 7,
+        "indice": null
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 17,
+        "contre": 11,
+        "indice": 0.21428571428571427
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 26,
+        "contre": 18,
+        "indice": 0.18181818181818182
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 38,
+        "contre": 25,
+        "indice": 0.20634920634920634
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 46,
+        "contre": 32,
+        "indice": 0.1794871794871795
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 57,
+        "contre": 40,
+        "indice": 0.17525773195876287
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 68,
+        "contre": 48,
+        "indice": 0.1724137931034483
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 80,
+        "contre": 57,
+        "indice": 0.1678832116788321
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 88,
+        "contre": 66,
+        "indice": 0.14285714285714285
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 101,
+        "contre": 73,
+        "indice": 0.16091954022988506
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 114,
+        "contre": 78,
+        "indice": 0.1875
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 123,
+        "contre": 83,
+        "indice": 0.1941747572815534
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 132,
+        "contre": 94,
+        "indice": 0.168141592920354
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 144,
+        "contre": 98,
+        "indice": 0.19008264462809918
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 156,
+        "contre": 106,
+        "indice": 0.19083969465648856
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 164,
+        "contre": 112,
+        "indice": 0.18840579710144928
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 172,
+        "contre": 116,
+        "indice": 0.19444444444444445
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 178,
+        "contre": 119,
+        "indice": 0.19865319865319866
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 189,
+        "contre": 127,
+        "indice": 0.1962025316455696
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 198,
+        "contre": 135,
+        "indice": 0.1891891891891892
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 203,
+        "contre": 142,
+        "indice": 0.17681159420289855
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 216,
+        "contre": 148,
+        "indice": 0.18681318681318682
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 223,
+        "contre": 158,
+        "indice": 0.17060367454068243
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 235,
+        "contre": 165,
+        "indice": 0.175
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 244,
+        "contre": 167,
+        "indice": 0.1873479318734793
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 254,
+        "contre": 172,
+        "indice": 0.19248826291079812
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 266,
+        "contre": 178,
+        "indice": 0.1981981981981982
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 274,
+        "contre": 185,
+        "indice": 0.19389978213507625
+      }
+    ],
+    "felix-inconnu": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 5,
+        "contre": 3,
+        "indice": null
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 8,
+        "contre": 8,
+        "indice": null
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 13,
+        "contre": 10,
+        "indice": 0.13043478260869565
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 15,
+        "contre": 13,
+        "indice": 0.07142857142857142
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 16,
+        "contre": 15,
+        "indice": 0.03225806451612903
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 17,
+        "contre": 18,
+        "indice": -0.02857142857142857
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 21,
+        "contre": 19,
+        "indice": 0.05
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 23,
+        "contre": 24,
+        "indice": -0.02127659574468085
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 25,
+        "contre": 26,
+        "indice": -0.0196078431372549
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 28,
+        "contre": 28,
+        "indice": 0.0
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 33,
+        "contre": 31,
+        "indice": 0.03125
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 36,
+        "contre": 34,
+        "indice": 0.02857142857142857
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 40,
+        "contre": 37,
+        "indice": 0.03896103896103896
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 44,
+        "contre": 39,
+        "indice": 0.060240963855421686
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 48,
+        "contre": 44,
+        "indice": 0.043478260869565216
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 52,
+        "contre": 49,
+        "indice": 0.0297029702970297
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 53,
+        "contre": 53,
+        "indice": 0.0
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 57,
+        "contre": 54,
+        "indice": 0.02702702702702703
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 60,
+        "contre": 57,
+        "indice": 0.02564102564102564
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 63,
+        "contre": 59,
+        "indice": 0.03278688524590164
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 67,
+        "contre": 62,
+        "indice": 0.03875968992248062
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 72,
+        "contre": 63,
+        "indice": 0.06666666666666667
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 77,
+        "contre": 66,
+        "indice": 0.07692307692307693
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 80,
+        "contre": 69,
+        "indice": 0.0738255033557047
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 84,
+        "contre": 71,
+        "indice": 0.08387096774193549
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 85,
+        "contre": 73,
+        "indice": 0.0759493670886076
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 87,
+        "contre": 74,
+        "indice": 0.08074534161490683
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 90,
+        "contre": 77,
+        "indice": 0.07784431137724551
+      }
+    ],
+    "chloe-modele": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 6,
+        "contre": 6,
+        "indice": null
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 19,
+        "contre": 13,
+        "indice": 0.1875
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 32,
+        "contre": 24,
+        "indice": 0.14285714285714285
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 40,
+        "contre": 32,
+        "indice": 0.1111111111111111
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 49,
+        "contre": 41,
+        "indice": 0.08888888888888889
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 55,
+        "contre": 48,
+        "indice": 0.06796116504854369
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 64,
+        "contre": 56,
+        "indice": 0.06666666666666667
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 68,
+        "contre": 65,
+        "indice": 0.022556390977443608
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 74,
+        "contre": 71,
+        "indice": 0.020689655172413793
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 82,
+        "contre": 81,
+        "indice": 0.006134969325153374
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 93,
+        "contre": 88,
+        "indice": 0.027624309392265192
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 105,
+        "contre": 99,
+        "indice": 0.029411764705882353
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 111,
+        "contre": 106,
+        "indice": 0.02304147465437788
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 122,
+        "contre": 117,
+        "indice": 0.02092050209205021
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 127,
+        "contre": 131,
+        "indice": -0.015503875968992248
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 140,
+        "contre": 141,
+        "indice": -0.0035587188612099642
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 158,
+        "contre": 148,
+        "indice": 0.032679738562091505
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 169,
+        "contre": 162,
+        "indice": 0.021148036253776436
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 178,
+        "contre": 174,
+        "indice": 0.011363636363636364
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 186,
+        "contre": 183,
+        "indice": 0.008130081300813009
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 201,
+        "contre": 188,
+        "indice": 0.033419023136246784
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 211,
+        "contre": 198,
+        "indice": 0.03178484107579462
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 220,
+        "contre": 213,
+        "indice": 0.016166281755196306
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 229,
+        "contre": 221,
+        "indice": 0.017777777777777778
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 235,
+        "contre": 230,
+        "indice": 0.010752688172043012
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 236,
+        "contre": 241,
+        "indice": -0.010482180293501049
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 247,
+        "contre": 253,
+        "indice": -0.012
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 254,
+        "contre": 265,
+        "indice": -0.02119460500963391
+      }
+    ],
+    "denis-test": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 13,
+        "contre": 24,
+        "indice": -0.2972972972972973
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 26,
+        "contre": 36,
+        "indice": -0.16129032258064516
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 38,
+        "contre": 55,
+        "indice": -0.1827956989247312
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 51,
+        "contre": 66,
+        "indice": -0.1282051282051282
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 65,
+        "contre": 73,
+        "indice": -0.057971014492753624
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 75,
+        "contre": 85,
+        "indice": -0.0625
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 88,
+        "contre": 101,
+        "indice": -0.06878306878306878
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 100,
+        "contre": 115,
+        "indice": -0.06976744186046512
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 114,
+        "contre": 133,
+        "indice": -0.07692307692307693
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 122,
+        "contre": 144,
+        "indice": -0.08270676691729323
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 138,
+        "contre": 156,
+        "indice": -0.061224489795918366
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 153,
+        "contre": 159,
+        "indice": -0.019230769230769232
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 161,
+        "contre": 178,
+        "indice": -0.05014749262536873
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 174,
+        "contre": 193,
+        "indice": -0.051771117166212535
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 188,
+        "contre": 207,
+        "indice": -0.04810126582278481
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 200,
+        "contre": 224,
+        "indice": -0.05660377358490566
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 208,
+        "contre": 237,
+        "indice": -0.0651685393258427
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 224,
+        "contre": 253,
+        "indice": -0.06079664570230608
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 240,
+        "contre": 274,
+        "indice": -0.06614785992217899
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 256,
+        "contre": 298,
+        "indice": -0.07581227436823104
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 269,
+        "contre": 311,
+        "indice": -0.07241379310344828
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 281,
+        "contre": 330,
+        "indice": -0.08019639934533551
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 293,
+        "contre": 342,
+        "indice": -0.07716535433070866
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 302,
+        "contre": 357,
+        "indice": -0.0834597875569044
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 316,
+        "contre": 368,
+        "indice": -0.07602339181286549
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 329,
+        "contre": 378,
+        "indice": -0.06930693069306931
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 340,
+        "contre": 396,
+        "indice": -0.07608695652173914
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 352,
+        "contre": 406,
+        "indice": -0.0712401055408971
+      }
+    ],
+    "bruno-exemple": [
+      {
+        "fin": "2026-10-12T16:05:00Z",
+        "pour": 5,
+        "contre": 7,
+        "indice": null
+      },
+      {
+        "fin": "2026-10-12T22:05:00Z",
+        "pour": 8,
+        "contre": 17,
+        "indice": -0.36
+      },
+      {
+        "fin": "2026-10-13T04:05:00Z",
+        "pour": 12,
+        "contre": 27,
+        "indice": -0.38461538461538464
+      },
+      {
+        "fin": "2026-10-13T10:05:00Z",
+        "pour": 15,
+        "contre": 44,
+        "indice": -0.4915254237288136
+      },
+      {
+        "fin": "2026-10-13T16:05:00Z",
+        "pour": 16,
+        "contre": 53,
+        "indice": -0.5362318840579711
+      },
+      {
+        "fin": "2026-10-13T22:05:00Z",
+        "pour": 21,
+        "contre": 61,
+        "indice": -0.4878048780487805
+      },
+      {
+        "fin": "2026-10-14T04:05:00Z",
+        "pour": 28,
+        "contre": 72,
+        "indice": -0.44
+      },
+      {
+        "fin": "2026-10-14T10:05:00Z",
+        "pour": 37,
+        "contre": 84,
+        "indice": -0.3884297520661157
+      },
+      {
+        "fin": "2026-10-14T16:05:00Z",
+        "pour": 45,
+        "contre": 92,
+        "indice": -0.34306569343065696
+      },
+      {
+        "fin": "2026-10-14T22:05:00Z",
+        "pour": 49,
+        "contre": 101,
+        "indice": -0.3466666666666667
+      },
+      {
+        "fin": "2026-10-15T04:05:00Z",
+        "pour": 56,
+        "contre": 119,
+        "indice": -0.36
+      },
+      {
+        "fin": "2026-10-15T10:05:00Z",
+        "pour": 62,
+        "contre": 132,
+        "indice": -0.36082474226804123
+      },
+      {
+        "fin": "2026-10-15T16:05:00Z",
+        "pour": 70,
+        "contre": 151,
+        "indice": -0.3665158371040724
+      },
+      {
+        "fin": "2026-10-15T22:05:00Z",
+        "pour": 73,
+        "contre": 164,
+        "indice": -0.38396624472573837
+      },
+      {
+        "fin": "2026-10-16T04:05:00Z",
+        "pour": 81,
+        "contre": 170,
+        "indice": -0.3545816733067729
+      },
+      {
+        "fin": "2026-10-16T10:05:00Z",
+        "pour": 85,
+        "contre": 177,
+        "indice": -0.3511450381679389
+      },
+      {
+        "fin": "2026-10-16T16:05:00Z",
+        "pour": 93,
+        "contre": 183,
+        "indice": -0.32608695652173914
+      },
+      {
+        "fin": "2026-10-16T22:05:00Z",
+        "pour": 102,
+        "contre": 198,
+        "indice": -0.32
+      },
+      {
+        "fin": "2026-10-17T04:05:00Z",
+        "pour": 105,
+        "contre": 213,
+        "indice": -0.33962264150943394
+      },
+      {
+        "fin": "2026-10-17T10:05:00Z",
+        "pour": 112,
+        "contre": 218,
+        "indice": -0.3212121212121212
+      },
+      {
+        "fin": "2026-10-17T16:05:00Z",
+        "pour": 121,
+        "contre": 239,
+        "indice": -0.3277777777777778
+      },
+      {
+        "fin": "2026-10-17T22:05:00Z",
+        "pour": 126,
+        "contre": 248,
+        "indice": -0.32620320855614976
+      },
+      {
+        "fin": "2026-10-18T04:05:00Z",
+        "pour": 131,
+        "contre": 258,
+        "indice": -0.3264781491002571
+      },
+      {
+        "fin": "2026-10-18T10:05:00Z",
+        "pour": 142,
+        "contre": 268,
+        "indice": -0.3073170731707317
+      },
+      {
+        "fin": "2026-10-18T16:05:00Z",
+        "pour": 148,
+        "contre": 285,
+        "indice": -0.3163972286374134
+      },
+      {
+        "fin": "2026-10-18T22:05:00Z",
+        "pour": 155,
+        "contre": 301,
+        "indice": -0.3201754385964912
+      },
+      {
+        "fin": "2026-10-19T04:05:00Z",
+        "pour": 161,
+        "contre": 310,
+        "indice": -0.31634819532908703
+      },
+      {
+        "fin": "2026-10-19T10:05:00Z",
+        "pour": 167,
+        "contre": 322,
+        "indice": -0.3169734151329243
+      }
+    ]
+  },
+  "non_classes_evalues": 167,
+  "croisements": {
+    "scoreur": "lexique-v1",
+    "themes": [
+      {
+        "entite": "alice-fictive",
+        "theme": "economie",
+        "libelle": "Économie",
+        "posts": 123
+      },
+      {
+        "entite": "alice-fictive",
+        "theme": "social-retraites",
+        "libelle": "Social et retraites",
+        "posts": 41
+      },
+      {
+        "entite": "emma-specimen",
+        "theme": "securite",
+        "libelle": "Sécurité",
+        "posts": 37
+      },
+      {
+        "entite": "chloe-modele",
+        "theme": "sante-education",
+        "libelle": "Santé et éducation",
+        "posts": 15
+      },
+      {
+        "entite": "parti-fictif-b",
+        "theme": "campagne-sondages",
+        "libelle": "Campagne et sondages",
+        "posts": 24
+      },
+      {
+        "entite": "parti-fictif-a",
+        "theme": "economie",
+        "libelle": "Économie",
+        "posts": 30
+      }
+    ],
+    "emotions": [
+      {
+        "entite": "alice-fictive",
+        "emotion": "colere",
+        "occurrences": 45
+      },
+      {
+        "entite": "alice-fictive",
+        "emotion": "joie",
+        "occurrences": 20
+      },
+      {
+        "entite": "emma-specimen",
+        "emotion": "colere",
+        "occurrences": 30
+      },
+      {
+        "entite": "chloe-modele",
+        "emotion": "joie",
+        "occurrences": 14
+      },
+      {
+        "entite": "parti-fictif-b",
+        "emotion": "degout",
+        "occurrences": 11
+      },
+      {
+        "entite": "parti-fictif-a",
+        "emotion": "tristesse",
+        "occurrences": 6
+      }
+    ]
+  },
+  "serie_camps": [
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 6
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 7
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 8
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 6
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 7
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 8
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 6
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 7
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 8
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 6
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 7
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 8
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 6
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 7
+      }
+    },
+    {
+      "gauche": {
+        "pour": 3,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 8
+      }
+    },
+    {
+      "gauche": {
+        "pour": 4,
+        "contre": 3
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 4
+      }
+    },
+    {
+      "gauche": {
+        "pour": 5,
+        "contre": 4
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 1
+      },
+      "droite": {
+        "pour": 2,
+        "contre": 5
+      }
+    },
+    {
+      "gauche": {
+        "pour": 6,
+        "contre": 2
+      },
+      "centre": {
+        "pour": 1,
+        "contre": 2
+      },
+      "droite": {
+        "pour": 3,
+        "contre": 6
+      }
+    }
+  ],
+  "adjectifs": {
+    "scoreur": "lexique-v1",
+    "couverture": {
+      "debut": "2026-10-12T10:05:00Z",
+      "fin": "2026-10-19T10:05:00Z",
+      "posts_hors": 0
+    },
+    "lignes": [
+      {
+        "entite": "alice-fictive",
+        "stance": "pour",
+        "adjectif": "courageux",
+        "posts": 14
+      },
+      {
+        "entite": "alice-fictive",
+        "stance": "pour",
+        "adjectif": "clair",
+        "posts": 9
+      },
+      {
+        "entite": "alice-fictive",
+        "stance": "contre",
+        "adjectif": "flou",
+        "posts": 11
+      },
+      {
+        "entite": "emma-specimen",
+        "stance": "contre",
+        "adjectif": "arrogant",
+        "posts": 7
+      }
+    ]
+  }
+}

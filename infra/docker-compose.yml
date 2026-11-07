@@ -1,0 +1,369 @@
+# Cluster de développement du POC (pile et réseau : docs/technique/contrats-poc.md).
+#   docker compose -f infra/docker-compose.yml up -d                      # socle
+#   docker compose -f infra/docker-compose.yml --profile pipeline up -d   # + producer, streaming, dashboard-api, dashboard
+name: sae-poc
+
+x-spark-commun: &spark-commun
+  image: sae-spark:3.5.8-torch2.14.1   # étiquette locale : change avec infra/spark/Dockerfile
+  build:
+    context: ./spark
+  restart: unless-stopped
+  volumes:
+    - ../src/streaming:/opt/streaming:ro
+    - ../ressources/lexique:/opt/lexique:ro
+
+x-spark-worker: &spark-worker
+  <<: *spark-commun
+  depends_on:
+    spark-master:
+      condition: service_healthy
+  environment: &spark-worker-env
+    SPARK_PUBLIC_DNS: 127.0.0.1
+    SPARK_DAEMON_MEMORY: 256m
+    SPARK_WORKER_OPTS: >-
+      -Dspark.worker.cleanup.enabled=true
+      -Dspark.worker.cleanup.interval=1800
+      -Dspark.worker.cleanup.appDataTtl=3600
+  # Runs CamemBERT (scoreur à modèles du contrat) : dossier vide par défaut, runs seulement si MODELES_DIR est défini.
+  volumes:
+    - ../src/streaming:/opt/streaming:ro
+    - ../ressources/lexique:/opt/lexique:ro
+    - ${MODELES_DIR:-./modeles-vide}:/opt/modeles:ro
+  cpus: 2.0
+  mem_limit: ${WORKER_MEM_LIMIT:-4096m}
+
+services:
+  kafka:
+    image: apache/kafka:3.9.2
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:29092:29092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL://:29092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://127.0.0.1:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 60000
+      KAFKA_HEAP_OPTS: -Xms384m -Xmx384m
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 15s
+    cpus: 1.0
+    mem_limit: 768m
+
+  kafka-init:
+    image: apache/kafka:3.9.2
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: "no"
+    environment:
+      KAFKA_HEAP_OPTS: -Xms64m -Xmx128m
+    # Création idempotente ; puis alignement des paramètres si le topic existait déjà.
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        set -eu
+        B=kafka:9092
+        C=retention.ms=3600000,segment.ms=600000,retention.bytes=1073741824,cleanup.policy=delete
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server $$B --create --if-not-exists \
+          --topic raw-posts --partitions 4 --replication-factor 1 --config retention.ms=3600000 \
+          --config segment.ms=600000 --config retention.bytes=1073741824 --config cleanup.policy=delete
+        /opt/kafka/bin/kafka-configs.sh --bootstrap-server $$B --alter --entity-type topics \
+          --entity-name raw-posts --add-config $$C
+        echo "kafka-init : topic raw-posts en place"
+    mem_limit: 256m
+
+  minio:
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    ports:
+      - "127.0.0.1:19000:9000"
+      - "127.0.0.1:19001:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9000/minio/health/ready >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 1.0
+    mem_limit: 512m
+
+  minio-init:
+    image: pgsty/mc:RELEASE.2026-09-16T00-00-00Z
+    depends_on:
+      minio:
+        condition: service_healthy
+    restart: "no"
+    entrypoint: ["/bin/sh", "/init/init.sh"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+    volumes:
+      - ./minio:/init:ro
+    mem_limit: 128m
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.8.33.6
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:18123:8123"
+    environment:
+      CLICKHOUSE_SKIP_USER_SETUP: "1"
+      CLICKHOUSE_PIPELINE_PASSWORD: ${CLICKHOUSE_PIPELINE_PASSWORD}
+      CLICKHOUSE_DASHBOARD_PASSWORD: ${CLICKHOUSE_DASHBOARD_PASSWORD}
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ./clickhouse/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./clickhouse/users.xml:/etc/clickhouse-server/users.d/sae-users.xml:ro
+      - ./clickhouse/sobriete.xml:/etc/clickhouse-server/config.d/sae-sobriete.xml:ro
+    healthcheck:
+      test: ["CMD-SHELL", "clickhouse-client -q 'EXISTS TABLE sae.pipeline_fenetre' | grep -qx 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 10s
+    ulimits:
+      nofile: {soft: 262144, hard: 262144}
+    cpus: 2.0
+    mem_limit: 1280m
+
+  # Migration idempotente : le SQL d'initialisation ne tourne que sur un volume vide.
+  # Le compte default n'accepte que la boucle locale : le conteneur partage l'espace réseau de clickhouse.
+  clickhouse-init:
+    image: clickhouse/clickhouse-server:25.8.33.6
+    network_mode: "service:clickhouse"
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    restart: "no"
+    entrypoint:
+      - /bin/sh
+      - -c
+      - >-
+        set -eu;
+        clickhouse-client --multiquery < /init/init.sql;
+        echo "clickhouse-init : schéma appliqué"
+    volumes:
+      - ./clickhouse/init.sql:/init/init.sql:ro
+    mem_limit: 256m
+
+  spark-master:
+    <<: *spark-commun
+    command: >-
+      /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+      --host spark-master --port 7077 --webui-port 8080
+    ports:
+      - "127.0.0.1:18080:8080"
+    environment:
+      SPARK_PUBLIC_DNS: 127.0.0.1
+      SPARK_DAEMON_MEMORY: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080 >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 1.0
+    mem_limit: 512m
+
+  # Le port de l'interface du worker est le port hôte : les liens de la page du master restent valides.
+  spark-worker-1:
+    <<: *spark-worker
+    command: >-
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+      --cores ${WORKER_CORES:-2} --memory ${WORKER_MEMORY:-1536m} --webui-port 18081
+    ports:
+      - "127.0.0.1:18081:18081"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:18081 >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  spark-worker-2:
+    <<: *spark-worker
+    command: >-
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+      --cores ${WORKER_CORES:-2} --memory ${WORKER_MEMORY:-1536m} --webui-port 18082
+    ports:
+      - "127.0.0.1:18082:18082"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:18082 >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # ---- Profil pipeline -------------------------------------------------------------------
+
+  producer:
+    profiles: [pipeline]
+    build:
+      context: ../src/ingestion
+      dockerfile: Dockerfile.producer
+    restart: unless-stopped
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      KAFKA_BOOTSTRAP: kafka:9092
+      KAFKA_TOPIC: raw-posts
+      KEYWORDS_FILE: /app/keywords.txt
+      PRODUCER_SOURCE: ${PRODUCER_SOURCE:-synthetic}
+      PRODUCER_RATE: ${PRODUCER_RATE:-5}
+      LEAK_MARKER: ${LEAK_MARKER:-}
+      CURSOR_FILE: /data/cursor.json
+      LEXIQUE_DIR: /app/lexique
+    volumes:
+      - ../ressources/lexique:/app/lexique:ro
+      - producer-data:/data
+    mem_limit: 256m
+
+  streaming:
+    <<: *spark-commun
+    profiles: [pipeline]
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+      minio-init:
+        condition: service_completed_successfully
+      clickhouse:
+        condition: service_healthy
+      clickhouse-init:
+        condition: service_completed_successfully
+      spark-worker-1:
+        condition: service_healthy
+      spark-worker-2:
+        condition: service_healthy
+    restart: on-failure
+    ports:
+      - "127.0.0.1:14040:14040"
+    volumes:
+      - ../src/streaming:/opt/streaming:ro
+      - ../ressources/lexique:/opt/lexique:ro
+      - ${MODELES_DIR:-./modeles-vide}:/opt/modeles:ro
+    environment:
+      SPARK_PUBLIC_DNS: 127.0.0.1
+      MODELE_STANCE: ${MODELE_STANCE:-}
+      MODELE_EMOTION: ${MODELE_EMOTION:-}
+      KAFKA_BOOTSTRAP: kafka:9092
+      KAFKA_TOPIC: raw-posts
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+      S3_BUCKET_SCORES: scores
+      S3_BUCKET_CHECKPOINTS: checkpoints
+      CLICKHOUSE_HOST: clickhouse
+      CLICKHOUSE_PORT: "8123"
+      CLICKHOUSE_USER: pipeline
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PIPELINE_PASSWORD}
+      CLICKHOUSE_DB: sae
+      LEXIQUE_DIR: /opt/lexique
+      EXECUTOR_MEMORY: ${EXECUTOR_MEMORY:-1g}
+      DRIVER_MEMORY: ${DRIVER_MEMORY:-768m}
+      FENETRE_MINUTES: "5"
+      TRIGGER_SECONDS: "30"
+      WATERMARK_MINUTES: "10"
+    command:
+      - /bin/sh
+      - -c
+      - >-
+        if [ -n "$${MODELE_STANCE}" ]; then export MODELE_STANCE_DIR="/opt/modeles/$${MODELE_STANCE}"; fi;
+        if [ -n "$${MODELE_EMOTION}" ]; then export MODELE_EMOTION_DIR="/opt/modeles/$${MODELE_EMOTION}"; fi;
+        exec /opt/spark/bin/spark-submit
+        --master spark://spark-master:7077 --deploy-mode client
+        --conf spark.executor.cores=2 --conf spark.cores.max=4
+        --conf spark.task.cpus=2
+        --conf spark.executorEnv.MODELE_STANCE_DIR=$${MODELE_STANCE_DIR:-}
+        --conf spark.executorEnv.MODELE_EMOTION_DIR=$${MODELE_EMOTION_DIR:-}
+        --conf spark.executor.memory=$${EXECUTOR_MEMORY}
+        --conf spark.driver.memory=$${DRIVER_MEMORY}
+        --conf spark.driver.host=streaming --conf spark.driver.bindAddress=0.0.0.0
+        --conf spark.driver.port=7078 --conf spark.blockManager.port=7079
+        --conf spark.ui.port=14040
+        --conf spark.hadoop.fs.s3a.access.key=$$S3_ACCESS_KEY
+        --conf spark.hadoop.fs.s3a.secret.key=$$S3_SECRET_KEY
+        --conf spark.sql.catalog.clickhouse.user=$$CLICKHOUSE_USER
+        --conf spark.sql.catalog.clickhouse.password=$$CLICKHOUSE_PASSWORD
+        /opt/streaming/job.py
+    mem_limit: 1024m
+
+  # API de restitution : lit ClickHouse (compte dashboard), n'a aucun port hôte.
+  # Son healthcheck est dans src/dashboard/api/Dockerfile.
+  dashboard-api:
+    profiles: [pipeline]
+    build:
+      context: ../src/dashboard/api
+    restart: unless-stopped
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    environment:
+      CLICKHOUSE_HOST: clickhouse
+      CLICKHOUSE_PORT: "8123"
+      CLICKHOUSE_USER: dashboard
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_DASHBOARD_PASSWORD}
+      CLICKHOUSE_DB: sae
+      LEXIQUE_DIR: /app/lexique
+      DASHBOARD_SEUIL_DEFAUT: ${DASHBOARD_SEUIL_DEFAUT:-20}
+      FRAICHEUR_OK_MIN: ${FRAICHEUR_OK_MIN:-5}
+      FRAICHEUR_ALERTE_MIN: ${FRAICHEUR_ALERTE_MIN:-30}
+      DASHBOARD_BANDEAU: ${DASHBOARD_BANDEAU:-}
+    volumes:
+      - ../ressources/lexique:/app/lexique:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+
+  # Page compilée + relais /api/ vers dashboard-api:8000. Démarre sans attendre l'API :
+  # la page affiche l'indisponibilité tant que l'API ne répond pas.
+  dashboard:
+    profiles: [pipeline]
+    build:
+      context: ../src/dashboard/web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8501:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    mem_limit: 64m
+
+volumes:
+  kafka-data:
+  minio-data:
+  clickhouse-data:
+  producer-data:

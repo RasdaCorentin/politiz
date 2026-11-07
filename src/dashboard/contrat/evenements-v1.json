@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-19T10:02:30Z",
+  "disponible": true,
+  "evenements": [
+    {
+      "id": "a1b2c3d4",
+      "date": "2026-10-16T16:30:00Z",
+      "titre": "Exemple inventé : adoption d'une loi fictive",
+      "categorie": "loi",
+      "source": "exemple",
+      "lien": "https://example.org/evenement-fictif"
+    },
+    {
+      "id": "e5f6a7b8",
+      "date": "2026-10-12T09:00:00Z",
+      "titre": "Exemple inventé : grève fictive dans les transports",
+      "categorie": "greve",
+      "source": "exemple",
+      "lien": null
+    }
+  ]
+}

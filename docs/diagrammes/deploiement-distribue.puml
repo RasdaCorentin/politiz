@@ -1,0 +1,54 @@
+@startuml deploiement-distribue
+!include _style.puml
+title Déploiement distribué du POC : trois machines de l'école, pilotées depuis le poste
+left to right direction
+
+rectangle "Poste de commande\nenvoie le dépôt, lance les piles par ssh\n(n'héberge aucun service)" as poste
+
+node "VM1 (poste de salle 1)" as vm1 {
+  queue "kafka\nraw-posts" as kafka
+  rectangle "producteur" as prod
+  rectangle "driver de streaming\nspark-submit (client)" as driver
+  rectangle "spark-worker-1" as w1
+  database "clickhouse\nagrégats" as ch
+  rectangle "dashboard-api\n+ dashboard (nginx)" as dash
+  storage "minio-1" as m1
+}
+
+node "VM2 (poste de salle 2)" as vm2 {
+  rectangle "spark-worker-2" as w2
+  storage "minio-2" as m2
+}
+
+node "Serveur C (serveur de collecte)" as c {
+  rectangle "spark-master" as master
+  storage "minio-3" as m3
+}
+
+poste --> vm1 : ssh
+poste --> c : ssh
+poste --> vm2 : ssh
+
+prod --> kafka : raw-posts
+kafka --> driver : lit
+driver --> master : enregistre l'application
+master --> w1
+master --> w2
+driver --> m1 : scores, checkpoints
+driver --> m2
+driver --> m3
+driver --> ch : agrégats
+ch --> dash : /api/
+
+note bottom of m1
+  Les trois nœuds MinIO forment un seul pool :
+  6 disques, codage EC:3. Les écritures tiennent
+  si une machine tombe ; les lectures aussi.
+end note
+
+note bottom of ch
+  Une seule instance de Kafka, de ClickHouse et du
+  master Spark. Aucune redondance pour ces trois services.
+end note
+
+@enduml

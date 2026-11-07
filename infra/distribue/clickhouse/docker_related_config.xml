@@ -1,0 +1,13 @@
+<clickhouse>
+    <!-- Remplace le fichier de même nom de l'image (qui écoute sur 0.0.0.0) : boucle locale et adresse
+         de la machine seulement. IP_CLICKHOUSE vient de l'environnement du conteneur (compose-1.yml,
+         compose-2.yml). -->
+    <listen_host>127.0.0.1</listen_host>
+    <listen_host from_env="IP_CLICKHOUSE"/>
+    <listen_try>1</listen_try>
+
+    <!-- Protocoles et réplication non utilisés : pas de port d'écoute supplémentaire. -->
+    <mysql_port remove="1"/>
+    <postgresql_port remove="1"/>
+    <interserver_http_port remove="1"/>
+</clickhouse>

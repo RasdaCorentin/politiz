@@ -1,0 +1,16 @@
+# Entraînement du modèle (testé avec Python 3.12).
+# Poste sans GPU : installer torch depuis l'index CPU de PyTorch, sinon pip prend la roue CUDA (~2 Go) :
+#   uv run --python 3.12 --no-project --extra-index-url https://download.pytorch.org/whl/cpu --with-requirements requirements-train.txt ...
+#   pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-train.txt
+# Machine GPU (pilote NVIDIA récent, CUDA 13) : même version de torch, index cu130 ; installé et
+# vérifié par distant/ (torch 2.14.1+cu130 voit la carte) :
+#   uv pip install --index-url https://download.pytorch.org/whl/cu130 torch==2.14.1
+torch==2.14.1
+transformers==5.19.0
+tokenizers==0.23.3
+huggingface-hub==2.2.0
+safetensors==0.8.0
+numpy==2.5.2
+scikit-learn==1.9.1
+PyYAML==6.0.3
+pytest==9.1.1

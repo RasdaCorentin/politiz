@@ -1,0 +1,88 @@
+' Style commun des diagrammes de docs/diagrammes/ (AGENTS.md, « Mécanique »).
+' Chaque diagramme l'inclut : !include _style.puml
+' Ce fichier n'a pas de @startuml : plantuml le signale sans rien produire.
+
+!$bordure = "#1F4E79"
+!$fond = "#EAF1F8"
+!$paquet_bordure = "#5B7083"
+!$paquet_fond = "#F7F9FB"
+!$pii_bordure = "#9C2A2A"
+!$pii_fond = "#FBECEC"
+!$note_fond = "#FFF8DC"
+!$note_bordure = "#C9B458"
+!$fleche = "#333333"
+!$taille = 13
+
+' Couleur en ligne d'un élément ou d'un paquet de la zone PII :
+'   rectangle "..." as x $pii
+'   package "..." $pii { ... }
+!$pii = $pii_fond + ";line:" + %substr($pii_bordure, 1)
+
+skinparam defaultFontSize $taille
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam packageStyle rectangle
+skinparam ArrowColor $fleche
+skinparam ArrowFontColor $fleche
+
+' Éléments : bordure principale sur fond principal.
+skinparam rectangle {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam component {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam node {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam database {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam queue {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam cloud {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam artifact {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam folder {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam file {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+skinparam storage {
+  BackgroundColor $fond
+  BorderColor $bordure
+}
+
+' Paquets : regroupent des éléments.
+skinparam package {
+  BackgroundColor $paquet_fond
+  BorderColor $paquet_bordure
+}
+skinparam frame {
+  BackgroundColor $paquet_fond
+  BorderColor $paquet_bordure
+}
+
+' Notes, légende et titre.
+skinparam note {
+  BackgroundColor $note_fond
+  BorderColor $note_bordure
+}
+skinparam legendBackgroundColor $paquet_fond
+skinparam legendBorderColor $paquet_bordure
+skinparam legendFontSize $taille
+skinparam titleFontSize $taille

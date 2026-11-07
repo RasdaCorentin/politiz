@@ -1,0 +1,459 @@
+/* Contrat de design : src/dashboard/DESIGN.md. Jetons d'abord ; aucune valeur brute hors de
+   ce bloc. Ce fichier ne contient aucune donnée. */
+@import "tailwindcss";
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-var.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --police: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r: 6px;
+  /* Surfaces et encres : papier froid, encre bleu nuit. */
+  --bg: #f2f4f8;
+  --surface: #ffffff;
+  --surface-2: #e8ecf2;
+  --border: #d5dbe5;
+  --grid: #e3e7ee;
+  --axis: #b9c1ce;
+  --text: #121a2b;
+  --text-2: #39445a;
+  --muted: #586378;
+  /* La couleur est réservée à la donnée. Camp : identité du candidat. */
+  --camp-gauche: #c8323c;
+  --camp-centre: #858d9c;
+  --camp-droite: #2f63c4;
+  /* Ton : polarité des avis. Jamais sur un objet qui porte un camp. */
+  --ton-positif: #0e8c7c;
+  --ton-negatif: #b8680a;
+  --ton-neutre: #b4bbc8;
+  /* Données sans identité : encre ardoise. */
+  --data: #44506a;
+  --data-soft: #aab4c6;
+  /* Statuts de fraîcheur : échelle fixe, toujours avec icône et libellé. */
+  --status-ok: #0ca30c;
+  --status-warn: #fab219;
+  --status-critical: #d03b3b;
+  --status-unknown: #8a93a3;
+}
+
+/* Thème sombre dessiné, pas inversé : seuls les jetons changent. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0f131a;
+    --surface: #171c26;
+    --surface-2: #1f2531;
+    --border: #2a3140;
+    --grid: #232a37;
+    --axis: #3a4354;
+    --text: #e8ecf4;
+    --text-2: #c2c9d6;
+    --muted: #98a2b4;
+    --camp-gauche: #e15a62;
+    --camp-centre: #aab3c2;
+    --camp-droite: #5a8de6;
+    --ton-positif: #25a692;
+    --ton-negatif: #d6791a;
+    --ton-neutre: #606a7e;
+    --data: #9fb0cc;
+    --data-soft: #475269;
+  }
+}
+
+/* ─── Page ───────────────────────────────────────────────────────────── */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--police);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-variant-numeric: proportional-nums;
+  text-wrap: pretty;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.icone { width: 16px; height: 16px; flex: none; vertical-align: -3px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.icone.plein { fill: currentColor; stroke: none; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; box-shadow: 0 0 0 4px var(--bg); }
+.lien-evitement {
+  position: absolute; left: 8px; top: -80px; z-index: 10; padding: 10px 14px; border-radius: var(--r);
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); font-weight: 650;
+}
+.lien-evitement:focus { top: 8px; }
+
+h1, h2, h3, h4, p { margin: 0; }
+h1 { font-size: 1.2rem; line-height: 1.25; font-weight: 650; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: clamp(1.45rem, 3vw, 1.8rem); line-height: 1.2; font-weight: 650; letter-spacing: -0.01em; text-wrap: balance; }
+h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 650; margin: 0 0 12px; }
+h4 { font-size: 1rem; line-height: 1.35; font-weight: 650; margin: 0 0 10px; }
+.sec { color: var(--muted); }
+.note { color: var(--muted); font-size: 0.85rem; line-height: 1.45; margin-top: 8px; max-width: 70ch; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* ─── Coquille : barre latérale et page ──────────────────────────────── */
+.barre-laterale {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 240px; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 28px; padding: 24px 20px;
+  background: var(--surface); border-right: 1px solid var(--border); overflow-y: auto; z-index: 2;
+}
+.marque { display: grid; gap: 10px; }
+.navigation { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.navigation a {
+  display: flex; align-items: center; min-height: 44px; padding: 8px 12px; box-sizing: border-box;
+  border-radius: var(--r); color: var(--text-2); text-decoration: none;
+}
+.navigation a:hover { background: var(--surface-2); color: var(--text); }
+.navigation a[aria-current="page"] { background: var(--text); color: var(--bg); font-weight: 650; }
+.pied-mention { margin-top: auto; font-size: 0.85rem; color: var(--muted); line-height: 1.45; }
+
+.controle { border: 0; margin: 0; padding: 0; min-width: 0; flex: none; }
+.controle legend { font-size: 0.85rem; color: var(--muted); padding: 0 0 4px; }
+.segments { display: inline-flex; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; background: var(--surface); }
+.segments label { position: relative; }
+.segments input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.segments span {
+  display: inline-block; min-height: 44px; min-width: 56px; padding: 10px 14px; box-sizing: border-box;
+  text-align: center; font-weight: 400; cursor: pointer; color: var(--text-2); white-space: nowrap;
+}
+.segments label + label span { border-left: 1px solid var(--border); }
+.segments input:checked + span { background: var(--text); color: var(--bg); font-weight: 650; }
+.segments input:focus-visible + span { outline: 2px solid var(--text); outline-offset: -4px; }
+/* Sélecteur de période compact, à droite du titre de la page (cible de 32 px : pointeur fin d'abord). */
+.segments.compact span { min-height: 32px; min-width: 44px; padding: 5px 10px; font-size: 0.85rem; }
+
+.principal { margin: 0 0 0 240px; padding: 24px 40px 56px; max-width: 1680px; box-sizing: border-box; }
+.entete-page { display: grid; gap: 6px; margin-bottom: 4px; }
+.titre-page { display: grid; gap: 6px; margin: 12px 0 24px; animation: entree 240ms ease-out both; }
+.titre-ligne { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
+.bandeau {
+  margin-top: 4px; padding: 8px 12px; border-radius: var(--r); border: 1px dashed var(--axis);
+  background: var(--surface-2); font-weight: 650; font-size: 0.9rem;
+}
+.statut { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--text-2); font-size: 0.95rem; }
+.statut .icone { color: var(--statut-couleur, var(--muted)); }
+.statut-ok { --statut-couleur: var(--status-ok); }
+.statut-warn { --statut-couleur: var(--status-warn); }
+.statut-critical { --statut-couleur: var(--status-critical); }
+.statut-unknown { --statut-couleur: var(--status-unknown); }
+.erreur-saisie { color: var(--text); font-weight: 650; font-size: 0.875rem; }
+@keyframes entree { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+
+/* ─── Sections et grilles ────────────────────────────────────────────── */
+.section { margin-top: 40px; }
+.section:first-child { margin-top: 0; }
+.grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 40px; margin-top: 20px; align-items: start; }
+.bloc { min-width: 0; }
+.tuiles + .grille { margin-top: 32px; }
+.bloc-courbes { margin-top: 32px; }
+
+/* Tuiles : blocs typographiques sans cadre */
+.tuiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: 16px 32px; }
+.tuile-t { color: var(--text-2); font-size: 0.9rem; }
+.tuile-v { font-size: 2rem; font-weight: 650; line-height: 1.15; }
+.tuile-s { color: var(--muted); font-size: 0.85rem; }
+.spark { display: block; width: 100%; max-width: 16rem; height: 2.25rem; margin-top: 6px; }
+.spark path { fill: none; stroke: var(--data); stroke-width: 1.5; }
+
+/* Ton : barre empilée à 100 % */
+.pile { display: flex; height: 22px; border-radius: 3px; overflow: hidden; background: var(--surface-2); }
+.pile > span { display: block; height: 100%; }
+/* Jauge positif contre négatif : deux parts d'un total, repère au centre (équilibre). */
+.jauge { position: relative; display: flex; height: 22px; border-radius: 3px; overflow: hidden; background: var(--surface-2); }
+.jauge > span { display: block; height: 100%; }
+.jauge-repere { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--text-2); }
+.neutre-bloc { margin-top: 20px; display: grid; gap: 6px; }
+.legende-titre { font-weight: 650; font-size: 0.95rem; }
+.legende { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 0.95rem; }
+.legende li { display: flex; align-items: center; gap: 6px; }
+.pastille { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.fond-ton-positif { background: var(--ton-positif); }
+.fond-ton-negatif { background: var(--ton-negatif); }
+.fond-ton-neutre { background: var(--ton-neutre); outline: 1px solid var(--axis); outline-offset: -1px; }
+.fond-donnee { background: var(--data); }
+
+/* Colonnes empilées par tranche */
+.colonnes { display: flex; align-items: flex-end; gap: 3px; height: 120px; border-bottom: 1px solid var(--axis); }
+.colonne { flex: 1; min-width: 0; display: flex; flex-direction: column-reverse; height: 100%; }
+.colonne-pile { display: flex; flex-direction: column-reverse; width: 100%; }
+.colonne-pile > span { display: block; width: 100%; }
+.colonnes.dense { gap: 1px; }
+/* Surface empilée (plus de 60 tranches) : même ordre et mêmes jetons que les colonnes. */
+.aire-temps { display: block; width: 100%; height: 120px; overflow: visible; }
+.aire-temps .aire-positif { fill: var(--ton-positif); }
+.aire-temps .aire-neutre { fill: var(--ton-neutre); }
+.aire-temps .aire-negatif { fill: var(--ton-negatif); }
+.aire-temps .aire-base { stroke: var(--axis); stroke-width: 1; vector-effect: non-scaling-stroke; }
+/* Graduations posées à leur position : le pas évite qu'elles se touchent. */
+.axe-temps { position: relative; height: 1.5em; margin-top: 4px; font-size: 0.8rem; color: var(--muted); }
+.axe-temps .etiq { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.axe-temps .etiq.bord-g { transform: none; }
+.axe-temps .etiq.bord-d { transform: translateX(-100%); }
+.table-donnees { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 8px; }
+.table-donnees th, .table-donnees td { text-align: right; padding: 4px 8px; border-bottom: 1px solid var(--grid); }
+.table-donnees th:first-child, .table-donnees td:first-child { text-align: left; }
+.details-donnees summary { cursor: pointer; color: var(--text-2); font-size: 0.9rem; min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Listes à barres (émotions, thèmes) */
+.barres { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.barres li { display: grid; grid-template-columns: minmax(6rem, 9rem) 1fr auto; gap: 10px; align-items: center; font-size: 0.95rem; }
+.piste { height: 14px; background: var(--surface-2); border-radius: 2px; position: relative; overflow: hidden; }
+.piste .rempli { position: absolute; top: 0; bottom: 0; left: 0; background: var(--data); border-radius: 0 2px 2px 0; }
+.valeur { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 650; }
+
+/* Cote : classement */
+.classement { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.classement li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) 4.5rem; gap: 4px 12px; align-items: center; }
+.rang { font-weight: 650; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.rang.nc { font-weight: 400; color: var(--muted); font-size: 0.8rem; }
+.nom { font-weight: 650; min-width: 0; overflow-wrap: anywhere; }
+.camp-etiquette { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-2); font-weight: 400; margin-left: 8px; white-space: nowrap; }
+.camp-etiquette .icone { width: 12px; height: 12px; stroke-width: 1.4; }
+.camp-etiquette.camp-gauche .icone { color: var(--camp-gauche); }
+.camp-etiquette.camp-centre .icone { color: var(--camp-centre); }
+.camp-etiquette.camp-droite .icone { color: var(--camp-droite); }
+.indice-diverge { grid-column: 2 / 3; position: relative; height: 12px; background: var(--surface-2); border-radius: 2px; }
+.indice-diverge::after { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--axis); }
+.indice-diverge .barre-indice { position: absolute; top: 0; bottom: 0; border-radius: 2px; }
+.indice-diverge .barre-indice.camp-gauche { background: var(--camp-gauche); }
+.indice-diverge .barre-indice.sans-camp { background: repeating-linear-gradient(45deg, var(--data) 0 2px, transparent 2px 5px); }
+.indice-diverge .barre-indice.camp-droite { background: var(--camp-droite); }
+.indice-diverge .barre-indice.camp-centre { background: var(--camp-centre); }
+.valeur-indice { text-align: right; font-variant-numeric: tabular-nums; font-weight: 650; }
+.detail-ligne { grid-column: 2 / 4; font-size: 0.85rem; color: var(--muted); }
+.partis-titre { margin-top: 28px; }
+.nom-cote { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px; min-width: 0; }
+.commutateur { margin-bottom: 4px; }
+.commutateur legend { font-size: 0.85rem; color: var(--muted); padding: 0 0 4px; }
+/* Avatar : initiales dans une forme de camp (carré, rond, losange), bordure de la couleur du camp. */
+.pastille-candidat { flex: none; color: var(--data); }
+/* Portrait : photo libre (manifeste du build), ronde, bordure de la couleur du camp. */
+.portrait { flex: none; display: inline-block; border-radius: 50%; overflow: hidden; border: 2px solid var(--data); background: var(--surface-2); box-sizing: border-box; }
+.portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.portrait.camp-gauche { border-color: var(--camp-gauche); }
+.portrait.camp-centre { border-color: var(--camp-centre); }
+.portrait.camp-droite { border-color: var(--camp-droite); }
+.portrait.camp-sans-camp { border-style: dashed; }
+.pastille-candidat.camp-gauche { color: var(--camp-gauche); }
+.pastille-candidat.camp-centre { color: var(--camp-centre); }
+.pastille-candidat.camp-droite { color: var(--camp-droite); }
+.pastille-candidat rect, .pastille-candidat circle, .pastille-candidat path {
+  fill: var(--surface-2); stroke: currentColor; stroke-width: 2;
+}
+.pastille-candidat .sans-camp-trait { stroke-dasharray: 3 2; }
+.pastille-candidat text { fill: var(--text); font-family: var(--police); font-size: 10px; font-weight: 650; }
+/* Entités sous le seuil : bandeau repliable, décompte seul. */
+.bandeau-repliable { margin-top: 20px; padding: 10px 14px; border: 1px dashed var(--axis); border-radius: var(--r); background: var(--surface-2); }
+.bandeau-repliable summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 650; color: var(--text-2); }
+.bandeau-repliable .classement { margin-top: 12px; }
+/* Top 3 : panneaux, entités, bulles de thèmes (surface = posts), barres d'émotions. */
+.panneau-top { display: grid; gap: 4px; align-content: start; }
+/* Écran d'ordinateur d'abord : les trois entités d'un panneau côte à côte, comparables d'un regard. */
+.top3-panneaux { display: grid; gap: 40px; margin-top: 12px; }
+.entites-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0 40px; align-items: start; }
+.top-entite { display: grid; gap: 10px; padding: 16px 0; border-top: 1px solid var(--grid); }
+.top-entete { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.top-nom { font-size: 1rem; font-weight: 650; min-width: 0; overflow-wrap: anywhere; }
+.figure-bulles { margin: 0; }
+/* Bulles d'adjectifs : le mot dans sa bulle ; teinte de ton (pour : positif, contre : négatif), jamais de camp. */
+.adjectifs-groupes { display: grid; gap: 14px; }
+.adjectifs-titre { font-size: 0.85rem; color: var(--text-2); margin-bottom: 4px; }
+.bulles-mots { display: block; width: 100%; max-width: 460px; height: auto; max-height: 240px; overflow: visible; }
+.bulles-mots .bulle-mot { transform-box: fill-box; transform-origin: center; animation: bulle-entree 650ms cubic-bezier(0.34, 1.4, 0.64, 1) both; }
+.bulles-mots circle { stroke-width: 1.5; }
+.bulles-mots.stance-pour circle { fill: color-mix(in srgb, var(--ton-positif) 22%, var(--surface)); stroke: var(--ton-positif); }
+.bulles-mots.stance-contre circle { fill: color-mix(in srgb, var(--ton-negatif) 22%, var(--surface)); stroke: var(--ton-negatif); }
+.bulles-mots text { font-family: var(--police); fill: var(--text); }
+.bulles-mots .mot { font-weight: 650; }
+.bulles-mots .nombre { font-size: 10.5px; fill: var(--text-2); font-variant-numeric: tabular-nums; }
+.bulles { display: block; width: 100%; max-width: 440px; height: auto; overflow: visible; }
+.bulles .bulle { stroke-width: 1.5; transition: r 400ms ease-out, cx 400ms ease-out, cy 400ms ease-out; }
+.bulles.camp-gauche .bulle { fill: color-mix(in srgb, var(--camp-gauche) 28%, var(--surface)); stroke: var(--camp-gauche); }
+.bulles.camp-centre .bulle { fill: color-mix(in srgb, var(--camp-centre) 28%, var(--surface)); stroke: var(--camp-centre); }
+.bulles.camp-droite .bulle { fill: color-mix(in srgb, var(--camp-droite) 28%, var(--surface)); stroke: var(--camp-droite); }
+.bulles.camp-sans-camp .bulle { fill: color-mix(in srgb, var(--data) 18%, var(--surface)); stroke: var(--data); stroke-dasharray: 4 3; }
+/* Entrée des données, une fois au montage : les bulles grossissent depuis leur centre, dans l'ordre des
+   rangs ; les libellés suivent ; les barres partent de zéro. prefers-reduced-motion coupe tout. */
+.bulles .bulle { transform-box: fill-box; transform-origin: center; animation: bulle-entree 650ms cubic-bezier(0.34, 1.4, 0.64, 1) both; }
+.bulles .etiquette-bulle { animation: fondu 300ms ease-out both; }
+.piste .rempli { transform-origin: left center; animation: barre-entree 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes bulle-entree { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes barre-entree { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes fondu { from { opacity: 0; } to { opacity: 1; } }
+.bulles text { font-family: var(--police); fill: var(--text); transition: x 400ms ease-out, y 400ms ease-out; }
+.bulles .libelle-bulle { font-size: 12px; fill: var(--text-2); }
+.bulles .valeur-bulle { font-size: 13px; font-weight: 650; }
+.barres.petites { gap: 4px; }
+.barres.petites li { grid-template-columns: minmax(5.5rem, 7.5rem) 1fr auto; font-size: 0.85rem; }
+.barres.petites .piste { height: 10px; }
+
+/* Courbes par candidat (petits multiples) */
+.courbes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 20px 24px; }
+.courbe-titre { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 0.95rem; }
+.courbe svg { display: block; width: 100%; height: auto; margin-top: 4px; overflow: visible; }
+.courbe text { fill: var(--muted); font-size: 10px; font-family: var(--police); }
+.courbe .grille-ligne { stroke: var(--grid); stroke-width: 1; }
+.courbe .zero { stroke: var(--axis); stroke-width: 1; }
+.courbe .trait { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.courbe .trait.camp-gauche { stroke: var(--camp-gauche); }
+.courbe .trait.camp-centre { stroke: var(--camp-centre); }
+.courbe .trait.camp-droite { stroke: var(--camp-droite); }
+.courbe .trait.sans-camp { stroke: var(--data); stroke-dasharray: 4 3; }
+
+/* Barre d'opinion : l'instrument */
+.instrument {
+  padding: 20px 20px 22px; border-radius: var(--r); background: var(--surface);
+  border: 1px solid var(--border);
+}
+.mention { font-weight: 650; font-size: 0.95rem; }
+.barre-piste {
+  position: relative; height: 44px; margin: 22px 0 6px; border-radius: 3px;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--camp-gauche) 42%, var(--surface)) 0%,
+    color-mix(in srgb, var(--camp-centre) 30%, var(--surface)) 50%,
+    color-mix(in srgb, var(--camp-droite) 42%, var(--surface)) 100%);
+}
+.barre-piste.vide {
+  background: repeating-linear-gradient(135deg, var(--surface-2) 0 6px, var(--grid) 6px 12px);
+}
+.barre-piste .graduation { position: absolute; top: -6px; bottom: -6px; width: 1px; background: var(--axis); }
+.barre-marge {
+  position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--text) 16%, transparent);
+  border-left: 1px solid var(--text-2); border-right: 1px solid var(--text-2);
+}
+.barre-curseur { position: absolute; top: -8px; bottom: -8px; width: 3px; margin-left: -1.5px; background: var(--text); border-radius: 2px; }
+.barre-fantome { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--text-2); }
+.barre-legende { display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; color: var(--text-2); }
+.barre-legende strong { color: var(--text); }
+.barre-lecture { margin-top: 10px; font-size: 1rem; }
+.barre-chiffres { margin-top: 14px; width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.barre-chiffres th, .barre-chiffres td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+.barre-chiffres th:first-child, .barre-chiffres td:first-child { text-align: left; }
+.barre-formule { margin-top: 12px; font-size: 0.85rem; color: var(--muted); max-width: 70ch; }
+
+/* ─── États ──────────────────────────────────────────────────────────── */
+.etat {
+  margin-top: 16px; padding: 20px; border-radius: var(--r); border: 1px solid var(--border);
+  background: var(--surface); display: grid; gap: 10px; max-width: 70ch;
+}
+.etat-erreur { border-style: dashed; }
+.bouton {
+  justify-self: start; min-height: 44px; padding: 8px 16px; border-radius: var(--r);
+  border: 1px solid var(--text); background: var(--text); color: var(--bg); font: inherit; font-weight: 650; cursor: pointer;
+}
+.bouton.secondaire { background: var(--surface); color: var(--text); }
+.squelette { background: var(--surface-2); border-radius: var(--r); height: 96px; }
+
+/* ─── Page événement : saisie et valeurs côte à côte ─────────────────── */
+.champs-evenement { display: grid; gap: 12px 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 720px; }
+.champs-evenement label { display: grid; gap: 4px; font-weight: 650; font-size: 0.9rem; }
+.champs-evenement input {
+  min-height: 44px; padding: 8px 10px; border-radius: var(--r); border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit;
+}
+/* Page événement : choix du fait (catalogue | saisie), en-tête du fait, chronologie, avant / après. */
+.evenement-choix { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px 40px; align-items: start; }
+.champ-recherche { display: grid; gap: 4px; font-weight: 650; font-size: 0.9rem; max-width: 36rem; }
+.champ-recherche input {
+  font: inherit; font-weight: 400; min-height: 40px; padding: 4px 10px; border-radius: var(--r);
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+}
+.filtres { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 8px; }
+.filtre { position: relative; }
+.filtre input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.filtre span {
+  display: inline-flex; align-items: center; min-height: 30px; padding: 2px 12px; box-sizing: border-box; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text-2); font-size: 0.85rem;
+}
+.filtre input:checked + span { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 650; }
+.filtre input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+.liste-faits { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; max-height: 22rem; overflow-y: auto; }
+.fait {
+  width: 100%; display: grid; grid-template-columns: 6.5rem 7rem minmax(0, 1fr); gap: 2px 12px; align-items: baseline;
+  padding: 8px 10px; box-sizing: border-box; text-align: left; font: inherit; cursor: pointer;
+  border: 1px solid transparent; border-radius: var(--r); background: transparent; color: var(--text);
+}
+.fait:hover { background: var(--surface-2); }
+.fait[aria-pressed="true"] { border-color: var(--text); background: var(--surface-2); }
+.fait-date { color: var(--text-2); font-size: 0.85rem; }
+.fait-categorie { font-size: 0.8rem; font-weight: 650; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+.fait-titre { font-weight: 650; }
+.fait-source { grid-column: 3; color: var(--muted); font-size: 0.8rem; }
+.fait-entete { display: grid; gap: 4px; margin: 8px 0 20px; }
+.fait-entete h3 { margin: 0; font-size: 1.4rem; }
+.fait-surtitre { font-size: 0.8rem; font-weight: 650; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+.titre-avant-apres { margin-top: 32px; }
+.table-avant-apres { max-width: 760px; }
+.table-avant-apres .ligne-groupe th { padding-top: 14px; text-align: left; }
+.chrono-cadre { width: 100%; overflow: hidden; }
+.chrono { display: block; }
+.chrono text { font-family: var(--police); fill: var(--text-2); font-size: 12px; }
+.chrono .ligne-libelle { fill: var(--text); font-size: 13px; font-weight: 650; }
+.chrono .ligne-echelle { fill: var(--muted); font-size: 11px; }
+.chrono .jour-j { fill: var(--text); font-weight: 650; }
+.chrono .jour-date { fill: var(--muted); font-size: 11px; }
+.chrono .zone-libelle { fill: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+.chrono .zone-avant { fill: var(--surface-2); }
+.chrono .minuit { stroke: var(--grid); stroke-width: 1; }
+.chrono .axe { stroke: var(--axis); stroke-width: 1; }
+.chrono .volume { fill: var(--data-soft); }
+.chrono .camp-gauche { color: var(--camp-gauche); }
+.chrono .camp-centre { color: var(--camp-centre); }
+.chrono .camp-droite { color: var(--camp-droite); }
+.chrono .forme-camp { color: inherit; }
+.chrono .contre { fill: currentColor; }
+.chrono .pour { fill: color-mix(in srgb, currentColor 38%, var(--surface)); }
+.chrono .marqueur line { stroke: var(--text); stroke-width: 2; }
+.chrono .marqueur rect { fill: var(--text); opacity: 0.08; }
+.chrono .marqueur text { fill: var(--text); font-weight: 650; font-size: 12px; }
+.chrono .barre-chrono { transform-box: fill-box; animation: barre-chrono-entree 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.chrono .volume, .chrono .pour { transform-origin: center bottom; }
+.chrono .contre { transform-origin: center top; }
+@keyframes barre-chrono-entree { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.sous-entete { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+
+/* ─── Mouvement : une entrée ; prefers-reduced-motion coupe tout ─────── */
+/* Pied de page : crédits des photos. */
+.pied-page { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--grid); }
+.credits-photos ul { margin: 8px 0 0; padding-left: 1.2rem; columns: 2 22rem; column-gap: 32px; font-size: 0.8rem; color: var(--muted); }
+.credits-photos li { break-inside: avoid; margin-bottom: 4px; }
+.credits-photos a { color: var(--text-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ─── Largeurs ───────────────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  .barre-laterale {
+    position: static; width: auto; gap: 14px; padding: 16px; overflow: visible;
+    border-right: 0; border-bottom: 1px solid var(--border);
+  }
+  .navigation { display: flex; flex-wrap: wrap; gap: 6px; }
+  .navigation a { min-height: 44px; }
+  .pied-mention { margin-top: 0; }
+  .segments.compact span { min-height: 44px; }
+  .evenement-choix { grid-template-columns: 1fr; }
+  .fait { grid-template-columns: 1fr; }
+  .fait-source { grid-column: 1; }
+  .principal { margin: 0; padding: 20px 16px 48px; }
+}
+@media (max-width: 480px) {
+  .segments span { padding: 10px 8px; min-width: 0; font-size: 0.9rem; }
+  .barres li { grid-template-columns: 1fr auto; }
+  .barres li > span:first-child { grid-row: 1; }
+  .barres li .valeur { grid-column: 2; grid-row: 1; }
+  .barres li .piste { grid-column: 1 / 3; grid-row: 2; }
+  .barre-legende { flex-direction: column; }
+}

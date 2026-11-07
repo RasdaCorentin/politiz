@@ -1,0 +1,204 @@
+# Lexique fermé des adjectifs comptés par le job Spark (table adjectifs_fenetre).
+# Format et règles : README.md, section « adjectifs.yaml ». Formes : minuscules sans accents.
+version: 1
+adjectifs:
+  - {adjectif: "bon", origine: corpus, formes: [bon, bonne, bonnes, bons], ambigu: true, raison: "interjection et formules (« bon, », « bon courage »)"}
+  - {adjectif: "clair", origine: corpus, formes: [clair, claire, claires, clairs]}
+  - {adjectif: "vrai", origine: corpus, formes: [vrai, vraie, vraies, vrais]}
+  - {adjectif: "utile", origine: corpus, formes: [utile, utiles]}
+  - {adjectif: "pire", origine: corpus, formes: [pire, pires]}
+  - {adjectif: "important", origine: corpus, formes: [important, importante, importantes, importants]}
+  - {adjectif: "faux", origine: corpus, formes: [fausse, fausses, faux]}
+  - {adjectif: "meilleur", origine: corpus, formes: [meilleur, meilleure, meilleures, meilleurs]}
+  - {adjectif: "capable", origine: corpus, formes: [capable, capables]}
+  - {adjectif: "dangereux", origine: corpus, formes: [dangereuse, dangereuses, dangereux]}
+  - {adjectif: "mauvais", origine: corpus, formes: [mauvais, mauvaise, mauvaises]}
+  - {adjectif: "grave", origine: corpus, formes: [grave, graves], ambigu: true, raison: "adverbe familier (« grave nul »)"}
+  - {adjectif: "dur", origine: corpus, formes: [dur, dure, dures, durs], ambigu: true, raison: "adverbe (« travailler dur »)"}
+  - {adjectif: "fragile", origine: corpus, formes: [fragile, fragiles]}
+  - {adjectif: "cher", origine: corpus, formes: [cher, chere, cheres, chers], ambigu: true, raison: "adverbe (« coûter cher ») et formule d'adresse"}
+  - {adjectif: "difficile", origine: corpus, formes: [difficile, difficiles]}
+  - {adjectif: "compliqué", origine: corpus, formes: [compliquee, compliquees, compliques]}
+  - {adjectif: "fort", origine: corpus, formes: [fort, forte, fortes, forts], ambigu: true, raison: "adverbe (« très fort », « crier fort »)"}
+  - {adjectif: "parfait", origine: corpus, formes: [parfait, parfaite, parfaites, parfaits]}
+  - {adjectif: "crédible", origine: corpus, formes: [credible, credibles]}
+  - {adjectif: "impossible", origine: corpus, formes: [impossible, impossibles]}
+  - {adjectif: "juste", origine: corpus, formes: [juste, justes], ambigu: true, raison: "adverbe (« c'est juste nul »)"}
+  - {adjectif: "sincère", origine: corpus, formes: [sincere, sinceres]}
+  - {adjectif: "responsable", origine: corpus, formes: [responsable, responsables], ambigu: true, raison: "nom (« les responsables »)"}
+  - {adjectif: "ouvert", origine: corpus, formes: [ouvert, ouverte, ouvertes, ouverts]}
+  - {adjectif: "logique", origine: corpus, formes: [logique, logiques], ambigu: true, raison: "nom (« la logique de »)"}
+  - {adjectif: "ridicule", origine: corpus, formes: [ridicule, ridicules]}
+  - {adjectif: "violent", origine: corpus, formes: [violent, violente, violentes, violents]}
+  - {adjectif: "incapable", origine: corpus, formes: [incapable, incapables]}
+  - {adjectif: "sympa", origine: corpus, formes: [sympa, sympas]}
+  - {adjectif: "catastrophique", origine: corpus, formes: [catastrophique, catastrophiques]}
+  - {adjectif: "excellent", origine: corpus, formes: [excellent, excellente, excellentes, excellents]}
+  - {adjectif: "précis", origine: corpus, formes: [precis, precise, precises]}
+  - {adjectif: "charismatique", origine: corpus, formes: [charismatique, charismatiques]}
+  - {adjectif: "gênant", origine: corpus, formes: [genant, genante, genantes, genants]}
+  - {adjectif: "heureux", origine: corpus, formes: [heureuse, heureuses, heureux]}
+  - {adjectif: "intenable", origine: corpus, formes: [intenable, intenables]}
+  - {adjectif: "méchant", origine: corpus, formes: [mechant, mechante, mechantes, mechants]}
+  - {adjectif: "optimiste", origine: corpus, formes: [optimiste, optimistes]}
+  - {adjectif: "positif", origine: corpus, formes: [positif, positifs, positive, positives]}
+  - {adjectif: "inquiet", origine: corpus, formes: [inquiet, inquiete, inquietes, inquiets]}
+  - {adjectif: "sérieux", origine: corpus, formes: [serieuse, serieuses, serieux]}
+  - {adjectif: "évident", origine: corpus, formes: [evident, evidente, evidentes, evidents]}
+  - {adjectif: "intéressant", origine: corpus, formes: [interessant, interessante, interessantes, interessants]}
+  - {adjectif: "étonnant", origine: corpus, formes: [etonnant, etonnante, etonnantes, etonnants]}
+  - {adjectif: "mou", origine: corpus, formes: [molle, molles, mou, mous]}
+  - {adjectif: "favorable", origine: corpus, formes: [favorable, favorables]}
+  - {adjectif: "énorme", origine: corpus, formes: [enorme, enormes]}
+  - {adjectif: "honnête", origine: lexique, formes: [honnete, honnetes]}
+  - {adjectif: "courageux", origine: lexique, formes: [courageuse, courageuses, courageux]}
+  - {adjectif: "cohérent", origine: lexique, formes: [coherent, coherente, coherentes, coherents]}
+  - {adjectif: "raisonnable", origine: lexique, formes: [raisonnable, raisonnables]}
+  - {adjectif: "réaliste", origine: lexique, formes: [realiste, realistes]}
+  - {adjectif: "pertinent", origine: lexique, formes: [pertinent, pertinente, pertinentes, pertinents]}
+  - {adjectif: "constructif", origine: lexique, formes: [constructif, constructifs, constructive, constructives]}
+  - {adjectif: "modéré", origine: lexique, formes: [moderee, moderees, moderes]}
+  - {adjectif: "généreux", origine: lexique, formes: [genereuse, genereuses, genereux]}
+  - {adjectif: "solidaire", origine: lexique, formes: [solidaire, solidaires]}
+  - {adjectif: "ambitieux", origine: lexique, formes: [ambitieuse, ambitieuses, ambitieux]}
+  - {adjectif: "prudent", origine: lexique, formes: [prudent, prudente, prudentes, prudents]}
+  - {adjectif: "lucide", origine: lexique, formes: [lucide, lucides]}
+  - {adjectif: "convaincant", origine: lexique, formes: [convaincant, convaincante, convaincantes, convaincants]}
+  - {adjectif: "agréable", origine: lexique, formes: [agreable, agreables]}
+  - {adjectif: "remarquable", origine: lexique, formes: [remarquable, remarquables]}
+  - {adjectif: "admirable", origine: lexique, formes: [admirable, admirables]}
+  - {adjectif: "brillant", origine: lexique, formes: [brillant, brillante, brillantes, brillants]}
+  - {adjectif: "impressionnant", origine: lexique, formes: [impressionnant, impressionnante, impressionnantes, impressionnants]}
+  - {adjectif: "équilibré", origine: lexique, formes: [equilibree, equilibrees]}
+  - {adjectif: "digne", origine: lexique, formes: [digne, dignes]}
+  - {adjectif: "honorable", origine: lexique, formes: [honorable, honorables]}
+  - {adjectif: "respectable", origine: lexique, formes: [respectable, respectables]}
+  - {adjectif: "sage", origine: lexique, formes: [sage, sages], ambigu: true, raison: "nom (« un sage »)"}
+  - {adjectif: "rigoureux", origine: lexique, formes: [rigoureuse, rigoureuses, rigoureux]}
+  - {adjectif: "équitable", origine: lexique, formes: [equitable, equitables]}
+  - {adjectif: "transparent", origine: lexique, formes: [transparent, transparente, transparentes, transparents]}
+  - {adjectif: "tranquille", origine: lexique, formes: [tranquille, tranquilles]}
+  - {adjectif: "rassembleur", origine: lexique, formes: [rassembleur, rassembleurs, rassembleuse, rassembleuses]}
+  - {adjectif: "protecteur", origine: lexique, formes: [protecteur, protecteurs, protectrice, protectrices]}
+  - {adjectif: "moderne", origine: lexique, formes: [moderne, modernes]}
+  - {adjectif: "bienveillant", origine: lexique, formes: [bienveillant, bienveillante, bienveillantes, bienveillants]}
+  - {adjectif: "attentif", origine: lexique, formes: [attentif, attentifs, attentive, attentives]}
+  - {adjectif: "compétent", origine: lexique, formes: [competent, competente, competentes, competents]}
+  - {adjectif: "expérimenté", origine: lexique, formes: [experimentee, experimentees, experimentes]}
+  - {adjectif: "efficace", origine: lexique, formes: [efficace, efficaces]}
+  - {adjectif: "solide", origine: lexique, formes: [solide, solides]}
+  - {adjectif: "élégant", origine: lexique, formes: [elegant, elegante, elegantes, elegants]}
+  - {adjectif: "humble", origine: lexique, formes: [humble, humbles]}
+  - {adjectif: "déterminé", origine: lexique, formes: [determinee, determinees, determines]}
+  - {adjectif: "patient", origine: lexique, formes: [patient, patiente, patientes, patients], ambigu: true, raison: "nom (« le patient »)"}
+  - {adjectif: "loyal", origine: lexique, formes: [loyal, loyale, loyales, loyaux]}
+  - {adjectif: "fidèle", origine: lexique, formes: [fidele, fideles]}
+  - {adjectif: "nécessaire", origine: lexique, formes: [necessaire, necessaires]}
+  - {adjectif: "bénéfique", origine: lexique, formes: [benefique, benefiques]}
+  - {adjectif: "prometteur", origine: lexique, formes: [prometteur, prometteurs, prometteuse, prometteuses]}
+  - {adjectif: "intègre", origine: lexique, formes: [integre, integres], ambigu: true, raison: "verbe intégrer sans accent (« il intègre »)"}
+  - {adjectif: "audacieux", origine: lexique, formes: [audacieuse, audacieuses, audacieux]}
+  - {adjectif: "innovant", origine: lexique, formes: [innovant, innovante, innovantes, innovants]}
+  - {adjectif: "pragmatique", origine: lexique, formes: [pragmatique, pragmatiques]}
+  - {adjectif: "sensé", origine: lexique, formes: [sensee, sensees, senses]}
+  - {adjectif: "rationnel", origine: lexique, formes: [rationnel, rationnelle, rationnelles, rationnels]}
+  - {adjectif: "résolu", origine: lexique, formes: [resolu, resolue, resolues, resolus]}
+  - {adjectif: "engagé", origine: lexique, formes: [engagee, engagees, engages]}
+  - {adjectif: "travailleur", origine: lexique, formes: [travailleur, travailleurs, travailleuse, travailleuses], ambigu: true, raison: "nom (« les travailleurs »)"}
+  - {adjectif: "dévoué", origine: lexique, formes: [devouee, devouees, devoues]}
+  - {adjectif: "serein", origine: lexique, formes: [serein, sereine, sereines, sereins]}
+  - {adjectif: "calme", origine: lexique, formes: [calme, calmes], ambigu: true, raison: "nom et verbe (« le calme », « calme-toi »)"}
+  - {adjectif: "précieux", origine: lexique, formes: [precieuse, precieuses, precieux]}
+  - {adjectif: "génial", origine: lexique, formes: [genial, geniale, geniales, geniaux]}
+  - {adjectif: "formidable", origine: lexique, formes: [formidable, formidables]}
+  - {adjectif: "exemplaire", origine: lexique, formes: [exemplaire, exemplaires]}
+  - {adjectif: "inspirant", origine: lexique, formes: [inspirant, inspirante, inspirantes, inspirants]}
+  - {adjectif: "rassurant", origine: lexique, formes: [rassurant, rassurante, rassurantes, rassurants]}
+  - {adjectif: "opportun", origine: lexique, formes: [opportun, opportune, opportunes, opportuns]}
+  - {adjectif: "appréciable", origine: lexique, formes: [appreciable, appreciables]}
+  - {adjectif: "fiable", origine: lexique, formes: [fiable, fiables]}
+  - {adjectif: "courtois", origine: lexique, formes: [courtois, courtoise, courtoises]}
+  - {adjectif: "vaillant", origine: lexique, formes: [vaillant, vaillante, vaillantes, vaillants]}
+  - {adjectif: "malhonnête", origine: lexique, formes: [malhonnete, malhonnetes]}
+  - {adjectif: "corrompu", origine: lexique, formes: [corrompu, corrompue, corrompues, corrompus]}
+  - {adjectif: "incompétent", origine: lexique, formes: [incompetent, incompetente, incompetentes, incompetents]}
+  - {adjectif: "inefficace", origine: lexique, formes: [inefficace, inefficaces]}
+  - {adjectif: "irréaliste", origine: lexique, formes: [irrealiste, irrealistes]}
+  - {adjectif: "incohérent", origine: lexique, formes: [incoherent, incoherente, incoherentes, incoherents]}
+  - {adjectif: "injuste", origine: lexique, formes: [injuste, injustes]}
+  - {adjectif: "inacceptable", origine: lexique, formes: [inacceptable, inacceptables]}
+  - {adjectif: "désastreux", origine: lexique, formes: [desastreuse, desastreuses, desastreux]}
+  - {adjectif: "ruineux", origine: lexique, formes: [ruineuse, ruineuses, ruineux]}
+  - {adjectif: "coûteux", origine: lexique, formes: [couteuse, couteuses, couteux]}
+  - {adjectif: "flou", origine: lexique, formes: [flou, floue, floues, flous]}
+  - {adjectif: "confus", origine: lexique, formes: [confus, confuse, confuses]}
+  - {adjectif: "vague", origine: lexique, formes: [vague, vagues], ambigu: true, raison: "nom (« une vague de »)"}
+  - {adjectif: "absurde", origine: lexique, formes: [absurde, absurdes]}
+  - {adjectif: "incompréhensible", origine: lexique, formes: [incomprehensible, incomprehensibles]}
+  - {adjectif: "décevant", origine: lexique, formes: [decevant, decevante, decevantes, decevants]}
+  - {adjectif: "insuffisant", origine: lexique, formes: [insuffisant, insuffisante, insuffisantes, insuffisants]}
+  - {adjectif: "insatisfaisant", origine: lexique, formes: [insatisfaisant, insatisfaisante, insatisfaisantes, insatisfaisants]}
+  - {adjectif: "dérisoire", origine: lexique, formes: [derisoire, derisoires]}
+  - {adjectif: "dépassé", origine: lexique, formes: [depassee, depassees, depasses]}
+  - {adjectif: "obsolète", origine: lexique, formes: [obsolete, obsoletes]}
+  - {adjectif: "injustifié", origine: lexique, formes: [injustifiee, injustifiees, injustifies]}
+  - {adjectif: "révoltant", origine: lexique, formes: [revoltant, revoltante, revoltantes, revoltants]}
+  - {adjectif: "choquant", origine: lexique, formes: [choquant, choquante, choquantes, choquants]}
+  - {adjectif: "scandaleux", origine: lexique, formes: [scandaleuse, scandaleuses, scandaleux]}
+  - {adjectif: "honteux", origine: lexique, formes: [honteuse, honteuses, honteux]}
+  - {adjectif: "pénible", origine: lexique, formes: [penible, penibles]}
+  - {adjectif: "ennuyeux", origine: lexique, formes: [ennuyeuse, ennuyeuses, ennuyeux]}
+  - {adjectif: "lent", origine: lexique, formes: [lent, lente, lentes, lents]}
+  - {adjectif: "incertain", origine: lexique, formes: [incertain, incertaine, incertaines, incertains]}
+  - {adjectif: "instable", origine: lexique, formes: [instable, instables]}
+  - {adjectif: "risqué", origine: lexique, formes: [risquee, risquees]}
+  - {adjectif: "périlleux", origine: lexique, formes: [perilleuse, perilleuses, perilleux]}
+  - {adjectif: "excessif", origine: lexique, formes: [excessif, excessifs, excessive, excessives]}
+  - {adjectif: "brutal", origine: lexique, formes: [brutal, brutale, brutales, brutaux]}
+  - {adjectif: "nuisible", origine: lexique, formes: [nuisible, nuisibles]}
+  - {adjectif: "inquiétant", origine: lexique, formes: [inquietant, inquietante, inquietantes, inquietants]}
+  - {adjectif: "menaçant", origine: lexique, formes: [menacant, menacante, menacantes, menacants]}
+  - {adjectif: "dramatique", origine: lexique, formes: [dramatique, dramatiques]}
+  - {adjectif: "alarmant", origine: lexique, formes: [alarmant, alarmante, alarmantes, alarmants]}
+  - {adjectif: "préoccupant", origine: lexique, formes: [preoccupant, preoccupante, preoccupantes, preoccupants]}
+  - {adjectif: "contestable", origine: lexique, formes: [contestable, contestables]}
+  - {adjectif: "discutable", origine: lexique, formes: [discutable, discutables]}
+  - {adjectif: "lâche", origine: lexique, formes: [lache, laches], ambigu: true, raison: "verbe lâcher (« il lâche »)"}
+  - {adjectif: "hypocrite", origine: lexique, formes: [hypocrite, hypocrites]}
+  - {adjectif: "arrogant", origine: lexique, formes: [arrogant, arrogante, arrogantes, arrogants]}
+  - {adjectif: "méprisant", origine: lexique, formes: [meprisant, meprisante, meprisantes, meprisants]}
+  - {adjectif: "cynique", origine: lexique, formes: [cynique, cyniques]}
+  - {adjectif: "démagogique", origine: lexique, formes: [demagogique, demagogiques]}
+  - {adjectif: "dogmatique", origine: lexique, formes: [dogmatique, dogmatiques]}
+  - {adjectif: "sectaire", origine: lexique, formes: [sectaire, sectaires]}
+  - {adjectif: "autoritaire", origine: lexique, formes: [autoritaire, autoritaires]}
+  - {adjectif: "creux", origine: lexique, formes: [creuse, creuses, creux]}
+  - {adjectif: "fade", origine: lexique, formes: [fade, fades]}
+  - {adjectif: "médiocre", origine: lexique, formes: [mediocre, mediocres]}
+  - {adjectif: "nul", origine: lexique, formes: [nul, nulle, nulles, nuls]}
+  - {adjectif: "faible", origine: lexique, formes: [faible, faibles]}
+  - {adjectif: "pauvre", origine: lexique, formes: [pauvre, pauvres], ambigu: true, raison: "nom (« les pauvres »)"}
+  - {adjectif: "mensonger", origine: lexique, formes: [mensonger, mensongere, mensongeres, mensongers]}
+  - {adjectif: "trompeur", origine: lexique, formes: [trompeur, trompeurs, trompeuse, trompeuses]}
+  - {adjectif: "paresseux", origine: lexique, formes: [paresseuse, paresseuses, paresseux]}
+  - {adjectif: "lamentable", origine: lexique, formes: [lamentable, lamentables]}
+  - {adjectif: "pitoyable", origine: lexique, formes: [pitoyable, pitoyables]}
+  - {adjectif: "navrant", origine: lexique, formes: [navrant, navrante, navrantes, navrants]}
+  - {adjectif: "consternant", origine: lexique, formes: [consternant, consternante, consternantes, consternants]}
+  - {adjectif: "indigne", origine: lexique, formes: [indigne, indignes]}
+  - {adjectif: "chaotique", origine: lexique, formes: [chaotique, chaotiques]}
+  - {adjectif: "désorganisé", origine: lexique, formes: [desorganisee, desorganisees, desorganises]}
+  - {adjectif: "dérangeant", origine: lexique, formes: [derangeant, derangeante, derangeantes, derangeants]}
+  - {adjectif: "inhumain", origine: lexique, formes: [inhumain, inhumaine, inhumaines, inhumains]}
+  - {adjectif: "cruel", origine: lexique, formes: [cruel, cruelle, cruelles, cruels]}
+  - {adjectif: "abusif", origine: lexique, formes: [abusif, abusifs, abusive, abusives]}
+  - {adjectif: "opaque", origine: lexique, formes: [opaque, opaques]}
+  - {adjectif: "hasardeux", origine: lexique, formes: [hasardeuse, hasardeuses, hasardeux]}
+  - {adjectif: "illusoire", origine: lexique, formes: [illusoire, illusoires]}
+  - {adjectif: "utopique", origine: lexique, formes: [utopique, utopiques]}
+  - {adjectif: "irresponsable", origine: lexique, formes: [irresponsable, irresponsables]}
+  - {adjectif: "imprudent", origine: lexique, formes: [imprudent, imprudente, imprudentes, imprudents]}
+  - {adjectif: "naïf", origine: lexique, formes: [naif, naifs, naive, naives]}
+  - {adjectif: "déconnecté", origine: lexique, formes: [deconnectee, deconnectees, deconnectes]}
+  - {adjectif: "déplorable", origine: lexique, formes: [deplorable, deplorables]}
+  - {adjectif: "rigide", origine: lexique, formes: [rigide, rigides]}

@@ -1,0 +1,121 @@
+# VM2 (3 vCPU, 6 Gio) : nœud MinIO 2, worker Spark 2 et ClickHouse 2 (copie vide au démarrage, hors réplication).
+# Lancement (depuis /opt/sae-data) : docker compose -f infra/distribue/compose-2.yml --env-file infra/distribue/.env up -d --build
+# Réseau de l'hôte : pas de section ports. ufw filtre par adresse source (infra/distribue/AGENTS.md).
+name: sae-distribue
+
+x-spark-commun: &spark-commun
+  image: sae-spark:3.5.8-torch2.14.1   # étiquette commune à VM1 et VM2 : même image construite sur chaque machine
+  build:
+    context: ../spark
+  restart: unless-stopped
+  network_mode: host
+  volumes:
+    - ../../src/streaming:/opt/streaming:ro
+    - ../../ressources/lexique:/opt/lexique:ro
+    - ${MODELES_DIR:-../modeles-vide}:/opt/modeles:ro
+
+services:
+  minio-2:
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    network_mode: host
+    restart: unless-stopped
+    command:
+      - server
+      - "http://saedata-rasda-{1...3}:29000/data{1...2}"
+      - --address
+      - ":29000"
+      - --console-address
+      - "127.0.0.1:29001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    extra_hosts:
+      - "saedata-rasda-1:${IP_VM1}"
+      - "saedata-rasda-2:${IP_VM2}"
+      - "saedata-rasda-3:${IP_C}"
+    volumes:
+      - /mnt/data1:/data1
+      - /mnt/data2:/data2
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:29000/minio/health/ready >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 0.5
+    mem_limit: 512m
+
+  spark-worker-2:
+    <<: *spark-commun
+    command: >-
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://${IP_C}:7077
+      --host ${IP_VM2} --port 7080 --webui-port 8081
+      --cores ${WORKER_CORES:-2} --memory ${WORKER_MEMORY:-1536m}
+    environment:
+      SPARK_LOCAL_IP: ${IP_VM2}
+      SPARK_PUBLIC_DNS: ${IP_VM2}
+      SPARK_DAEMON_MEMORY: 256m
+      SPARK_WORKER_OPTS: >-
+        -Dspark.worker.cleanup.enabled=true
+        -Dspark.worker.cleanup.interval=1800
+        -Dspark.worker.cleanup.appDataTtl=3600
+        -Dspark.authenticate=true
+        -Dspark.authenticate.secret=${SPARK_SECRET}
+        -Dspark.network.crypto.enabled=true
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://${IP_VM2}:8081/"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 2.0
+    mem_limit: ${WORKER_MEM_LIMIT:-4096m}
+
+  # ClickHouse 2 : même image et même schéma que VM1. Aucune écriture du flux n'y arrive : la copie
+  # se remplit par restauration depuis VM1, pas par réplication (infra/distribue/AGENTS.md).
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.8.33.6
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_SKIP_USER_SETUP: "1"
+      CLICKHOUSE_PIPELINE_PASSWORD: ${CLICKHOUSE_PIPELINE_PASSWORD}
+      CLICKHOUSE_DASHBOARD_PASSWORD: ${CLICKHOUSE_DASHBOARD_PASSWORD}
+      # Lu par clickhouse/docker_related_config.xml (écoute sur cette adresse).
+      IP_CLICKHOUSE: ${IP_VM2}
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ../clickhouse/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ../clickhouse/users.xml:/etc/clickhouse-server/users.d/sae-users.xml:ro
+      - ../clickhouse/sobriete.xml:/etc/clickhouse-server/config.d/sae-sobriete.xml:ro
+      - ./clickhouse/docker_related_config.xml:/etc/clickhouse-server/config.d/docker_related_config.xml:ro
+    healthcheck:
+      test: ["CMD-SHELL", "clickhouse-client -q 'EXISTS TABLE sae.pipeline_fenetre' | grep -qx 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 10s
+    ulimits:
+      nofile: {soft: 262144, hard: 262144}
+    cpus: 2.0
+    mem_limit: 1280m
+
+  # Schéma idempotent, même rôle que sur VM1.
+  clickhouse-init:
+    image: clickhouse/clickhouse-server:25.8.33.6
+    network_mode: host
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    restart: "no"
+    entrypoint:
+      - /bin/sh
+      - -c
+      - >-
+        set -eu;
+        clickhouse-client --multiquery < /init/init.sql;
+        echo "clickhouse-init : schéma appliqué"
+    volumes:
+      - ../clickhouse/init.sql:/init/init.sql:ro
+    mem_limit: 256m
+
+volumes:
+  clickhouse-data:

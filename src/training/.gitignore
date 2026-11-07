@@ -1,0 +1,9 @@
+# Sorties d'entraînement : elles vivent sous $SAE_CORPUS_DIR/modeles/ et ne se versionnent jamais.
+# Ce filet protège contre un --sortie placé par erreur dans le dépôt.
+modeles/
+runs/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx

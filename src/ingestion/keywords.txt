@@ -1,0 +1,346 @@
+# ============================================================
+# Filtrage ingestion — Sujet 1 : élection présidentielle 2027
+#
+# 3 classes, marquées par une ligne '#<classe>' (la seule syntaxe magique) :
+#   #identites     mention explicite d'un candidat OU d'un parti → suffit à garder
+#   #orientations  gauche / droite / centre / extrême              → à elles seules,
+#                  insuffisantes : ne gardent que si du jargon est aussi présent
+#   #jargon        vocabulaire politique                            → ne garde JAMAIS seul
+#
+# Règle de garde (producteur Kafka, corpus existant) : identites OU (orientations ET jargon).
+# Jargon seul → rejet. Nouveau corpus (--nouveau-corpus) : identites OU orientations OU jargon.
+# 1 expression par ligne ; insensible à la casse et aux accents ; frontières de mot.
+# Sources : franceinfo / France-Vote / Toluna (oct. 2026) — à revisiter au fil
+# de la campagne (nouvelles candidatures, retraits).
+# ============================================================
+
+#identites
+le pen
+bardella
+melenchon
+meluche
+edouard philippe
+attal
+retailleau
+roussel
+ruffin
+zemmour
+tondelier
+batho
+lisnard
+bertrand
+glucksmann
+olivier faure
+guedj
+segolene royal
+maurel
+hollande
+villepin
+cazeneuve
+bouamrane
+bruno le maire
+pecresse
+ciotti
+barnier
+darmanin
+elisabeth borne
+braun-pivet
+wauquiez
+autain
+taubira
+poutou
+arthaud
+asselineau
+dupont-aignan
+dupont aignan
+philippot
+thouy
+lassalle
+aliot
+knafo
+bellamy
+pradie
+hidalgo
+valls
+brossat
+bayrou
+tibo inshape
+jlm
+rassemblement national
+front national
+rn
+lfi
+la france insoumise
+france insoumise
+les republicains
+lr
+parti socialiste
+place publique
+pcf
+parti communiste
+generation ecologie
+debout la france
+reconquete
+nouvelle energie
+nous france
+modem
+mouvement democrate
+en marche
+lrem
+eelv
+grs
+npa
+nouveau parti anticapitaliste
+lutte ouvriere
+upr
+animaliste
+udr
+ps
+re
+renaissance
+udi
+lo
+horizons
+macron
+sarkozy
+juppe
+fabius
+ayrault
+castex
+lecornu
+montebourg
+duflot
+jadot
+piolle
+sandrine rousseau
+clemence guette
+mathilde panot
+manon aubry
+rima hassan
+louis boyard
+corbiere
+vallaud
+carole delga
+rachida dati
+marion marechal
+aurore berge
+sebastien chenu
+larcher
+ferrand
+blanquer
+collomb
+sejourne
+les insoumis
+macronistes
+lepenistes
+melenchonistes
+nupes
+nouveau front populaire
+europe ecologie
+parti radical de gauche
+printemps republicain
+ump
+ensemble pour la republique
+
+#orientations
+gauche
+gauchiste
+gauchistes
+gauchisme
+droite
+droitier
+droitiers
+droitiere
+droitieres
+droitisme
+droitard
+droitards
+centre
+centriste
+centristes
+centrisme
+extreme droite
+extreme-droite
+extreme gauche
+extreme-gauche
+extremiste
+extremistes
+extremisme
+droitisation
+conservatisme
+progressiste
+progressistes
+progressisme
+nationalisme
+nationaliste
+nationalistes
+identitaire
+identitaires
+reactionnaire
+reactionnaires
+marxiste
+marxistes
+marxisme
+trotskiste
+trotskistes
+anticapitaliste
+anticapitalistes
+eurosceptique
+eurosceptiques
+souverainisme
+libertarien
+socioliberal
+social democratie
+bloc central
+bloc populaire
+bloc bourgeois
+gaulliste
+gaullisme
+islamogauchisme
+
+#jargon
+politique
+politiques
+gouvernement
+gouvernemental
+ministre
+ministres
+premier ministre
+depute
+deputes
+deputee
+deputees
+senat
+senateur
+senateurs
+assemblee nationale
+parlement
+opposition
+majorite
+coalition
+referendum
+referendums
+constitution
+loi
+lois
+49.3
+motion de censure
+budget
+deficit
+dette
+impot
+impots
+fiscalite
+retraites
+retraite
+reforme
+reformes
+pouvoir d'achat
+pouvoir dachat
+smic
+inflation
+chomage
+immigration
+migrant
+migrants
+securite
+armee
+defense
+europe
+europeen
+europeenne
+europeennes
+bruxelles
+otan
+diplomatie
+ecologie
+ecologiste
+ecologistes
+conservateur
+conservateurs
+liberal
+liberalisme
+socialiste
+socialistes
+socialisme
+communiste
+communisme
+fascisme
+fasciste
+populisme
+populiste
+populistes
+souverainiste
+quinquennat
+elysee
+mandat
+mandats
+candidature
+candidat
+candidats
+campagne
+sondage
+sondages
+intentions de vote
+second tour
+premier tour
+ballotage
+abstention
+vote
+votant
+votants
+2027
+scrutin
+remaniement
+investiture
+primaire citoyenne
+primaire populaire
+presidentielle
+legislatives
+municipales
+programme presidentiel
+debat presidentiel
+tete de liste
+ifop
+elabe
+odoxa
+isoloir
+electeurs
+electorat
+candidate
+precandidat
+candidatures
+conseil constitutionnel
+cour des comptes
+matignon
+quai dorsay
+palais bourbon
+enarque
+cinquieme republique
+sixieme republique
+constituante
+amendement
+niche parlementaire
+defenseur des droits
+etat de droit
+cordon sanitaire
+front republicain
+titre de sejour
+oqtf
+retention administrative
+reconduite a la frontiere
+laicite
+transition ecologique
+pacte vert
+zfe
+csg
+revenu universel
+revenu de base
+france travail
+hopital public
+taxe carbone
+droit dasile
+promesse electorale
+liste electorale
+service national universel
+dissuasion nucleaire

@@ -1,0 +1,43 @@
+# Termes -> thèmes (contrat : economie, social-retraites, immigration, securite, ecologie,
+# europe-international, institutions, sante-education, campagne-sondages ; 'autre' = résiduel, sans terme).
+# Motifs sur le texte normalisé (minuscules, sans accents). Un post peut déclencher plusieurs thèmes.
+# freq : nombre de posts du corpus du 2026-10-12.
+version: 1
+themes:
+  - theme: economie
+    termes:
+      - {motif: "\\b(?:budget|plf(?:2027)?|deficits?|dette|impots?|fiscal\\w*|inflation|chomage|smic|pouvoir d['’]achat)\\b", confiance: haute, freq: 102}
+      - {motif: "\\b(?:taxes?|taxer|salaires?|croissance|milliards?|ric(?:he|hes)|isf|entreprises?|patrons?|industrie|economi\\w+)\\b", confiance: moyenne, freq: 110}
+      - {motif: "\\b(?:prix|travail|argent|euros?)\\b", confiance: basse, freq: 95}
+  - theme: social-retraites
+    termes:
+      - {motif: "\\b(?:retraites?|pensions?|rsa|securite sociale|allocations?|apl|precarite|pauvrete|services? publics?)\\b", confiance: haute, freq: 27}
+      - {motif: "\\b(?:syndicats?|greves?|logement|social|sociale|sociaux|salaries?|ouvriers?)\\b", confiance: moyenne, freq: 139}
+  - theme: immigration
+    termes:
+      - {motif: "\\b(?:immigration|immigres?|immigrations?|migrants?|oqtf|regularisations?|sans[- ]papiers|demandeurs? d['’]asile)\\b", confiance: haute, freq: 9}
+      - {motif: "\\b(?:etrangers?|frontieres?|islam\\w*|laicite|racisme|racistes?|xenophob\\w+)\\b", confiance: moyenne, freq: 76}
+  - theme: securite
+    termes:
+      - {motif: "\\b(?:insecurite|delinquance|delinquants?|narcotrafic|police|policiers?|gendarmes?|terroris\\w+|attentats?)\\b", confiance: haute, freq: 25}
+      - {motif: "\\b(?:securite|justice|prison|violences?|armee|defense|crimes?|criminels?)\\b", confiance: moyenne, freq: 87}
+  - theme: ecologie
+    termes:
+      - {motif: "\\b(?:ecologi\\w+|ecolos?|climat\\w*|giec|ipcc|nucleaire|renouvelables?|zfe|biodiversite|rechauffement|fossil\\w*|decarbon\\w+)\\b", confiance: haute, freq: 121}
+      - {motif: "\\b(?:energies?|energy|pollution|transition|vertes?|verts)\\b", confiance: moyenne, freq: 38}
+  - theme: europe-international
+    termes:
+      - {motif: "\\b(?:ukraine|ukrainiens?|russie|russes?|poutine|otan|israel|palestin\\w+|gaza|hamas|union europeenne|diplomatie|trump)\\b", confiance: haute, freq: 244}
+      - {motif: "\\b(?:europe|europeens?|europeenne|europeennes|bruxelles|ue|international\\w*|guerre|etats-unis|chine|geopolitique)\\b", confiance: moyenne, freq: 188}
+  - theme: institutions
+    termes:
+      - {motif: "\\b(?:constitution\\w*|49[.,]3|referendums?|assemblee nationale|senat|depute\\w*|dissolution|motion de censure|proportionnelle|parlement\\w*|6e republique|vie republicaine)\\b", confiance: haute, freq: 91}
+      - {motif: "\\b(?:democratie|democratique|republique|republicain\\w*|elysee|premier ministre|gouvernement|ministres?|lois?)\\b", confiance: moyenne, freq: 196}
+  - theme: sante-education
+    termes:
+      - {motif: "\\b(?:sante|hopitaux|hopital|medecins?|soignants?|ecoles?|enseignants?|education|universites?|etudiants?|lyceens?|harcelement scolaire)\\b", confiance: haute, freq: 63}
+      - {motif: "\\b(?:secu|retraite des profs|eleves?|jeunesse|jeunes|handicap\\w*)\\b", confiance: basse, freq: 47}
+  - theme: campagne-sondages
+    termes:
+      - {motif: "\\b(?:sondages?|intentions? de vote|primaires?|(?:premier|second|1er|2nd|2eme|deuxieme) tour|ballotage|presidentielles?|campagne|candidatures?|candidat(?:e|es|s)?)\\b", confiance: haute, freq: 782}
+      - {motif: "\\b(?:2027|electeurs?|electorat|alliances?|union de la gauche|programme|scores?|voix|votants?|vote[rz]?|abstention)\\b", confiance: moyenne, freq: 761}

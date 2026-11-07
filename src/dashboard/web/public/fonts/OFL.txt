@@ -1,0 +1,6 @@
+IBM Plex Sans (sous-ensemble latin, graisses 400 à 700, axe de largeur fixé à 100, woff2)
+
+Copyright © 2017 IBM Corp. with Reserved Font Name "Plex".
+Cette police est sous licence SIL Open Font License, Version 1.1.
+Texte complet : https://openfontlicense.org (https://scripts.sil.org/OFL).
+Source : https://github.com/IBM/plex

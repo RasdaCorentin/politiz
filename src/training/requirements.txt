@@ -1,0 +1,4 @@
+# Annotation (Python 3.11+)
+streamlit==1.40.2
+PyYAML==6.0.2
+pytest==8.3.4

@@ -1,0 +1,6 @@
+*
+!requirements-producer.txt
+!ingestion.py
+!producer.py
+!synthetic.py
+!keywords.txt

@@ -1,0 +1,75 @@
+@startuml architecture
+!include _style.puml
+title Architecture du POC : de Bluesky au dashboard
+
+cloud "Bluesky\nJetstream" as src
+rectangle "Producteur\n(pré-filtre : create, fr, mots-clés)" as prod
+queue "Topic Kafka\nraw-posts" as kafka
+
+package "Cluster Spark" as spark {
+  rectangle "Job streaming (fenêtres de 5 min)\n1. désidentification (liste blanche)\n2. nettoyage + dédoublonnage\n3. scoreur\n4. agrégation" as job
+  rectangle "Master" as master
+  rectangle "Worker 1" as w1
+  rectangle "Worker 2" as w2
+}
+
+storage "MinIO\nscores (Parquet)\ncheckpoints" as minio
+database "ClickHouse\nagrégats par fenêtre" as ch
+
+package "Dashboard" as dashboard {
+  rectangle "dashboard-api\nAPI Python (WSGI)\nformules, lecture seule" as api
+  rectangle "dashboard\nnginx + page React" as dash
+}
+rectangle "Navigateur" as nav
+
+package "Hors cluster" as hors {
+  rectangle "Corpus silver\n(texte sans identifiant d'auteur)" as silver
+  rectangle "Machine GPU distante\nentraînement" as train
+  artifact "Run\nmodèle + métriques" as model
+}
+
+src --> prod
+prod --> kafka
+kafka --> job
+job --> minio
+job --> ch
+ch --> api : lecture
+api --> dash : /api/ (JSON)
+dash --> nav : page + /api/
+
+job ..> master
+master --> w1
+master --> w2
+silver ..> train : copie temporaire\n(purgée au retour du run)
+train --> model
+model ..> job : charge (lecture seule)
+
+note right of kafka
+  Données brutes (identifiant, texte) :
+  tampon de 1 h, pas un stockage.
+end note
+
+note right of job
+  Aucune donnée nominative après l'étape 1 (slide 5).
+  Le texte est jeté après le scoreur ; une copie
+  nettoyée reste dans les fichiers shuffle des workers.
+end note
+
+note right of api
+  Seul service qui lit ClickHouse.
+  Pas de port hôte.
+end note
+
+note right of dash
+  Seul point d'entrée du navigateur :
+  nginx relaie /api/. Aucune formule dans la page.
+  Scores par fenêtre seulement :
+  ni texte, ni identifiant à l'écran.
+end note
+
+note bottom of model
+  Scoreur : deux modèles CamemBERT pour la stance et l'émotion.
+  Règles lexique-v1 pour les cibles, les thèmes et le filtre fin,
+  et en repli pour la stance et l'émotion si aucun modèle n'est actif.
+end note
+@enduml

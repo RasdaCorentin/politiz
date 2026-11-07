@@ -1,0 +1,59 @@
+@startuml flux-pii
+!include _style.puml
+title Flux des données personnelles : où chaque donnée disparaît
+left to right direction
+
+package "Zone PII (données brutes)" as pii $pii {
+  queue "Kafka raw-posts\nrétention 1 h\n(did, texte, heure précise, reply, embed)" as kafka $pii
+  rectangle "Spark, étape 1\nprojection par liste blanche" as st1 $pii
+  rectangle "Spark, étapes 2 à 5\ntexte nettoyé, scoring" as st2 $pii
+}
+
+package "Zone sans donnée nominative" as clean {
+  rectangle "Spark, étape 6\nfenêtre de 5 min\n(texte jeté)" as st6
+  storage "MinIO scores\nexpiration 30 jours" as scores
+  storage "MinIO checkpoint\nhash SHA-256 du texte\nexpiration 1 jour" as ckpt
+  database "ClickHouse\nTTL 365 jours" as ch
+  rectangle "dashboard-api\nlit ClickHouse, applique les formules" as api
+  rectangle "dashboard (nginx)\npage : agrégats seulement" as dash
+}
+
+package "Hors cluster" as hors {
+  rectangle "Corpus silver\ntexte sans identifiant d'auteur" as silver
+  rectangle "Machine GPU distante\ncopie temporaire, dossier 700" as gpu
+}
+
+kafka --> st1
+st1 --> st2
+st2 --> st6
+st2 --> ckpt : hash
+st6 --> scores
+st6 --> ch
+ch --> api
+api --> dash
+silver --> gpu : copie, purgée au retour du run
+
+note bottom of st1
+  Supprimés ici : did, rkey, cid, rev,
+  reply, embed, createdAt, mentions.
+end note
+
+note bottom of st2
+  Le texte est jeté après le scoring ;
+  une copie nettoyée reste dans les fichiers
+  shuffle des workers (/tmp, non chiffrés).
+  L'heure précise (time_us) sert à la latence,
+  puis est remplacée par la fenêtre.
+end note
+
+note bottom of dash
+  Ni texte, ni identifiant, ni pseudonyme :
+  des scores par candidat et par fenêtre.
+  Les journaux ne portent que des compteurs.
+end note
+
+note bottom of gpu
+  Seul le silver part, sans identifiant d'auteur.
+  Le run (modèle, métriques) revient, la copie est purgée.
+end note
+@enduml

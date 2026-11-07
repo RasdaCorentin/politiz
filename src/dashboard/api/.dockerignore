@@ -1,0 +1,4 @@
+# Liste blanche : le contexte ne contient que les modules Python de premier niveau et les dépendances.
+*
+!*.py
+!requirements.txt

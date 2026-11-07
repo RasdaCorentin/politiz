@@ -1,0 +1,50 @@
+# Schéma d'annotation : source unique lue par l'outil (app, accord, export).
+# Contrat partagé avec le lexique : ne pas modifier sans accord de l'équipe.
+version: 1
+
+pertinent:
+  valeurs: [oui, non, doute]
+  aide: "Le post parle-t-il de la politique française ou de la présidentielle ?"
+  # Si "non", tous les autres champs sont vides.
+  # Si "doute", les autres champs sont facultatifs : on remplit ce qu'on peut, on laisse le reste vide.
+
+cibles:
+  # entite : un id de ressources/lexique/entites.yaml (candidat ou parti ; personne et parti
+  # sont distincts : "le pen" != "rassemblement national"), ou une valeur spéciale.
+  entites_speciales: [gouvernement, groupe-politique, autre]
+  # mention : cité sans jugement (fait, agenda, sondage, titre d'article). Poids faible, mais
+  #   information réelle sur l'intérêt porté à la cible.
+  # neutre  : jugement équilibré (avantages et défauts), pas une simple citation.
+  # Refuser son soutien ("je ne voterai pas X") = contre.
+  stance: [pour, contre, neutre, mention, ambigu]
+  aide: "Qui est visé, et le post est-il pour, contre, neutre (jugement équilibré), mention (cité sans jugement) ou ambigu ?"
+
+themes:
+  valeurs:
+    - economie
+    - social-retraites
+    - immigration
+    - securite
+    - ecologie
+    - europe-international
+    - institutions
+    - sante-education
+    - campagne-sondages
+    - autre
+  aide: "0 à n thèmes."
+
+emotion:
+  valeurs: [joie, colere, peur, tristesse, surprise, degout, neutre]
+  aide: "Une émotion dominante."
+
+ironie:
+  valeurs: ["oui", "non"]
+  aide: "Le sens voulu est-il l'inverse du sens littéral ?"
+
+regle_suffit:
+  valeurs: ["oui", "non"]
+  aide: "Une expression seule suffit-elle à décider la stance ou le thème ?"
+  indice: "texte libre : l'expression qui suffit"
+
+commentaire:
+  aide: "Texte libre (doute, cas limite)."

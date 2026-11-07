@@ -1,0 +1,22 @@
+# Marqueurs d'émotion à confiance acceptable : quelques émojis seulement.
+# Contrat : joie, colere, peur, tristesse, surprise, degout, neutre.
+# Motifs testés sur le texte brut ET normalisé.
+# Pourquoi si peu : les mots d'émotion (« peur », « honte », « bravo », « lol ») servent presque
+# toujours d'argument politique ou de sarcasme, pas à dire ce que ressent l'auteur.
+# Ni la peur, ni la tristesse, ni la surprise n'ont de marqueur fiable ici (moins de 5 posts, ou ambigus).
+# 'neutre' n'a pas de marqueur : c'est l'absence d'émotion, que seul un modèle peut affirmer.
+version: 1
+emotions:
+  - emotion: degout
+    marqueurs:
+      - {motif: "🤮|🤢", confiance: haute, freq: 8}
+      - {motif: "\\b(?:degueulasse|ecoeurant\\w*|ecoeure\\w*|nauseabond\\w*)\\b", confiance: moyenne, freq: 1}
+      - {motif: "🤡", confiance: basse, note: "mépris moqueur plus que dégoût ; à confier au modèle", freq: 21}
+  - emotion: colere
+    marqueurs:
+      - {motif: "🤬|😡|😠", confiance: haute, freq: 7}
+      - {motif: "\\b(?:ras[- ]le[- ]bol|j['’]en ai marre|furieu[xs]e?s?)\\b", confiance: moyenne, freq: 2}
+  - emotion: joie
+    marqueurs:
+      - {motif: "😂|🤣", confiance: basse, note: "rire moqueur ou sarcastique fréquent", freq: 37}
+      - {motif: "🥳|🎉|😍|🥰", confiance: moyenne, freq: 5}

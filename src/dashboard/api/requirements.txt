@@ -1,0 +1,16 @@
+backports-zstd==1.8.0
+    # via clickhouse-connect
+certifi==2026.7.22
+    # via clickhouse-connect
+clickhouse-connect==1.10.0
+    # via -r requirements.in
+gunicorn==26.2.0
+    # via -r requirements.in
+lz4==4.4.5
+    # via clickhouse-connect
+pyyaml==6.0.3
+    # via -r requirements.in
+tzdata==2026.5
+    # via -r requirements.in
+urllib3==2.8.0
+    # via clickhouse-connect

@@ -1,0 +1,38 @@
+<clickhouse>
+  <users>
+    <!-- default : accessible depuis le conteneur seulement (initialisation, healthcheck). -->
+    <default>
+      <networks replace="replace">
+        <ip>127.0.0.1</ip>
+        <ip>::1</ip>
+      </networks>
+    </default>
+
+    <pipeline>
+      <password from_env="CLICKHOUSE_PIPELINE_PASSWORD"/>
+      <networks><ip>::/0</ip></networks>
+      <profile>default</profile>
+      <quota>default</quota>
+      <grants>
+        <query>GRANT INSERT, SELECT ON sae.*</query>
+        <!-- Lecture du catalogue par le connecteur Spark (métadonnées seulement). -->
+        <query>GRANT SELECT ON system.databases</query>
+        <query>GRANT SELECT ON system.tables</query>
+        <query>GRANT SELECT ON system.columns</query>
+        <query>GRANT SELECT ON system.clusters</query>
+        <query>GRANT SELECT ON system.macros</query>
+        <query>GRANT SELECT ON system.parts</query>
+      </grants>
+    </pipeline>
+
+    <dashboard>
+      <password from_env="CLICKHOUSE_DASHBOARD_PASSWORD"/>
+      <networks><ip>::/0</ip></networks>
+      <profile>readonly</profile>
+      <quota>default</quota>
+      <grants>
+        <query>GRANT SELECT ON sae.*</query>
+      </grants>
+    </dashboard>
+  </users>
+</clickhouse>

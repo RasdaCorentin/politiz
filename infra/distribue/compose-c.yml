@@ -1,0 +1,58 @@
+# Machine C (serveur partagé, 1 vCPU) : master Spark et nœud MinIO 3.
+# Lancement (depuis /opt/sae-data, avec sudo) : docker compose -f infra/distribue/compose-c.yml --env-file infra/distribue/.env up -d
+# Réseau de l'hôte : pas de section ports. ufw filtre par adresse source (infra/distribue/AGENTS.md).
+name: sae-distribue
+
+services:
+  spark-master:
+    image: apache/spark:3.5.8-scala2.12-java17-python3-ubuntu   # base de infra/spark/Dockerfile, sans torch
+    network_mode: host
+    restart: unless-stopped
+    command: >-
+      /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+      --host ${IP_C} --port 7077 --webui-port 8080
+    environment:
+      SPARK_LOCAL_IP: ${IP_C}
+      SPARK_PUBLIC_DNS: ${IP_C}
+      SPARK_DAEMON_MEMORY: 384m
+      SPARK_MASTER_OPTS: >-
+        -Dspark.authenticate=true
+        -Dspark.authenticate.secret=${SPARK_SECRET}
+        -Dspark.network.crypto.enabled=true
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://${IP_C}:8080/"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 0.3
+    mem_limit: 768m
+
+  minio-3:
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    network_mode: host
+    restart: unless-stopped
+    # Les trois nœuds exposent 2 disques chacun : 6 disques, EC:3 par défaut.
+    command:
+      - server
+      - "http://saedata-rasda-{1...3}:29000/data{1...2}"
+      - --address
+      - ":29000"
+      - --console-address
+      - "127.0.0.1:29001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    extra_hosts:
+      - "saedata-rasda-1:${IP_VM1}"
+      - "saedata-rasda-2:${IP_VM2}"
+      - "saedata-rasda-3:${IP_C}"
+    volumes:
+      - /srv/sae-minio/data1:/data1
+      - /srv/sae-minio/data2:/data2
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:29000/minio/health/ready >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    cpus: 0.4
+    mem_limit: 512m

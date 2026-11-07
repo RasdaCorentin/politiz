@@ -1,0 +1,31 @@
+# Producteur Kafka du POC. Contexte de construction : src/ingestion/
+#   docker build -f Dockerfile.producer -t sae-producer src/ingestion
+FROM python:3.13-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+COPY requirements-producer.txt .
+RUN pip install -r requirements-producer.txt
+
+# ingestion.py fournit la règle de mots-clés (import sans effet de bord).
+COPY ingestion.py producer.py synthetic.py keywords.txt ./
+
+# Utilisateur non-root. /data porte le curseur facultatif (volume nommé).
+RUN useradd --uid 1000 --no-create-home --shell /usr/sbin/nologin producteur \
+    && mkdir /data && chown producteur /data
+USER producteur
+
+# Le lexique (mode synthetic) est monté en lecture seule sur /app/lexique par le compose.
+ENV LEXIQUE_DIR=/app/lexique \
+    KEYWORDS_FILE=/app/keywords.txt \
+    PRODUCER_HEARTBEAT=/tmp/heartbeat
+
+# Sain si le battement date de moins de 120 s (flux vivant et Kafka qui acquitte).
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+    CMD python -c "import os,sys,time; p=os.environ['PRODUCER_HEARTBEAT']; sys.exit(0 if time.time()-os.path.getmtime(p)<120 else 1)"
+
+CMD ["python", "producer.py"]

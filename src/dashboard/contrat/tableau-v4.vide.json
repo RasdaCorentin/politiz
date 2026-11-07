@@ -1,0 +1,698 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-10-19T10:02:30Z",
+  "bandeau": null,
+  "periode": {
+    "code": "7j",
+    "debut": "2026-10-12T10:05:00Z",
+    "fin": "2026-10-19T10:05:00Z",
+    "pas_min": 360,
+    "seuil": 20,
+    "seuil_defaut": 20,
+    "periodes": [
+      "24h",
+      "7j",
+      "30j",
+      "tout"
+    ],
+    "premiere_donnee": null
+  },
+  "etat": {
+    "base_vide": true,
+    "periode_vide": true,
+    "fraicheur": "unknown",
+    "derniere_maj": null,
+    "fraicheur_ok_min": 5,
+    "fraicheur_alerte_min": 30,
+    "lexique_charge": true,
+    "hors_lexique": 0,
+    "avertissements": []
+  },
+  "pipeline": {
+    "posts": 0,
+    "latence_moyenne_s": null
+  },
+  "tranches": [
+    "2026-10-12T10:05:00Z",
+    "2026-10-12T16:05:00Z",
+    "2026-10-12T22:05:00Z",
+    "2026-10-13T04:05:00Z",
+    "2026-10-13T10:05:00Z",
+    "2026-10-13T16:05:00Z",
+    "2026-10-13T22:05:00Z",
+    "2026-10-14T04:05:00Z",
+    "2026-10-14T10:05:00Z",
+    "2026-10-14T16:05:00Z",
+    "2026-10-14T22:05:00Z",
+    "2026-10-15T04:05:00Z",
+    "2026-10-15T10:05:00Z",
+    "2026-10-15T16:05:00Z",
+    "2026-10-15T22:05:00Z",
+    "2026-10-16T04:05:00Z",
+    "2026-10-16T10:05:00Z",
+    "2026-10-16T16:05:00Z",
+    "2026-10-16T22:05:00Z",
+    "2026-10-17T04:05:00Z",
+    "2026-10-17T10:05:00Z",
+    "2026-10-17T16:05:00Z",
+    "2026-10-17T22:05:00Z",
+    "2026-10-18T04:05:00Z",
+    "2026-10-18T10:05:00Z",
+    "2026-10-18T16:05:00Z",
+    "2026-10-18T22:05:00Z",
+    "2026-10-19T04:05:00Z"
+  ],
+  "volume": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "ton": {
+    "positif": 0,
+    "neutre": 0,
+    "negatif": 0,
+    "non_evalue": 0
+  },
+  "serie_ton": [
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    },
+    {
+      "positif": 0,
+      "neutre": 0,
+      "negatif": 0
+    }
+  ],
+  "emotions": {
+    "joie": 0,
+    "colere": 0,
+    "peur": 0,
+    "tristesse": 0,
+    "surprise": 0,
+    "degout": 0,
+    "neutre": 0
+  },
+  "emotions_non_evaluees": 0,
+  "themes": [],
+  "candidats": [],
+  "partis": [],
+  "barre": {
+    "etat": "insuffisant",
+    "seuil": 20,
+    "valeur": null,
+    "bas": null,
+    "haut": null,
+    "manquants": {
+      "gauche": 20,
+      "droite": 20
+    },
+    "camps": {
+      "gauche": {
+        "pour": 0,
+        "contre": 0,
+        "evalues": 0,
+        "indice": null,
+        "candidats": []
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0,
+        "evalues": 0,
+        "indice": null,
+        "candidats": []
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0,
+        "evalues": 0,
+        "indice": null,
+        "candidats": []
+      }
+    },
+    "precedente": {
+      "etat": "insuffisant",
+      "valeur": null,
+      "bas": null,
+      "haut": null
+    }
+  },
+  "series": {},
+  "non_classes_evalues": 0,
+  "croisements": {
+    "scoreur": null,
+    "themes": [],
+    "emotions": []
+  },
+  "serie_camps": [
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    },
+    {
+      "gauche": {
+        "pour": 0,
+        "contre": 0
+      },
+      "centre": {
+        "pour": 0,
+        "contre": 0
+      },
+      "droite": {
+        "pour": 0,
+        "contre": 0
+      }
+    }
+  ],
+  "adjectifs": null
+}

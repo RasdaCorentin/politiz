@@ -1,0 +1,477 @@
+# Marqueurs d'opinion : motif regex -> cible + stance + confiance.
+# Les motifs s'appliquent au texte NORMALISE (minuscules, sans accents), @handles retirés.
+# {ENTITE} est remplacé au chargement par l'alternance de tous les alias de entites.yaml.
+# stance : pour | contre | neutre | mention | ambigu. `mention` = cité sans jugement ; refuser son soutien = `contre`.
+# cible : entite_capturee (groupe nommé "cible") | co_mentionnee (toute entité citée dans le post)
+#         | camp (champ camp_vise, étiquette finale groupe-politique) | <id d'une entité de entites.yaml>
+# freq / precision_lue : mesurés sur le corpus du 2026-10-12 (voir docs/technique/lexique-regex.md).
+# Tous les exemples sont inventés. "limites" liste les cas où la règle se trompe.
+version: 1
+regles:
+  # ---------------------------------------------------------------- soutien explicite
+  - id: soutien-votez
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: haute
+    motif: "\\bvotez (?:pour |donc |tous )?(?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Votez Glucksmann !", "Votez pour le Pen si vous voulez ça", "votez donc Mélenchon"]
+      negatifs: ["votez pour une politique sociale", "Ne votez pas Glucksmann", "vous votez quoi ?"]
+    limites: ["impératif ironique ou prêté à un adversaire : « votez X, disent-ils »"]
+    freq: 2
+    precision_lue: "2/2"  # hits lus : bien classés / lus
+
+  - id: soutien-je-vote
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: haute
+    motif: "(?<!si )(?<![\"«])\\bje (?:(?:vais )?voter|voterai|voterais|vote)(?: (?:donc|bien|quand meme|encore))? (?:pour )?(?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Je voterai Tondelier au premier tour", "je vais voter pour le PS", "je vote Mélenchon, point"]
+      negatifs: ["je ne voterai pas Mélenchon", "je voterai jamais Philippe", "je vote utile"]
+    limites: ["conditionnel de fait : « je voterai X si Y »", "vote par défaut : « je voterai X faute de mieux »"]
+    freq: 9
+    precision_lue: "9/9"  # hits lus : bien classés / lus
+
+  - id: soutien-vive
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: haute
+    motif: "\\bvive (?:le |la |les |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Vive la LFI !", "vive Ruffin", "Vive l'UDR"]
+      negatifs: ["vive la république", "vive le vent d'hiver"]
+    limites: ["ironie : « vive le PS... » suivi d'une moquerie"]
+    freq: 0
+    precision_lue: "non évaluable (0 déclenchement)"  # hits lus : bien classés / lus
+
+  - id: soutien-je-soutiens
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: haute
+    motif: "\\b(?:je (?:vous |te )?soutiens?|(?:tout mon|mon plein|notre) soutien (?:a|au|aux)) (?:pleinement |totalement |completement )?(?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Je soutiens Glucksmann", "Tout mon soutien à Tondelier", "je soutiens pleinement le NPA"]
+      negatifs: ["je ne soutiens personne", "je soutiens la grève"]
+    limites: ["soutien à une personne plutôt qu'à sa candidature"]
+    freq: 1
+    precision_lue: "1/1"  # hits lus : bien classés / lus
+
+  - id: soutien-allez
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: moyenne
+    motif: "\\b(?:allez|courage a|bon courage a|force a) (?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Allez Ruffin !", "courage à Roussel", "force à la LFI"]
+      negatifs: ["allez voir ailleurs", "allez tous voter"]
+    limites: ["moquerie : « allez Hollande, encore un effort... »"]
+    freq: 0
+    precision_lue: "non évaluable (0 déclenchement)"  # hits lus : bien classés / lus
+
+  - id: soutien-felicitations
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: basse
+    motif: "\\b(?:bravo|felicitations?) (?:a |au |aux |a la |a l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Bravo à Glucksmann", "félicitations au PS"]
+      negatifs: ["bravo, belle réussite", "félicitations à tous"]
+    limites: ["sarcasme très fréquent : « bravo le PS, encore raté »"]
+    freq: 2
+    precision_lue: "1/2"  # hits lus : bien classés / lus
+
+  - id: soutien-hashtag
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: haute
+    motif: "#(?:avec|team|soutien|soutiens|votez|vote)_?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["#avecGlucksmann", "#TeamMelenchon", "#VotezRuffin"]
+      negatifs: ["#avec_vous", "#glucksmann"]
+    limites: ["hashtag repris par des opposants pour le détourner"]
+    freq: 0
+    precision_lue: "non évaluable (0 déclenchement)"  # hits lus : bien classés / lus
+
+  - id: soutien-hashtag-2027
+    famille: soutien explicite
+    cible: entite_capturee
+    stance: pour
+    confiance: basse
+    motif: "#(?P<cible>{ENTITE})(?:2027|president|presidente)\\b"
+    exemples:
+      positifs: ["#Melenchon2027", "#glucksmann2027", "#JLM2027"]
+      negatifs: ["#2027", "#presidentielle2027"]
+    limites: ["hashtag aussi employé par les opposants et les médias pour classer un sujet"]
+    freq: 5
+    precision_lue: "4/5"  # hits lus : bien classés / lus
+
+  # ---------------------------------------------------------------- rejet explicite
+  - id: rejet-jamais-voter
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: haute
+    motif: "(?<!si )(?<![\"«])\\b(?:jamais (?:je )?(?:ne )?vo(?:te|terai|terais|ter)|je (?:ne )?vo(?:te|terai|terais) (?:pas|jamais|plus)) (?:pour )?(?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Je ne voterai jamais Mélenchon", "je voterai jamais Philippe", "Jamais je ne voterai pour le Pen", "je ne vote plus PS"]
+      negatifs: ["je voterai Mélenchon", "jamais vu un tel score", "je ne voterai pas blanc"]
+    limites: ["double négation : « je ne voterai jamais pas X »", "plusieurs cibles : « jamais X/Y/Z » (seule la première est capturée)", "citation d'un adversaire : « il dit qu'il ne votera jamais X »"]
+    freq: 4
+    precision_lue: "4/4"  # hits lus : bien classés / lus
+
+  - id: rejet-ne-soutiens-pas
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: haute
+    motif: "(?<!si )(?<![\"«])\\bje (?:ne )?(?:te |vous )?soutiens? (?:pas|plus|jamais) (?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Je ne soutiens pas Glucksmann", "je ne soutiens plus le PS", "je soutiens jamais Philippe"]
+      negatifs: ["je soutiens Glucksmann", "je ne soutiens pas la réforme"]
+    limites: ["refus partiel : « je ne soutiens pas X sur ce point »", "citation d'un adversaire : « il dit qu'il ne soutient pas X »"]
+    freq: 0
+    precision_lue: "non évaluable (0 déclenchement)"  # hits lus : bien classés / lus
+
+  - id: rejet-pas-une-voix
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: moyenne
+    motif: "\\b(?:pas|aucune|zero) (?:une? )?(?:seule )?(?:voix|vote) (?:pour|a|au) (?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Pas une voix pour Bardella", "aucune voix à LFI", "zéro vote pour le PS"]
+      negatifs: ["pas une voix de plus", "une voix pour Bardella"]
+    limites: ["citation : « il répète : pas une voix pour X »"]
+    freq: 1
+    precision_lue: "0/1"  # hits lus : bien classés / lus
+
+  - id: rejet-demission
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: haute
+    motif: "\\bdemission(?:s)? (?:de |du |d['’])?(?:la |le |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Démission de Faure !", "demission du PS", "démission Mélenchon"]
+      negatifs: ["la démission du ministre", "il a présenté sa démission"]
+    limites: ["souhait de démission venant d'un camp qui n'est pas celui de l'auteur du post cité"]
+    freq: 0
+    precision_lue: "non évaluable (0 déclenchement)"  # hits lus : bien classés / lus
+
+  - id: rejet-doit-partir
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: moyenne
+    motif: "\\b(?P<cible>{ENTITE}) (?:doit|doive|devrait|devra|va devoir) (?:demissionner|partir|se retirer|se casser|degager)\\b"
+    exemples:
+      positifs: ["Faure doit démissionner", "Mélenchon devrait se retirer", "meluche doive partir"]
+      negatifs: ["Faure doit parler", "il doit partir demain"]
+    limites: ["prédiction neutre : « X va devoir partir s'il perd »"]
+    freq: 1
+    precision_lue: "1/1"  # hits lus : bien classés / lus
+
+  - id: rejet-degager
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: haute
+    motif: "\\bdegag(?:e|ez|eons|er)\\b (?:moi |ces |ce |cette |les |le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Dégageons Mélenchon", "dégagez les LFI", "dégager le PS"]
+      negatifs: ["dégage de là", "ils vont dégager si Mélenchon est élu"]
+    limites: ["citation d'un slogan adverse"]
+    freq: 2
+    precision_lue: "2/2"  # hits lus : bien classés / lus
+
+  - id: rejet-tout-sauf
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: moyenne
+    motif: "\\btout sauf (?:le |la |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Tout sauf Mélenchon", "tout sauf le RN"]
+      negatifs: ["c'est tout sauf clair", "tout sauf une bonne idée"]
+    limites: ["description de la stratégie d'un tiers : « sa stratégie, c'est tout sauf X »"]
+    freq: 1
+    precision_lue: "0/1"  # hits lus : bien classés / lus
+
+  - id: rejet-barrage
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: moyenne
+    motif: "\\bbarrage (?:a|au|aux|contre) (?:la |le |l['’])?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["Il faut faire barrage au RN", "barrage à Zemmour", "faire barrage contre le Pen"]
+      negatifs: ["barrage à la pollution", "un barrage hydraulique"]
+    limites: ["« faire barrage » est un appel collectif : l'auteur peut le critiquer (« votre barrage au RN ne marche plus »)"]
+    freq: 3
+    precision_lue: "3/3"  # hits lus : bien classés / lus
+
+  - id: rejet-hashtag
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: contre
+    confiance: haute
+    motif: "#(?:plusjamais|stop|non|antiy?|contre|bye)_?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["#PlusJamaisPS", "#StopLFI", "#antiRN"]
+      negatifs: ["#stop", "#nonmerci"]
+    limites: ["hashtag cité pour le dénoncer (« le hashtag #StopLFI est une honte »)"]
+    freq: 3
+    precision_lue: "3/3"  # hits lus : bien classés / lus
+
+  - id: rejet-ni-lui-ni-elle
+    famille: rejet explicite
+    cible: co_mentionnee
+    stance: contre
+    confiance: moyenne
+    motif: "#(?:niluinielle|niellenilui)\\b"
+    exemples:
+      positifs: ["#niluinielle", "stop #NiElleNiLui"]
+      negatifs: ["#nilui", "ni lui ni elle"]
+    limites: ["vise deux cibles (les deux finalistes supposés) : à résoudre avec le contexte"]
+    freq: 2
+    precision_lue: "2/2 (un seul post en double)"  # hits lus : bien classés / lus
+
+  - id: rejet-anti-x
+    famille: rejet explicite
+    cible: entite_capturee
+    stance: ambigu
+    confiance: basse
+    motif: "\\banti[- ]?(?P<cible>{ENTITE})\\b"
+    exemples:
+      positifs: ["les anti-LFI", "il est anti Mélenchon", "un discours anti-RN"]
+      negatifs: ["anti-corruption", "anti-vol"]
+    limites: ["marque l'opposition à X, mais l'auteur peut l'approuver, la décrire ou la dénoncer : toujours à confier au modèle"]
+    freq: 10
+    precision_lue: "3/10 (hostile à X ; 10/10 mentionnent une opposition à X)"  # hits lus : bien classés / lus
+
+  - id: rejet-pro-russe
+    famille: disqualifiant
+    cible: co_mentionnee
+    stance: contre
+    confiance: basse
+    motif: "\\bpro[- ]?(?:russe|russes|poutine|poutiniens?)\\b"
+    exemples:
+      positifs: ["Mélenchon est pro-russe", "les pro-Poutine du RN"]
+      negatifs: ["la Russie envahit l'Ukraine", "proposition russe"]
+    limites: ["plusieurs entités citées : la cible exacte est incertaine", "réfutation : « non, il n'est pas pro-russe »"]
+    freq: 17
+    precision_lue: "8/12"  # hits lus : bien classés / lus
+
+  # ---------------------------------------------------------------- surnoms
+  - id: surnom-gluglu
+    famille: surnom péjoratif
+    cible: glucksmann
+    stance: contre
+    confiance: haute
+    motif: "\\bgluglu\\b|\\bglucks?mann?e?s?y\\b|\\bgugu\\w*cksmann\\b"
+    exemples:
+      positifs: ["gluglu va perdre", "Gluglu au second tour ? non"]
+      negatifs: ["glucksmann a gagné", "glucksmann"]
+    limites: ["reprise ironique par des soutiens", "calembour sans lien (très rare)"]
+    freq: 30
+    precision_lue: "10/12"  # hits lus : bien classés / lus
+
+  - id: surnom-merduchion
+    famille: surnom péjoratif
+    cible: melenchon
+    stance: contre
+    confiance: haute
+    motif: "\\bmerduchion\\b|#merduchion\\b|\\bmelench?on(?:zouze|nazi)\\b"
+    exemples:
+      positifs: ["#merduchion", "merduchion au pouvoir ? non", "Mélenchonzouze"]
+      negatifs: ["Mélenchon a parlé", "merci Mélenchon"]
+    limites: ["reprise pour la dénoncer"]
+    freq: 4
+    precision_lue: "3/4"  # hits lus : bien classés / lus
+
+  - id: surnom-meluche
+    famille: surnom
+    cible: melenchon
+    stance: ambigu
+    confiance: basse
+    motif: "\\bmeluche\\b"
+    exemples:
+      positifs: ["on va voter Méluche", "la faute à Méluche"]
+      negatifs: ["Mélenchon", "la lucha continue"]
+    limites: ["surnom affectueux chez les soutiens, moqueur chez les opposants : stance indécidable sans le reste du texte"]
+    freq: 32
+    precision_lue: "sans objet (stance ambigu)"  # hits lus : bien classés / lus
+
+  - id: surnom-macronard
+    famille: surnom péjoratif
+    cible: camp
+    camp_vise: macronie
+    stance: contre
+    confiance: haute
+    motif: "\\bmacronards?\\b|\\bmacronardistes?\\b|\\bmakron\\b"
+    exemples:
+      positifs: ["ces macronards", "Makron démission", "les macronardistes"]
+      negatifs: ["Macron a parlé", "les macronistes"]
+    limites: ["cible un camp (macronie), pas une entité de entites.yaml : étiquette 'autre' ou 'gouvernement' à trancher à l'annotation"]
+    freq: 5
+    precision_lue: "4/5"  # hits lus : bien classés / lus
+
+  - id: surnom-macronie
+    famille: surnom péjoratif
+    cible: camp
+    camp_vise: macronie
+    stance: contre
+    confiance: moyenne
+    motif: "\\bmacronie\\b"
+    exemples:
+      positifs: ["la macronie a tout verrouillé", "l'aile gauche de la Macronie"]
+      negatifs: ["macronisme", "Macron"]
+    limites: ["souvent péjoratif mais aussi descriptif chez les commentateurs"]
+    freq: 18
+    precision_lue: "8/12"  # hits lus : bien classés / lus
+
+  - id: surnom-gourou
+    famille: surnom péjoratif
+    cible: melenchon
+    stance: contre
+    confiance: moyenne
+    motif: "\\bgourous?\\b"
+    exemples:
+      positifs: ["le gourou de la LFI", "adoration devant leur gourou"]
+      negatifs: ["le guru", "un gouvernement"]
+    limites: ["la cible n'est pas toujours Mélenchon (gourou d'un autre camp, gourou du marketing)"]
+    freq: 10
+    precision_lue: "7/10"  # hits lus : bien classés / lus
+
+  # ---------------------------------------------------------------- disqualifiants (cible : un camp)
+  - id: disq-islamo-gauchiste
+    famille: disqualifiant
+    cible: camp
+    camp_vise: gauche
+    stance: contre
+    confiance: haute
+    motif: "\\bislamo[- ]?gauchis\\w*"
+    exemples:
+      positifs: ["ces islamo-gauchistes", "l'islamo gauchisme"]
+      negatifs: ["la gauche", "islamophobie"]
+    limites: ["employé entre guillemets pour dénoncer l'usage du mot"]
+    freq: 1
+    precision_lue: "1/1"  # hits lus : bien classés / lus
+
+  - id: disq-droitard
+    famille: disqualifiant
+    cible: co_mentionnee
+    insulte_de: droite
+    stance: contre
+    confiance: haute
+    motif: "\\bdroitards?\\b|\\bdroitisme\\b"
+    exemples:
+      positifs: ["ces droitards", "le droitisme ambiant"]
+      negatifs: ["la droite", "un droitier"]
+    limites: ["reprise ironique par des personnes de droite"]
+    freq: 12
+    precision_lue: "12/12"  # hits lus : bien classés / lus
+
+  - id: disq-gauchiasse
+    famille: disqualifiant
+    cible: camp
+    camp_vise: gauche
+    stance: contre
+    confiance: basse
+    motif: "\\bgauchiasses?\\b|\\bgauchos?\\b|\\bgauchistes?\\b"
+    exemples:
+      positifs: ["sale gauchiasse", "ces gauchistes"]
+      negatifs: ["la gauche unie", "gauche caviar"]
+    limites: ["'gauchiste' est parfois un mot neutre ou revendiqué ; 'gauchiasse' et 'gaucho' non observés dans le corpus"]
+    freq: 5
+    precision_lue: "2/5"  # hits lus : bien classés / lus
+
+  - id: disq-extreme-centre
+    famille: disqualifiant
+    cible: co_mentionnee
+    insulte_de: centre
+    stance: contre
+    confiance: moyenne
+    motif: "\\bextreme[- ]centre\\b"
+    exemples:
+      positifs: ["l'extrême centre au pouvoir", "alliance avec l'extrême-centre"]
+      negatifs: ["le centre droit", "l'extrême droite"]
+    limites: ["expression analytique reprise sans jugement"]
+    freq: 7
+    precision_lue: "6/7"  # hits lus : bien classés / lus
+
+  - id: disq-facho
+    famille: disqualifiant
+    cible: camp
+    camp_vise: extreme-droite
+    stance: contre
+    confiance: moyenne
+    motif: "\\bfachos?\\b|\\bfachosphere\\b|\\bfascho\\w*"
+    exemples:
+      positifs: ["les fachos au pouvoir", "la fachosphère s'agite"]
+      negatifs: ["fascinant", "la fac"]
+    limites: ["retourné contre la gauche : « fachos rouges »", "cible par défaut : l'extrême droite"]
+    freq: 18
+    precision_lue: "15/18"  # hits lus : bien classés / lus
+
+  - id: disq-fasciste
+    famille: disqualifiant
+    cible: camp
+    camp_vise: extreme-droite
+    stance: contre
+    confiance: basse
+    motif: "\\bfascistes?\\b|\\bnazis?\\b|\\bnazie\\b"
+    exemples:
+      positifs: ["des fascistes au pouvoir", "voter pour la nazie"]
+      negatifs: ["le fascisme historique", "antifasciste"]
+    limites: ["usage descriptif ou historique", "négation : « je ne dis pas qu'ils sont fascistes »", "usage dans les deux sens (adversaire qualifié de fasciste)"]
+    freq: 37
+    precision_lue: "6/12"  # hits lus : bien classés / lus
+
+  - id: disq-collabo
+    famille: disqualifiant
+    cible: co_mentionnee
+    stance: contre
+    confiance: moyenne
+    motif: "\\bcollabos?\\b|\\bcollaborationnistes?\\b"
+    exemples:
+      positifs: ["ces collabos", "Mélenchon est collaborationniste"]
+      negatifs: ["une collaboration réussie", "un collaborateur parlementaire"]
+    limites: ["la cible est l'entité mentionnée par le post, pas forcément la seule"]
+    freq: 7
+    precision_lue: "5/7"  # hits lus : bien classés / lus
+
+  - id: disq-imposteur
+    famille: disqualifiant
+    cible: co_mentionnee
+    stance: contre
+    confiance: basse
+    motif: "\\b(?:tartuffes?|girouettes?|imposteurs?|traitres?|arnaques?)\\b"
+    exemples:
+      positifs: ["Hollande, cette girouette", "un tartuffe"]
+      negatifs: ["il pleut", "un impôt de plus"]
+    limites: ["sens non politique (arnaque commerciale)", "terme appliqué à un adversaire de l'entité mentionnée"]
+    freq: 12
+    precision_lue: "8/12"  # hits lus : bien classés / lus
+
+  # ---------------------------------------------------------------- mention (information)
+  - id: mention-sondage
+    famille: information
+    cible: co_mentionnee
+    stance: mention
+    confiance: haute
+    motif: "\\((?:rn|lfi|ps|lr|re|pp|hor|r!|ecolo|eelv|pcf|modem|udr|reco)(?:-[a-z&]+)?\\)\\s*:?\\s*\\d{1,2}(?:[.,]\\d+)?\\s?%"
+    exemples:
+      positifs: ["Le Pen (RN) : 35 %", "Hollande (PS) 7%", "Attal (RE-RE): 12%"]
+      negatifs: ["35 % des Français", "Le Pen (maintenant)"]
+    limites: ["aucune : format de publication automatique de sondages, stance mention fiable (cité sans jugement), mais le post peut être repris avec un commentaire"]
+    freq: 12
+    precision_lue: "12/12"  # hits lus : bien classés / lus
